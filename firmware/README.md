@@ -24,30 +24,62 @@ This directory contains the production firmware for the **AuraForge 50X** 50W au
 | **Amp Fault Monitoring (`FAULTZ`)** | `GPIO 23` | TPA3116D2 Pin 3 (`FAULTZ`) |
 | **Status Indicator LED** | `GPIO 2` | Onboard blue/green activity LED |
 | **UART Flashing / Debug** | `GPIO 1` (TX), `GPIO 3` (RX) | WCH CH340N USB-to-UART Bridge |
+| **Boot Mode Selection** | `GPIO 0` (`IO0`) | Manual Tactile Switch `SW_BOOT1` |
+| **Hardware Reset** | `EN` (Reset) | Manual Tactile Switch `SW_RST1` |
+
+---
+
+## Manual Bootloader & Flashing Procedure
+
+Since the hardware utilizes direct manual pushbuttons for deterministic flashing control:
+
+1. Connect the AuraForge 50X board to your computer via USB Type-C.
+2. Put the ESP32 into ROM Bootloader Mode:
+   * **Press and hold** the **`BOOT`** button (`SW_BOOT1`).
+   * **Press and release** the **`RESET`** button (`SW_RST1`).
+   * **Release** the **`BOOT`** button (`SW_BOOT1`).
+3. Start the firmware upload in your IDE or terminal.
+4. Once the upload finishes (100%), press the **`RESET`** button (`SW_RST1`) once to boot into the audio firmware.
 
 ---
 
 ## Building and Flashing
 
-### Method 1: Using PlatformIO (VS Code Recommended)
+### Method 1: Using PlatformIO (VS Code)
 
-1. Open VS Code and install the **PlatformIO IDE** extension.
-2. Open the `firmware/` directory (`File -> Open Folder... -> firmware`).
-3. Connect the AuraForge 50X board to your computer via USB Type-C.
-4. Click the **PlatformIO: Build** checkmark icon in the bottom status bar.
-5. Click the **PlatformIO: Upload** right-arrow icon to flash the firmware.
-6. Open the **Serial Monitor** at **115200 baud** to view system initialization logs.
+1. Open VS Code and ensure the **PlatformIO IDE** extension is installed.
+2. Open the `firmware/` folder (`File -> Open Folder... -> firmware`).
+3. Connect the board via USB Type-C and put it in Bootloader mode using the button sequence above.
+4. Click the **PlatformIO: Build** icon (`✓`) to compile.
+5. Click the **PlatformIO: Upload** icon (`→`) to flash.
+6. Open the **Serial Monitor** at **115200 baud** to view system boot logs.
 
 ### Method 2: PlatformIO Command Line (CLI)
 
 ```bash
 cd firmware/
 
-# Build project
+# 1. Compile the firmware
 pio run
 
-# Flash to board
+# 2. Put board in bootloader mode (Hold BOOT -> Click RESET -> Release BOOT)
+
+# 3. Flash to board
 pio run --target upload
 
-# Open serial terminal
+# 4. Open serial terminal monitor
 pio device monitor -b 115200
+```
+
+---
+
+## Serial CLI Commands
+
+Connect over USB-C at **115200 baud** (using PlatformIO Monitor, PuTTY, or Arduino Serial Monitor) to send live runtime commands:
+
+| Command | Example | Description |
+| :--- | :--- | :--- |
+| `bass <dB>` | `bass 3.5` | Adjusts Low-Shelf filter boost/cut ($\pm 12.0\text{ dB}$) at $100\text{Hz}$ |
+| `mid <dB>` | `mid -1.0` | Adjusts Peaking EQ filter ($\pm 12.0\text{ dB}$) at $1.0\text{kHz}$ |
+| `treble <dB>` | `treble 2.0` | Adjusts High-Shelf filter ($\pm 12.0\text{ dB}$) at $8.0\text{kHz}$ |
+| `status` | `status` | Prints free heap memory, CPU frequency, active EQ gains, and amplifier status |
