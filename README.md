@@ -5,7 +5,7 @@
 [![DRC Status](https://img.shields.io/badge/DRC%20Status-Passed%20(0%20Errors)-brightgreen.svg)]()
 [![Hack Club](https://img.shields.io/badge/Hack%20Club-Forge%20Grant-red.svg)](https://hackclub.com)
 
-**AuraForge 50X** is a programmable 4-layer audio computer and high-power wireless sound platform. Going far beyond standard single-purpose Bluetooth receiver boards, AuraForge 50X features an integrated **ESP32** dual-core microcontroller running real-time digital signal processing (DSP), custom parametric equalizers, Wi-Fi audio streaming (AirPlay/DLNA/Spotify Connect), and Bluetooth 4.2 A2DP playback. 
+**AuraForge 50X** is an open-source, programmable 4-layer wireless audio platform and DSP computer. Unlike conventional single-purpose Bluetooth receiver boards, AuraForge 50X features an integrated **ESP32** dual-core microcontroller running real-time digital signal processing (DSP), custom parametric equalizers, Wi-Fi audio streaming (AirPlay/DLNA/Spotify Connect), and Bluetooth 4.2 A2DP playback.
 
 The hardware integrates a complete high-current power stage: a Texas Instruments **TPS61088** 10A synchronous boost converter stepping a single 3.7V lithium cell up to 21.0V, an Injoinic **IP2312** 3A fast switching lithium charger, an onboard **DW01A + FS8205A** active battery protection system, and a Texas Instruments **TPA3116D2** Class-D dual BTL power amplifier delivering clean stereo output.
 
@@ -39,7 +39,7 @@ The hardware integrates a complete high-current power stage: a Texas Instruments
 | **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR ($3.7\text{V} \rightarrow 21.0\text{V}$, up to $10\text{A}$ switch current) |
 | **Battery Fast Charging** | Injoinic IP2312 Synchronous Buck Converter ($3.0\text{A}$ CC/CV charging via USB-C) |
 | **Battery Protection Matrix** | Fortune Semi DW01A-G + FS8205A Dual N-MOSFET ($2.5\text{V}$ UVP, $4.3\text{V}$ OVP, $6\text{A}$ OCP) |
-| **USB-to-UART Bridge** | WCH CH340N with automatic DTR/RTS hardware bootloader circuit |
+| **USB-to-UART Bridge** | WCH CH340N with dedicated manual hardware pushbuttons (`SW_BOOT1` & `SW_RST1`) |
 | **Power Inputs** | Single-Cell 3.7V Li-ion/LiPo (via JST-XH) or External DC Barrel Jack ($12\text{V}$–$21\text{V}$) |
 | **Board Dimensions** | $100.0\text{ mm} \times 80.0\text{ mm}$ (4-Layer FR-4 Standard TG140, 1.6mm finished thickness) |
 
@@ -47,7 +47,11 @@ The hardware integrates a complete high-current power stage: a Texas Instruments
 
 ## Grant Budget Justification (Why this Project Requires >$150 Funding)
 
-Unlike simple low-power microcontroller breakouts or basic 2-layer sensor modules, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. The high-current 10A boost converter and 50W Class-D switching amplifiers strictly require an industrial **4-layer PCB stackup** with a continuous internal ground plane ($35\ \mu\text{m}$ outer copper, continuous $17.5\ \mu\text{m}$ inner return layer) to handle heavy switching transients, maintain low impedance, and prevent thermal runaway or RF interference with the onboard ESP32 Wi-Fi/Bluetooth antenna. Fabricating a custom 4-layer $100\text{ mm} \times 80\text{ mm}$ PCB panel with four-film photolithography tooling and 100% flying-probe electrical testing incurs substantial base fabrication costs (~$72 / ₹5,973). Sourcing all 83 high-grade components—including specialized high-current shielded power inductors ($10\text{A}$ boost choke and four $3.8\text{A}$ output LC filters), genuine Texas Instruments TPA3116D2 and TPS61088 ICs, high-voltage 25V ceramic capacitor banks, ESP32 wireless modules, and precision connectors—totals ~$48 to ~$55 across authorized distributors. Furthermore, automated SMT pick-and-place assembly setup, laser-cut solder stencils for fine-pitch packages (such as the $0.50\text{ mm}$ pitch VQFN-20 and HTSSOP-32 PowerPAD), 18% mandatory GST, and insured logistics elevate the true turnkey prototype cost to **~$155 – $165 (₹13,000 – ₹13,800)**. This funding directly enables custom high-power hardware that cannot be breadboarded or built on low-cost 2-layer boards.
+Unlike simple low-power microcontroller breakouts or basic 2-layer sensor modules, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. The high-current 10A boost converter and 50W Class-D switching amplifiers strictly require an industrial **4-layer PCB stackup** with a continuous internal ground plane ($35\ \mu\text{m}$ outer copper, continuous $17.5\ \mu\text{m}$ inner return layer) to handle heavy switching transients, maintain low impedance, and prevent thermal runaway or RF interference with the onboard ESP32 Wi-Fi/Bluetooth antenna. 
+
+Fabricating a custom 4-layer $100\text{ mm} \times 80\text{ mm}$ PCB panel with four-film photolithography tooling and 100% flying-probe electrical testing incurs substantial base fabrication costs (~$72 / ₹5,973). Sourcing all 83 high-grade components—including specialized high-current shielded power inductors ($10\text{A}$ boost choke and four $3.8\text{A}$ output LC filters), genuine Texas Instruments TPA3116D2 and TPS61088 ICs, high-voltage 25V ceramic capacitor banks, ESP32 wireless modules, and precision connectors—totals ~$48 to ~$55 across authorized distributors. 
+
+Furthermore, automated SMT pick-and-place assembly setup, laser-cut solder stencils for fine-pitch packages (such as the $0.50\text{ mm}$ pitch VQFN-20 and HTSSOP-32 PowerPAD), 18% mandatory GST, and insured logistics elevate the true turnkey prototype cost to **~$155 – $165 (₹13,000 – ₹13,800)**. This funding directly enables custom high-power hardware that cannot be breadboarded or built on low-cost 2-layer boards.
 
 ---
 
@@ -81,10 +85,10 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
                     |    IP2312 (U3)    |    |   CH340N (U_UART1)|
                     |  3A Buck Charger  |    |    USB-to-UART    |
                     +---------+---------+    +---------+---------+
-                              |                        | Auto-Program
+                              |                        | TX / RX (UART)
                               v                        v
-+----------------+  +-------------------+    +-------------------+
-| 3.7V Li-ion    |->|  DW01A + FS8205A  |    | ESP32-WROOM-32E   |
++----------------+  +-------------------+    +-------------------+  <-- SW_BOOT1 (IO0)
+| 3.7V Li-ion    |->|  DW01A + FS8205A  |    | ESP32-WROOM-32E   |  <-- SW_RST1  (EN)
 | Battery (J6)   |  |  Protection (U5/6)|    | MCU & DSP Core(U4)|
 +----------------+  +---------+---------+    +---------+---------+
                               |                        |
@@ -175,7 +179,14 @@ The board consists of **83 total components** consolidated into **45 unique manu
 3. **USB-C Fast Charging Validation:**
    * Connect a 5V USB-C power source to `J1`.
    * Confirm `LED1` (Red) lights up during active charging and transitions to `LED2` (Green) upon full charge completion.
-4. **Firmware Flashing & Audio Output:**
-   * Connect USB-C to a host PC. The CH340N auto-reset circuit will place the ESP32 into bootloader mode automatically.
+4. **Firmware Flashing via Manual Boot Mode:**
+   * Connect USB-C to a host PC.
+   * To enter bootloader / flashing mode:
+     1. Press and hold the **`BOOT`** button (`SW_BOOT1`).
+     2. Press and release the **`RESET`** button (`SW_RST1`).
+     3. Release the **`BOOT`** button (`SW_BOOT1`).
+   * Initiate upload in PlatformIO or Arduino IDE to flash the firmware.
+   * Press **`RESET`** once after flashing to start normal audio firmware execution.
+5. **Audio Output Validation:**
    * Connect $4\Omega$ speaker loads to terminals `J4` and `J5`.
    * Stream a $1\text{kHz}$ audio test tone over Bluetooth or Wi-Fi to verify clean Class-D power output.
