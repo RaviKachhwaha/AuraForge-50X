@@ -143,8 +143,8 @@ The board consists of **83 total components** consolidated into **45 unique manu
 | `L1` | 1 | 2.2uH 6.5A | SMD 7.3x7.3 | Sunlord | `MWSA0603S-2R2MT` |
 | `L2` | 1 | 2.2uH 10.0A | SMD 10.4x10.4 | Wurth Elektronik | `7443340220` |
 | `L3, L4, L5, L6` | 4 | 10uH 3.8A | SMD 8.0x8.0 | Taiyo Yuden | `NRS8040T100MJGJ` |
-| `LED1` | 1 | Red LED (Charge) | 0603 | Everlight | `19-217/R6C-AL1M2VY/3T` |
-| `LED2` | 1 | Green LED (Done) | 0603 | Everlight | `19-217/GHC-YR1S2/3T` |
+| `LED1` | 1 | Red LED (Charge) | 0603 | Kingbright | `APT1608SURCK` |
+| `LED2` | 1 | Green LED (Done) | 0603 | Kingbright | `APT1608ZGC` |
 | `R1, R2` | 2 | 5.1k 1% | 0603 | Yageo | `RC0603FR-075K1L` |
 | `R3` | 1 | 45.3k 1% | 0603 | Yageo | `RC0603FR-0745K3L` |
 | `R4` | 1 | 51k 1% | 0603 | Yageo | `RC0603FR-0751KL` |
