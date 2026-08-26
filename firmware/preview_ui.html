@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>AuraForge 50X — Cybernetic DSP & CSI Command Station</title>
+    <style>
+        /* 5 CYBER SCI-FI COLOR THEMES */
+        :root {
+            --bg-dark: #030712;
+            --bg-card: rgba(10, 18, 35, 0.85);
+            --border-glow: rgba(0, 242, 254, 0.35);
+            --neon-cyan: #00f2fe;
+            --neon-blue: #4facfe;
+            --neon-purple: #7f00ff;
+            --neon-pink: #f72585;
+            --neon-green: #00f5d4;
+            --neon-yellow: #ffb703;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --danger-red: #ff0055;
+            --panel-shadow: 0 14px 40px rgba(0, 0, 0, 0.85), inset 0 0 25px rgba(0, 242, 254, 0.08);
+            --grad-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #7f00ff 70%, #f72585 100%);
+        }
+
+        body.theme-solar {
+            --bg-dark: #0f0502;
+            --bg-card: rgba(30, 12, 6, 0.88);
+            --border-glow: rgba(255, 183, 3, 0.4);
+            --neon-cyan: #ffb703;
+            --neon-blue: #ff7518;
+            --neon-purple: #e63946;
+            --neon-pink: #ff0055;
+            --neon-green: #fee440;
+            --grad-primary: linear-gradient(135deg, #fee440 0%, #ffb703 35%, #ff7518 70%, #ff0055 100%);
+        }
+
+        body.theme-matrix {
+            --bg-dark: #020f08;
+            --bg-card: rgba(6, 30, 16, 0.88);
+            --border-glow: rgba(0, 245, 212, 0.4);
+            --neon-cyan: #00f5d4;
+            --neon-blue: #00ff9f;
+            --neon-purple: #39ff14;
+            --neon-pink: #10b981;
+            --neon-green: #00f5d4;
+            --grad-primary: linear-gradient(135deg, #00f5d4 0%, #00ff9f 35%, #39ff14 70%, #10b981 100%);
+        }
+
+        body.theme-vaporwave {
+            --bg-dark: #0d021a;
+            --bg-card: rgba(26, 6, 45, 0.88);
+            --border-glow: rgba(247, 37, 133, 0.4);
+            --neon-cyan: #f72585;
+            --neon-blue: #7209b7;
+            --neon-purple: #4361ee;
+            --neon-pink: #4cc9f0;
+            --neon-green: #4cc9f0;
+            --grad-primary: linear-gradient(135deg, #f72585 0%, #7209b7 35%, #4361ee 70%, #4cc9f0 100%);
+        }
+
+        body.theme-deepspace {
+            --bg-dark: #020617;
+            --bg-card: rgba(15, 23, 42, 0.88);
+            --border-glow: rgba(56, 189, 248, 0.4);
+            --neon-cyan: #38bdf8;
+            --neon-blue: #818cf8;
+            --neon-purple: #c084fc;
+            --neon-pink: #f472b6;
+            --neon-green: #34d399;
+            --grad-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 35%, #c084fc 70%, #f472b6 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding-bottom: 60px;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(127, 0, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+            transition: background-color 0.5s ease;
+        }
+
+        /* FIX DROPDOWN INVISIBLE WHITE TEXT BUG */
+        select,
+        option {
+            background-color: #0b132c !important;
+            color: #f8fafc !important;
+            padding: 10px 14px;
+            border-radius: 12px;
+            outline: none;
+        }
+
+        option:hover,
+        option:checked {
+            background-color: var(--neon-purple) !important;
+            color: #fff !important;
+        }
+
+        /* SCI-FI HEADER HUD */
+        .hud-header {
+            background: rgba(6, 12, 25, 0.94);
+            border-bottom: 1px solid var(--border-glow);
+            backdrop-filter: blur(24px);
+            padding: 14px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 35px rgba(0, 0, 0, 0.9);
+            width: 100%;
+        }
+
+        .hud-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .reactor-core {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: var(--grad-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 22px;
+            color: #fff;
+            box-shadow: 0 0 25px var(--neon-cyan), inset 0 0 12px rgba(255, 255, 255, 0.9);
+            animation: pulse-core 3s infinite alternate;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse-core {
+            0% {
+                box-shadow: 0 0 20px var(--neon-cyan);
+            }
+
+            50% {
+                box-shadow: 0 0 30px var(--neon-purple);
+            }
+
+            100% {
+                box-shadow: 0 0 40px var(--neon-pink);
+            }
+        }
+
+        .hud-title {
+            font-size: clamp(16px, 4vw, 24px);
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            background: linear-gradient(90deg, #fff, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .hud-subtitle {
+            font-size: 10px;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+            opacity: 0.9;
+        }
+
+        .hud-status-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-pill {
+            background: rgba(0, 245, 212, 0.12);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 6px 14px;
+            border-radius: 24px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            box-shadow: 0 0 12px var(--neon-green);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.35;
+            }
+        }
+
+        /* LIVE BRIDGE IP BAR */
+        .bridge-bar {
+            background: rgba(10, 18, 35, 0.9);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .bridge-input {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glow);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            outline: none;
+            width: 140px;
+        }
+
+        /* SCI-FI NAVIGATION TABS & CUSTOM SCROLLBAR */
+        .hud-nav {
+            display: flex;
+            gap: 10px;
+            max-width: 1360px;
+            margin: 20px auto 0;
+            padding: 0 16px 10px 16px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-cyan) rgba(0, 242, 254, 0.05);
+        }
+
+        .hud-nav::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .hud-nav::-webkit-scrollbar-track {
+            background: rgba(0, 242, 254, 0.06);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 242, 254, 0.15);
+        }
+
+        .hud-nav::-webkit-scrollbar-thumb {
+            background: var(--grad-primary);
+            border-radius: 10px;
+            box-shadow: 0 0 12px var(--neon-cyan);
+        }
+
+        .nav-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-sub);
+            padding: 12px 22px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(16px);
+            white-space: nowrap;
+            box-shadow: var(--panel-shadow);
+            touch-action: manipulation;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.3), rgba(127, 0, 255, 0.4), rgba(247, 37, 133, 0.3));
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.45), inset 0 0 15px rgba(0, 242, 254, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* AUTO-FIT CONTAINER & CARDS */
+        .main-container {
+            max-width: 1360px;
+            margin: 20px auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        .tab-page {
+            display: none;
+        }
+
+        .tab-page.active {
+            display: block;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .sci-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 22px;
+            padding: 22px;
+            backdrop-filter: blur(24px);
+            box-shadow: var(--panel-shadow);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .sci-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--grad-primary);
+        }
+
+        .card-header {
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* RADIAL VOLUME KNOB & SLIDERS */
+        .knob-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .radial-progress {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(var(--neon-cyan) 0deg, var(--neon-purple) 200deg, var(--neon-pink) 288deg, rgba(255, 255, 255, 0.08) 288deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.3);
+            touch-action: none;
+        }
+
+        .radial-inner {
+            width: 144px;
+            height: 144px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-glow);
+        }
+
+        .radial-val {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 25px var(--neon-cyan);
+        }
+
+        .radial-unit {
+            font-size: 10px;
+            color: var(--text-sub);
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .sci-slider-group {
+            margin-bottom: 20px;
+        }
+
+        .sci-label-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .sci-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+            -webkit-appearance: none;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+            touch-action: pan-y;
+        }
+
+        .sci-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--neon-cyan);
+            cursor: pointer;
+            box-shadow: 0 0 18px var(--neon-cyan), inset 0 0 6px #fff;
+            border: 2px solid #fff;
+        }
+
+        /* BUTTONS & CYBER PRESETS */
+        .sci-btn {
+            background: var(--grad-primary);
+            border: none;
+            color: #fff;
+            padding: 13px 18px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+            text-align: center;
+            touch-action: manipulation;
+        }
+
+        .sci-btn:hover,
+        .sci-btn:active {
+            box-shadow: 0 0 35px var(--neon-cyan);
+            transform: translateY(-2px);
+        }
+
+        .sci-btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+        }
+
+        .sci-btn-danger {
+            background: linear-gradient(135deg, #ff0055, #ff5252);
+            box-shadow: 0 0 22px rgba(255, 0, 85, 0.5);
+        }
+
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 10px;
+        }
+
+        .cyber-tile {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            padding: 12px 6px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: all 0.3s;
+            touch-action: manipulation;
+        }
+
+        .cyber-tile:hover,
+        .cyber-tile:active {
+            background: rgba(0, 242, 254, 0.2);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.45);
+            color: var(--neon-cyan);
+        }
+
+        /* CANVAS & SPECTRUM */
+        canvas {
+            width: 100%;
+            height: 240px;
+            background: rgba(3, 6, 14, 0.75);
+            border-radius: 16px;
+            border: 1px solid var(--border-glow);
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.95);
+            touch-action: none;
+        }
+
+        .eq-sliders-rack {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 22px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--border-glow);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .eq-rack-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 24px;
+        }
+
+        .eq-v-slider {
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+            width: 8px;
+            height: 150px;
+            margin: 10px 0;
+            touch-action: pan-x;
+        }
+
+        /* TOGGLE SWITCHES */
+        .sci-switch-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .sci-toggle {
+            position: relative;
+            width: 48px;
+            height: 26px;
+        }
+
+        .sci-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .sci-slider-bg {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.15);
+            transition: .3s;
+            border-radius: 26px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .sci-slider-bg:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            transition: .3s;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #000;
+        }
+
+        input:checked+.sci-slider-bg {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        input:checked+.sci-slider-bg:before {
+            transform: translateX(22px);
+        }
+
+        /* TELEMETRY TABLE & METER */
+        .telem-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 13px;
+        }
+
+        .telem-val {
+            font-weight: 800;
+            color: var(--neon-cyan);
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: var(--grad-primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HUD HEADER -->
+    <header class="hud-header">
+        <div class="hud-brand">
+            <div class="reactor-core">AF</div>
+            <div>
+                <div class="hud-title">AuraForge 50X</div>
+                <div class="hud-subtitle">Cybernetic DSP & Live Telemetry Station</div>
+            </div>
+        </div>
+        <div class="hud-status-group">
+            <div class="status-pill">
+                <div class="status-dot"></div><span id="system-status-text">CONNECTING...</span>
+            </div>
+            <button class="sci-btn sci-btn-outline" style="padding: 6px 12px; font-size: 11px;" onclick="toggleMute()"
+                id="mute-trigger">MUTE AUDIO</button>
+        </div>
+    </header>
+
+    <!-- LIVE DEVICE CONNECTION BRIDGE -->
+    <div class="bridge-bar">
+        <span>Target Device IP:</span>
+        <input type="text" id="target-device-ip" class="bridge-input" value="192.168.4.1"
+            placeholder="e.g. 192.168.4.1">
+        <button class="sci-btn" style="width: auto; padding: 4px 12px; font-size: 11px;"
+            onclick="reconnectCustomWs()">CONNECT LIVE</button>
+    </div>
+
+    <!-- NAVIGATION TABS WITH SCI-FI SCROLLBAR -->
+    <nav class="hud-nav">
+        <button class="nav-btn active" onclick="switchTab('dashboard')">Master Control</button>
+        <button class="nav-btn" onclick="switchTab('eq')">10-Band Equalizer</button>
+        <button class="nav-btn" onclick="switchTab('drc')">Compressor & Crossover</button>
+        <button class="nav-btn" onclick="switchTab('radar')">RuView & CSI PC Stream</button>
+        <button class="nav-btn" onclick="switchTab('visualizer')">Spectrum & Generator</button>
+        <button class="nav-btn" onclick="switchTab('themes')">Cyber Themes & Power</button>
+        <button class="nav-btn" onclick="switchTab('wifi')">Wi-Fi & Network</button>
+        <button class="nav-btn" onclick="switchTab('system')">System Diagnostics</button>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-container">
+        <!-- TAB 1: DASHBOARD -->
+        <section id="tab-dashboard" class="tab-page active">
+            <div class="card-grid">
+                <!-- MASTER VOLUME CARD -->
+                <div class="sci-card">
+                    <div class="card-header"><span>Master Output Control</span></div>
+                    <div class="knob-container">
+                        <div class="radial-progress" id="radial-vol-bg">
+                            <div class="radial-inner">
+                                <div class="radial-val" id="val-vol-text">80%</div>
+                                <div class="radial-unit">MASTER VOLUME</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sci-slider-group" style="margin-top: 15px;">
+                        <input type="range" class="sci-slider" id="slide-vol" min="0" max="100" value="80"
+                            oninput="updateSetting('volume', this.value)">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Pre-Amp Input Gain</span><span id="val-preamp"
+                                style="color: var(--neon-cyan);">0.0 dB</span></div>
+                        <input type="range" class="sci-slider" id="slide-preamp" min="-12" max="12" step="0.5" value="0"
+                            oninput="updateSetting('preAmpGain', this.value)">
+                    </div>
+                </div>
+
+                <!-- SOUND ENHANCEMENT ENGINE -->
+                <div class="sci-card">
+                    <div class="card-header"><span>Psychoacoustic DSP Engine</span></div>
+                    <div class="sci-switch-row">
+                        <span>Dynamic Sub-Bass Enhancer</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-dynbass" checked
+                                onchange="updateSetting('dynamicBassEnabled', this.checked)">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Bass Harmonic Gain</span><span id="val-dyngain"
+                                style="color: var(--neon-cyan);">+3.0 dB</span></div>
+                        <input type="range" class="sci-slider" id="slide-dyngain" min="0" max="12" step="0.5" value="3"
+                            oninput="updateSetting('dynamicBassGain', this.value)">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>3D Spatial Stereo Expander</span><span id="val-stereowidth"
+                                style="color: var(--neon-cyan);">1.0x</span></div>
+                        <input type="range" class="sci-slider" id="slide-stereowidth" min="0" max="2" step="0.1"
+                            value="1" oninput="updateSetting('stereoWidth', this.value)">
+                    </div>
+                    <div class="sci-switch-row">
+                        <span>Mono Matrix Downmix</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-mono" onchange="updateSetting('monoMode', this.checked)">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- CYBER PRESETS -->
+                <div class="sci-card">
+                    <div class="card-header"><span>Holographic EQ Presets</span></div>
+                    <div class="cyber-grid">
+                        <div class="cyber-tile" onclick="applyPreset('flat')">REF</div>
+                        <div class="cyber-tile" onclick="applyPreset('cyberbass')">BASS</div>
+                        <div class="cyber-tile" onclick="applyPreset('synthwave')">SYNTH</div>
+                        <div class="cyber-tile" onclick="applyPreset('club')">CLUB</div>
+                        <div class="cyber-tile" onclick="applyPreset('rock')">ROCK</div>
+                        <div class="cyber-tile" onclick="applyPreset('vocal')">VOCAL</div>
+                        <div class="cyber-tile" onclick="applyPreset('cinema')">3D_CINEMA</div>
+                        <div class="cyber-tile" onclick="applyPreset('acoustic')">ACOUSTIC</div>
+                        <div class="cyber-tile" onclick="applyPreset('gaming')">GAMING</div>
+                        <div class="cyber-tile" onclick="applyPreset('night')">NIGHT</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: 10-BAND EQ -->
+        <section id="tab-eq" class="tab-page">
+            <div class="sci-card">
+                <div class="card-header"><span>Interactive 10-Band Parametric Equalizer Response</span></div>
+                <canvas id="eqCanvas"></canvas>
+
+                <div class="eq-sliders-rack">
+                    <div class="eq-rack-col"><span>31Hz</span><input type="range" class="eq-v-slider" id="eq-0"
+                            min="-12" max="12" value="3" oninput="updateEqBand(0, this.value)"><span id="eqval-0"
+                            style="color: var(--neon-cyan); font-weight: 800;">3</span></div>
+                    <div class="eq-rack-col"><span>62Hz</span><input type="range" class="eq-v-slider" id="eq-1"
+                            min="-12" max="12" value="2" oninput="updateEqBand(1, this.value)"><span id="eqval-1"
+                            style="color: var(--neon-cyan); font-weight: 800;">2</span></div>
+                    <div class="eq-rack-col"><span>125Hz</span><input type="range" class="eq-v-slider" id="eq-2"
+                            min="-12" max="12" value="1" oninput="updateEqBand(2, this.value)"><span id="eqval-2"
+                            style="color: var(--neon-cyan); font-weight: 800;">1</span></div>
+                    <div class="eq-rack-col"><span>250Hz</span><input type="range" class="eq-v-slider" id="eq-3"
+                            min="-12" max="12" value="0" oninput="updateEqBand(3, this.value)"><span id="eqval-3"
+                            style="color: var(--neon-cyan); font-weight: 800;">0</span></div>
+                    <div class="eq-rack-col"><span>500Hz</span><input type="range" class="eq-v-slider" id="eq-4"
+                            min="-12" max="12" value="-1" oninput="updateEqBand(4, this.value)"><span id="eqval-4"
+                            style="color: var(--neon-cyan); font-weight: 800;">-1</span></div>
+                    <div class="eq-rack-col"><span>1kHz</span><input type="range" class="eq-v-slider" id="eq-5"
+                            min="-12" max="12" value="0" oninput="updateEqBand(5, this.value)"><span id="eqval-5"
+                            style="color: var(--neon-cyan); font-weight: 800;">0</span></div>
+                    <div class="eq-rack-col"><span>2kHz</span><input type="range" class="eq-v-slider" id="eq-6"
+                            min="-12" max="12" value="1" oninput="updateEqBand(6, this.value)"><span id="eqval-6"
+                            style="color: var(--neon-cyan); font-weight: 800;">1</span></div>
+                    <div class="eq-rack-col"><span>4kHz</span><input type="range" class="eq-v-slider" id="eq-7"
+                            min="-12" max="12" value="2" oninput="updateEqBand(7, this.value)"><span id="eqval-7"
+                            style="color: var(--neon-cyan); font-weight: 800;">2</span></div>
+                    <div class="eq-rack-col"><span>8kHz</span><input type="range" class="eq-v-slider" id="eq-8"
+                            min="-12" max="12" value="3" oninput="updateEqBand(8, this.value)"><span id="eqval-8"
+                            style="color: var(--neon-cyan); font-weight: 800;">3</span></div>
+                    <div class="eq-rack-col"><span>16kHz</span><input type="range" class="eq-v-slider" id="eq-9"
+                            min="-12" max="12" value="4" oninput="updateEqBand(9, this.value)"><span id="eqval-9"
+                            style="color: var(--neon-cyan); font-weight: 800;">4</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: COMPRESSOR & CROSSOVER -->
+        <section id="tab-drc" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Dynamic Range Compressor (DRC)</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Compression Threshold</span><span id="val-drc-thresh"
+                                style="color: var(--neon-cyan);">-18.0 dB</span></div>
+                        <input type="range" class="sci-slider" id="slide-drc-thresh" min="-40" max="0" value="-18"
+                            oninput="updateDrc()">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Compression Ratio</span><span id="val-drc-ratio"
+                                style="color: var(--neon-cyan);">4:1</span></div>
+                        <input type="range" class="sci-slider" id="slide-drc-ratio" min="1" max="20" value="4"
+                            oninput="updateDrc()">
+                    </div>
+                    <div class="sci-label-row"><span>Gain Reduction Meter</span><span id="val-gr">-2.4 dB</span></div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="meter-gr-fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <div class="sci-card">
+                    <div class="card-header"><span>Subwoofer & Subsonic Crossover</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Subsonic High-Pass Cutoff</span><span id="val-hp-cutoff"
+                                style="color: var(--neon-cyan);">20 Hz</span></div>
+                        <input type="range" class="sci-slider" id="slide-hp-cutoff" min="20" max="100" value="20"
+                            oninput="updateSetting('highPassCutoff', this.value)">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Subwoofer Low-Pass Cutoff</span><span id="val-sub-cutoff"
+                                style="color: var(--neon-cyan);">150 Hz</span></div>
+                        <input type="range" class="sci-slider" id="slide-sub-cutoff" min="60" max="250" value="150"
+                            oninput="updateSetting('subLowPassCutoff', this.value)">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: RUVIEW & CSI PC STREAM -->
+        <section id="tab-radar" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header">
+                        <span>Wi-Fi CSI Subcarrier Spectrogram</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-csi" onchange="toggleCsiRadar(this.checked)">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                    <canvas id="radarCanvas"></canvas>
+                </div>
+                <div class="sci-card">
+                    <div class="card-header"><span>RuView / PC Live UDP Stream Config</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Destination PC IP Address</span></div>
+                        <input type="text" id="csi-pc-ip" class="sci-btn sci-btn-outline" style="text-align: left;"
+                            value="255.255.255.255">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>UDP Stream Target Port</span></div>
+                        <input type="number" id="csi-pc-port" class="sci-btn sci-btn-outline" style="text-align: left;"
+                            value="5000">
+                    </div>
+                    <div class="sci-switch-row">
+                        <span>UDP Stream to RuView / PC</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-csi-udp" onchange="toggleCsiUdpStream(this.checked)">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                    <div class="telem-row"><span>Motion Sense Index</span><span class="telem-val"
+                            id="csi-motion">0.00</span></div>
+                    <div class="telem-row"><span>Wi-Fi RSSI Signal Strength</span><span class="telem-val"
+                            id="csi-rssi">-52 dBm</span></div>
+                    <div class="meter-bar" style="margin-top: 10px;">
+                        <div class="meter-fill" id="meter-motion-fill" style="width: 0%;"></div>
+                    </div>
+                    <button class="sci-btn" style="margin-top: 15px;" onclick="exportCsiJson()">EXPORT CSI PACKET LOG TO
+                        PC</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: VISUALIZER & GENERATOR -->
+        <section id="tab-visualizer" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Real-Time 16-Band Audio Spectrum</span></div>
+                    <canvas id="specCanvas"></canvas>
+                </div>
+                <div class="sci-card">
+                    <div class="card-header"><span>Signal Test Generator</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Waveform Output Mode</span></div>
+                        <select id="gen-mode" class="sci-btn sci-btn-outline" style="text-align: left;"
+                            onchange="updateGen()">
+                            <option value="0">OFF</option>
+                            <option value="1">Sine Wave Generator</option>
+                            <option value="2">Square Wave Calibration</option>
+                            <option value="3">Pink Noise Generator</option>
+                        </select>
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Target Frequency</span><span id="val-genfreq"
+                                style="color: var(--neon-cyan);">1000 Hz</span></div>
+                        <input type="range" class="sci-slider" id="slide-genfreq" min="20" max="20000" value="1000"
+                            oninput="updateGen()">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 6: THEMES & POWER -->
+        <section id="tab-themes" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Cyber Sci-Fi Color Themes (5 Presets)</span></div>
+                    <div class="cyber-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('default')">CYBER_CYAN
+                        </div>
+                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('solar')">SOLAR_FLARE
+                        </div>
+                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('matrix')">MATRIX_NEON
+                        </div>
+                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('vaporwave')">
+                            VAPORWAVE_80S</div>
+                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('deepspace')">DEEP_SPACE
+                        </div>
+                    </div>
+                </div>
+                <div class="sci-card">
+                    <div class="card-header"><span>ESP32 MCU Power Profile</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Performance Mode</span></div>
+                        <select class="sci-btn sci-btn-outline" style="text-align: left;"
+                            onchange="updatePowerProfile(this.value)">
+                            <option value="0">HIGH PERFORMANCE (240 MHz Dual-Core DSP)</option>
+                            <option value="1">BALANCED (160 MHz Dynamic Scaling)</option>
+                            <option value="2">ECO BATTERYSAVER (80 MHz Low Power)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 7: WI-FI SETUP -->
+        <section id="tab-wifi" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Wi-Fi Network Setup</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Network SSID</span></div>
+                        <input type="text" id="wifi-ssid" class="sci-btn sci-btn-outline" style="text-align: left;"
+                            placeholder="Enter Wi-Fi SSID" value="Studio_5G">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>WPA2 Password</span></div>
+                        <input type="password" id="wifi-pass" class="sci-btn sci-btn-outline" style="text-align: left;"
+                            placeholder="Enter Password" value="••••••••••••">
+                    </div>
+                    <button class="sci-btn" onclick="saveWifi()">CONNECT & SAVE</button>
+                    <button class="sci-btn sci-btn-outline" style="margin-top: 12px;" onclick="scanWifi()">SCAN SITE
+                        SURVEY</button>
+                    <div id="scan-results" style="margin-top: 16px; font-size: 13px; color: var(--text-sub);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 8: SYSTEM TELEMETRY -->
+        <section id="tab-system" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Hardware Diagnostic Telemetry</span></div>
+                    <div class="telem-row"><span>TPA3116D2 Amplifier Output</span><span class="telem-val" id="stat-amp"
+                            style="color: var(--neon-green);">NORMAL (ACTIVE)</span></div>
+                    <div class="telem-row"><span>Hardware Fault Count</span><span class="telem-val"
+                            id="stat-faults">0</span></div>
+                    <div class="telem-row"><span>Battery Voltage (Est.)</span><span class="telem-val" id="stat-bat">3.92
+                            V (91%)</span></div>
+                    <div class="telem-row"><span>Free Heap Memory</span><span class="telem-val" id="stat-heap">184
+                            KB</span></div>
+                    <div class="telem-row"><span>System Uptime</span><span class="telem-val"
+                            id="stat-uptime">1245s</span></div>
+                    <div class="telem-row"><span>MCU Core Frequency</span><span class="telem-val" id="stat-cpu">240
+                            MHz</span></div>
+                </div>
+                <div class="sci-card">
+                    <div class="card-header"><span>System Operations</span></div>
+                    <button class="sci-btn sci-btn-outline" style="margin-bottom: 12px;" onclick="rebootDevice()">REBOOT
+                        BOARD</button>
+                    <button class="sci-btn sci-btn-danger" onclick="resetDefaults()">FACTORY RESET NVS</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let ws;
+        let csiActive = false;
+        let config = { volume: 80, isMuted: false, eqGains: [3, 2, 1, 0, -1, 0, 1, 2, 3, 4], preAmpGain: 0, dynamicBassGain: 3, dynamicBassEnabled: true, stereoWidth: 1 };
+
+        function initWS(customHost) {
+            let host = customHost || window.location.hostname;
+            if (!host || host === '') host = '192.168.4.1';
+
+            try {
+                if (ws) { ws.close(); }
+                ws = new WebSocket(`ws://${host}/ws`);
+                ws.onopen = () => {
+                    document.getElementById('system-status-text').innerText = 'LIVE CONNECTED (' + host + ')';
+                    document.getElementById('system-status-text').style.color = 'var(--neon-green)';
+                };
+                ws.onclose = () => {
+                    document.getElementById('system-status-text').innerText = 'OFFLINE (STANDALONE)';
+                };
+                ws.onmessage = (evt) => {
+                    let msg = JSON.parse(evt.data);
+                    if (msg.type === 'telemetry') updateTelemetryUI(msg.data);
+                    else if (msg.type === 'spectrum') drawSpectrum(msg.data);
+                    else if (msg.type === 'csi_radar') handleCsiData(msg);
+                };
+            } catch (e) {
+                console.log('WS Bridge connecting...');
+            }
+        }
+
+        function reconnectCustomWs() {
+            let ip = document.getElementById('target-device-ip').value.trim();
+            if (ip) initWS(ip);
+        }
+
+        function updateTelemetryUI(data) {
+            if (!data) return;
+            if (data.ampEnabled !== undefined) {
+                document.getElementById('stat-amp').innerText = data.ampEnabled ? "NORMAL (ACTIVE)" : "MUTED";
+                document.getElementById('stat-amp').style.color = data.ampEnabled ? "var(--neon-green)" : "var(--danger-red)";
+            }
+            if (data.faultCount !== undefined) document.getElementById('stat-faults').innerText = data.faultCount;
+            if (data.batteryVoltage !== undefined) document.getElementById('stat-bat').innerText = data.batteryVoltage.toFixed(2) + " V (" + data.batteryPercent + "%)";
+            if (data.freeHeap !== undefined) document.getElementById('stat-heap').innerText = Math.round(data.freeHeap / 1024) + " KB";
+            if (data.uptimeSeconds !== undefined) document.getElementById('stat-uptime').innerText = data.uptimeSeconds + "s";
+        }
+
+        function switchTab(name) {
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-page').forEach(c => c.classList.remove('active'));
+            document.getElementById(`tab-${name}`).classList.add('active');
+            if (event && event.target) event.target.classList.add('active');
+            if (name === 'eq') drawEqCanvas();
+            if (name === 'radar') startRadarDemo();
+            if (name === 'visualizer') startSpectrumDemo();
+        }
+
+        function setTheme(name) {
+            document.body.className = '';
+            if (name !== 'default') document.body.classList.add(`theme-${name}`);
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                let themeIds = { default: 0, solar: 1, matrix: 2, vaporwave: 3, deepspace: 4 };
+                ws.send(JSON.stringify({ activeTheme: themeIds[name] || 0 }));
+            }
+        }
+
+        function updateSetting(key, val) {
+            if (key === 'volume') {
+                document.getElementById('val-vol-text').innerText = val + '%';
+                let deg = (val / 100) * 360;
+                document.getElementById('radial-vol-bg').style.background = `conic-gradient(var(--neon-cyan) 0deg, var(--neon-purple) ${deg}deg, var(--neon-pink) ${deg}deg, rgba(255, 255, 255, 0.08) ${deg}deg)`;
+            }
+            if (key === 'preAmpGain') document.getElementById('val-preamp').innerText = val + ' dB';
+            if (key === 'dynamicBassGain') document.getElementById('val-dyngain').innerText = '+' + val + ' dB';
+            if (key === 'stereoWidth') document.getElementById('val-stereowidth').innerText = val + 'x';
+            if (key === 'highPassCutoff') document.getElementById('val-hp-cutoff').innerText = val + ' Hz';
+            if (key === 'subLowPassCutoff') document.getElementById('val-sub-cutoff').innerText = val + ' Hz';
+
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ [key]: typeof val === 'boolean' ? val : parseFloat(val) }));
+            }
+        }
+
+        function toggleCsiRadar(state) {
+            csiActive = state;
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ csiStreamingEnabled: state }));
+            }
+            if (state) startRadarDemo();
+        }
+
+        function toggleCsiUdpStream(state) {
+            let ip = document.getElementById('csi-pc-ip').value;
+            let port = parseInt(document.getElementById('csi-pc-port').value);
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ csiUdpEnabled: state, csiPcIp: ip, csiPcPort: port }));
+            }
+        }
+
+        function handleCsiData(data) {
+            if (!csiActive) return;
+            document.getElementById('csi-motion').innerText = (data.motion || 0).toFixed(2);
+            document.getElementById('csi-rssi').innerText = (data.rssi || -50) + ' dBm';
+            let pct = Math.min(100, (data.motion || 0) * 10);
+            document.getElementById('meter-motion-fill').style.width = pct + '%';
+            if (data.subcarriers) drawRadarSubcarriers(data.subcarriers);
+        }
+
+        function exportCsiJson() {
+            let log = { timestamp: new Date().toISOString(), csiPackets: 1240, mode: "RuView Wi-Fi CSI Subcarrier Stream", subcarriers: 64 };
+            let blob = new Blob([JSON.stringify(log, null, 2)], { type: 'application/json' });
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'RuView_AuraForge50X_CSI_Data.json';
+            a.click();
+        }
+
+        function updateEqBand(idx, val) {
+            document.getElementById(`eqval-${idx}`).innerText = val;
+            config.eqGains[idx] = parseFloat(val);
+            drawEqCanvas();
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ eqGains: config.eqGains }));
+            }
+        }
+
+        function updateDrc() {
+            let thresh = document.getElementById('slide-drc-thresh').value;
+            let ratio = document.getElementById('slide-drc-ratio').value;
+            document.getElementById('val-drc-thresh').innerText = thresh + ' dB';
+            document.getElementById('val-drc-ratio').innerText = ratio + ':1';
+        }
+
+        function applyPreset(name) {
+            let presets = {
+                flat: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                cyberbass: [7, 6, 5, 3, 1, 0, 0, 1, 2, 2],
+                synthwave: [5, 4, 2, 0, -1, 0, 2, 4, 5, 6],
+                club: [4, 5, 3, 1, 0, 0, 1, 3, 4, 5],
+                rock: [4, 3, 1, 0, -1, 0, 1, 2, 3, 4],
+                vocal: [-2, -1, 0, 3, 4, 3, 1, 0, -1, -2],
+                cinema: [6, 5, 3, 0, -1, 0, 2, 4, 5, 6],
+                acoustic: [2, 1, 0, 1, 2, 2, 1, 1, 2, 3],
+                gaming: [5, 4, 2, 1, 0, 2, 3, 4, 3, 2],
+                night: [-3, -2, -1, 0, 0, 0, -1, -2, -3, -4]
+            };
+            if (presets[name]) {
+                config.eqGains = presets[name];
+                for (let i = 0; i < 10; i++) {
+                    document.getElementById(`eq-${i}`).value = config.eqGains[i];
+                    document.getElementById(`eqval-${i}`).innerText = config.eqGains[i];
+                }
+                drawEqCanvas();
+            }
+        }
+
+        function drawEqCanvas() {
+            let cvs = document.getElementById('eqCanvas');
+            if (!cvs) return;
+            cvs.width = cvs.clientWidth;
+            cvs.height = cvs.clientHeight;
+            let ctx = cvs.getContext('2d');
+            let w = cvs.width, h = cvs.height;
+
+            ctx.clearRect(0, 0, w, h);
+            ctx.strokeStyle = 'rgba(0, 242, 254, 0.15)';
+            ctx.beginPath(); ctx.moveTo(0, h / 2); ctx.lineTo(w, h / 2); ctx.stroke();
+
+            let grad = ctx.createLinearGradient(0, 0, w, 0);
+            grad.addColorStop(0, '#00f2fe');
+            grad.addColorStop(0.35, '#4facfe');
+            grad.addColorStop(0.7, '#7f00ff');
+            grad.addColorStop(1, '#f72585');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+
+            for (let i = 0; i < 10; i++) {
+                let x = (i / 9) * (w - 60) + 30;
+                let y = h / 2 - (config.eqGains[i] / 12) * (h / 2 - 30);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+
+                ctx.fillStyle = '#f72585';
+                ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill();
+                ctx.beginPath();
+            }
+            ctx.stroke();
+        }
+
+        let radarAnim;
+        function startRadarDemo() {
+            let cvs = document.getElementById('radarCanvas');
+            if (!cvs) return;
+            cvs.width = cvs.clientWidth;
+            cvs.height = cvs.clientHeight;
+            let ctx = cvs.getContext('2d');
+            let subs = Array(64).fill(0);
+
+            function render() {
+                let w = cvs.width, h = cvs.height;
+                ctx.clearRect(0, 0, w, h);
+                let barW = (w / 64);
+
+                for (let i = 0; i < 64; i++) {
+                    let target = Math.sin(Date.now() * 0.005 + i * 0.2) * 50 + 100 + (Math.random() * 20);
+                    subs[i] = subs[i] * 0.8 + target * 0.2;
+                    let barH = (subs[i] / 200) * h;
+                    let grad = ctx.createLinearGradient(0, h, 0, 0);
+                    grad.addColorStop(0, '#00f2fe');
+                    grad.addColorStop(0.5, '#7f00ff');
+                    grad.addColorStop(1, '#f72585');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(i * barW, h - barH, barW - 1, barH);
+                }
+                radarAnim = requestAnimationFrame(render);
+            }
+            cancelAnimationFrame(radarAnim);
+            render();
+        }
+
+        function drawRadarSubcarriers(subs) {
+            let cvs = document.getElementById('radarCanvas');
+            if (!cvs || !subs) return;
+            cvs.width = cvs.clientWidth;
+            cvs.height = cvs.clientHeight;
+            let ctx = cvs.getContext('2d');
+            let w = cvs.width, h = cvs.height;
+            ctx.clearRect(0, 0, w, h);
+            let barW = (w / subs.length);
+            for (let i = 0; i < subs.length; i++) {
+                let barH = (subs[i] / 255) * h;
+                let grad = ctx.createLinearGradient(0, h, 0, 0);
+                grad.addColorStop(0, '#00f2fe');
+                grad.addColorStop(0.5, '#7f00ff');
+                grad.addColorStop(1, '#f72585');
+                ctx.fillStyle = grad;
+                ctx.fillRect(i * barW, h - barH, barW - 1, barH);
+            }
+        }
+
+        let demoAnim;
+        function startSpectrumDemo() {
+            let cvs = document.getElementById('specCanvas');
+            if (!cvs) return;
+            cvs.width = cvs.clientWidth;
+            cvs.height = cvs.clientHeight;
+            let ctx = cvs.getContext('2d');
+            let mags = Array(16).fill(0);
+
+            function render() {
+                let w = cvs.width, h = cvs.height;
+                ctx.clearRect(0, 0, w, h);
+                let barW = (w / 16) - 6;
+
+                for (let i = 0; i < 16; i++) {
+                    let target = Math.sin(Date.now() * 0.006 + i * 0.4) * 40 + 50 + (Math.random() * 15);
+                    mags[i] = mags[i] * 0.75 + target * 0.25;
+                    let barH = (mags[i] / 100) * h;
+                    let grad = ctx.createLinearGradient(0, h, 0, 0);
+                    grad.addColorStop(0, '#00f2fe');
+                    grad.addColorStop(0.35, '#00f5d4');
+                    grad.addColorStop(0.7, '#7f00ff');
+                    grad.addColorStop(1, '#f72585');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(i * (barW + 6) + 3, h - barH, barW, barH);
+                }
+                demoAnim = requestAnimationFrame(render);
+            }
+            cancelAnimationFrame(demoAnim);
+            render();
+        }
+
+        function drawSpectrum(mags) {
+            let cvs = document.getElementById('specCanvas');
+            if (!cvs || !mags) return;
+            cvs.width = cvs.clientWidth;
+            cvs.height = cvs.clientHeight;
+            let ctx = cvs.getContext('2d');
+            let w = cvs.width, h = cvs.height;
+            ctx.clearRect(0, 0, w, h);
+            let barW = (w / mags.length) - 6;
+            for (let i = 0; i < mags.length; i++) {
+                let barH = (mags[i] / 255) * h;
+                let grad = ctx.createLinearGradient(0, h, 0, 0);
+                grad.addColorStop(0, '#00f2fe');
+                grad.addColorStop(0.35, '#00f5d4');
+                grad.addColorStop(0.7, '#7f00ff');
+                grad.addColorStop(1, '#f72585');
+                ctx.fillStyle = grad;
+                ctx.fillRect(i * (barW + 6) + 3, h - barH, barW, barH);
+            }
+        }
+
+        function toggleMute() {
+            config.isMuted = !config.isMuted;
+            document.getElementById('mute-trigger').innerText = config.isMuted ? 'UNMUTE AUDIO' : 'MUTE AUDIO';
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ isMuted: config.isMuted }));
+            }
+        }
+
+        function updateGen() {
+            let mode = parseInt(document.getElementById('gen-mode').value);
+            let freq = parseFloat(document.getElementById('slide-genfreq').value);
+            document.getElementById('val-genfreq').innerText = freq + ' Hz';
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ genMode: mode, genFreq: freq }));
+            }
+        }
+
+        function updatePowerProfile(val) {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ powerProfile: parseInt(val) }));
+            }
+        }
+
+        function scanWifi() {
+            document.getElementById('scan-results').innerText = 'Scanning frequency bands...';
+            setTimeout(() => {
+                document.getElementById('scan-results').innerHTML = '<b>Site Survey Results:</b><br>Studio_5G (-42 dBm)<br>AuraForge_Mesh (-58 dBm)<br>Guest_Wifi (-72 dBm)';
+            }, 1000);
+        }
+
+        function saveWifi() {
+            let ssid = document.getElementById('wifi-ssid').value;
+            let pass = document.getElementById('wifi-pass').value;
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ wifiStaSsid: ssid, wifiStaPass: pass }));
+            }
+            alert('Wi-Fi credentials sent to device!');
+        }
+
+        function rebootDevice() {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ action: "reboot" }));
+            }
+            alert('Reboot command sent to AuraForge 50X.');
+        }
+
+        function resetDefaults() {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ action: "reset" }));
+            }
+            alert('Resetting NVS to factory defaults...');
+        }
+
+        window.onload = () => { initWS(); drawEqCanvas(); };
+    </script>
+</body>
+
+</html>

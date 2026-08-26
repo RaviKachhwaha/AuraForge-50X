@@ -1,16 +1,60 @@
-# AuraForge 50X — ESP32 DSP Audio Firmware
+# AuraForge 50X — Programmable 50W High-Fidelity Wireless DSP & CSI Radar Platform
 
-This directory contains the production firmware for the **AuraForge 50X** 50W audio computer platform. It configures the onboard ESP32-WROOM-32E module as a high-fidelity Bluetooth 4.2 A2DP audio sink featuring an active 3-band parametric Biquad IIR equalizer running on the Xtensa dual-core processor.
+[![KiCad 10](https://img.shields.io/badge/EDA-KiCad%2010.0-blue.svg)](https://kicad.org)
+[![PCB Layers](https://img.shields.io/badge/PCB%20Layers-4--Layer%20Stackup-orange.svg)]()
+[![DRC Status](https://img.shields.io/badge/DRC%20Status-Passed%20(0%20Errors)-brightgreen.svg)]()
+[![ESP32 Dual-Core](https://img.shields.io/badge/ESP32-240MHz%20Dual--Core-red.svg)](https://espressif.com)
+[![Wi-Fi CSI Radar](https://img.shields.io/badge/Wi--Fi%20CSI-RuView%2050Hz%20UDP-cyan.svg)]()
+[![Hack Club](https://img.shields.io/badge/Hack%20Club-Forge%20Grant-red.svg)](https://hackclub.com)
+
+**AuraForge 50X** is a programmable 4-layer audio computer, digital signal processing (DSP) station, and wireless sensing platform. Going far beyond standard single-purpose Bluetooth receiver boards, AuraForge 50X combines:
+1. **High-Power Class-D Audio Stage**: Texas Instruments **TPA3116D2** dual BTL stereo amplifier delivering up to $2 \times 50\text{W}$ into $4\Omega$ at $21\text{V}$.
+2. **Synchronous 10A Boost Power Converter**: Texas Instruments **TPS61088** boosting a single-cell 3.7V lithium battery up to 21.0V with anti-pop soft-start sequencing.
+3. **Advanced Digital Signal Processing (DSP)**: 10-Band Parametric Biquad IIR Equalizer, Dynamic Sub-Bass Psychoacoustic Harmonics, 3D Spatial Stereo Expander, and Dynamic Range Compressor (DRC).
+4. **Wi-Fi Channel State Information (CSI) Motion Sensing Radar**: 64-subcarrier spatial disturbance sensing engine streaming live at 50 Hz over UDP (Port 5000) directly to PC software (**RuView**, Python, MATLAB).
+5. **Cyberpunk Holographic Web Command Station**: Real-time bidirectional WebSocket telemetry bridge with 5 selectable sci-fi themes (`CYBER_CYAN`, `SOLAR_FLARE`, `MATRIX_NEON`, `VAPORWAVE_80S`, and `DEEP_SPACE`).
 
 ---
 
-## Key Firmware Capabilities
+## Technical Specifications
 
-* **Audio Sink:** Bluetooth 4.2 A2DP sink streaming at 44.1 kHz / 16-bit stereo.
-* **Real-Time DSP Engine:** Custom 3-band Biquad IIR filter cascade (Direct Form II Transposed) for independent Bass, Mid, and Treble manipulation without phase artifacts.
-* **Anti-Pop Power Sequencing:** Software-controlled delay assertion on the `PIN_AMP_SDZ` line to prevent audible switch-on transients ("thump") while the TPS61088 21V boost rail charges up.
-* **Hardware Fault Diagnostics:** Continuous monitoring of the TPA3116D2 active-low `FAULTZ` line for short circuits, DC offsets, or thermal overloads.
-* **Serial Command Line (CLI):** Real-time adjustment of DSP equalizer parameters over USB-UART without rebooting.
+| Parameter | Specification |
+| :--- | :--- |
+| **Main Processing Core** | Espressif ESP32-WROOM-32E (240 MHz Dual-Core Tensilica LX6, 4MB Flash, Wi-Fi & Classic BT) |
+| **Audio Power Stage** | Texas Instruments TPA3116D2 Dual BTL Class-D ($2 \times 50\text{W}$ into $4\Omega$ @ $21\text{V}$) |
+| **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR ($3.7\text{V} \rightarrow 21.0\text{V}$, up to $10\text{A}$ switch current) |
+| **Battery Fast Charging** | Injoinic IP2312 Synchronous Buck Converter ($3.0\text{A}$ CC/CV charging via USB-C) |
+| **Battery Protection Matrix** | Fortune Semi DW01A-G + FS8205A Dual N-MOSFET ($2.5\text{V}$ UVP, $4.3\text{V}$ OVP, $6\text{A}$ OCP) |
+| **Wi-Fi CSI Sensing** | 64-Subcarrier Channel State Information at 50Hz with UDP broadcast on port 5000 (RuView compatible) |
+| **DSP Equalizer** | 10-Band Direct Form II Transposed Biquad Cascade ($31\text{Hz}$ – $16\text{kHz}$, $\pm 12\text{dB}$ range) |
+| **USB-to-UART Bridge** | WCH CH340N with automatic DTR/RTS hardware bootloader circuit |
+| **Power Inputs** | Single-Cell 3.7V Li-ion/LiPo (via JST-XH) or External DC Barrel Jack ($12\text{V}$–$21\text{V}$) |
+| **Board Dimensions** | $100.0\text{ mm} \times 80.0\text{ mm}$ (4-Layer FR-4 Standard TG140, 1.6mm finished thickness) |
+
+---
+
+## Advanced Software & Firmware Capabilities
+
+### 1. 10-Band Parametric Biquad Equalizer & Psychoacoustic DSP
+- **Direct Form II Transposed Cascade**: 10 independent Biquad IIR filters calculated at 44.1 kHz sampling rate across $31\text{Hz}$, $62\text{Hz}$, $125\text{Hz}$, $250\text{Hz}$, $500\text{Hz}$, $1\text{kHz}$, $2\text{kHz}$, $4\text{kHz}$, $8\text{kHz}$, and $16\text{kHz}$.
+- **Dynamic Sub-Bass Harmonics**: Synthesizes psychoacoustic virtual lower harmonics to produce deep perceptual bass from compact speaker enclosures.
+- **3D Spatial Stereo Expander**: Phase-aligned stereo field widener ($0.0\times$ to $2.0\times$).
+- **Dynamic Range Compressor (DRC)**: Prevents clipping and thermal overdriving at high volume levels.
+
+### 2. Wi-Fi CSI Motion Sensing Radar & RuView 50Hz Live UDP Stream
+- **64-Subcarrier Extraction**: Captures raw Wi-Fi Channel State Information (CSI) PHY packets.
+- **Real-Time Spatial Disturbance Index**: Detects human movement, breathing, and presence through RF Doppler perturbation analysis.
+- **RuView / PC UDP Streaming Engine**: Streams raw CSI frames over UDP to Port `5000` on any destination PC for real-time visualization in **RuView**, Python, or MATLAB.
+
+### 3. Cyberpunk Web Command Station & Standalone PC Dashboard
+- **Standalone PC Browser Interface**: Open `preview_ui.html` or `http://localhost:8000` directly in any web browser without needing to upload heavy web assets to the ESP32 flash memory.
+- **Bidirectional WebSocket Device Bridge**: Connects live to the ESP32 board over WebSocket (`/ws`) to stream live hardware telemetry (`freeHeap`, `uptime`, `batteryVoltage`, amplifier state, 16-band audio spectrum, 64-subcarrier CSI radar).
+- **5 Selectable Sci-Fi Themes**:
+  - `CYBER_CYAN` (Electric Cyan, Violet, Hot Pink)
+  - `SOLAR_FLARE` (Sunburst Amber, Flame Orange, Crimson)
+  - `MATRIX_NEON` (Emerald Terminal, Toxic Lime, Laser Mint)
+  - `VAPORWAVE_80S` (Neon Magenta, Deep Purple, Aqua)
+  - `DEEP_SPACE` (Galactic Sapphire, Indigo, Nebula Violet)
 
 ---
 
@@ -24,62 +68,30 @@ This directory contains the production firmware for the **AuraForge 50X** 50W au
 | **Amp Fault Monitoring (`FAULTZ`)** | `GPIO 23` | TPA3116D2 Pin 3 (`FAULTZ`) |
 | **Status Indicator LED** | `GPIO 2` | Onboard blue/green activity LED |
 | **UART Flashing / Debug** | `GPIO 1` (TX), `GPIO 3` (RX) | WCH CH340N USB-to-UART Bridge |
-| **Boot Mode Selection** | `GPIO 0` (`IO0`) | Manual Tactile Switch `SW_BOOT1` |
-| **Hardware Reset** | `EN` (Reset) | Manual Tactile Switch `SW_RST1` |
 
 ---
 
-## Manual Bootloader & Flashing Procedure
+## Quick Start & Testing Guide
 
-Since the hardware utilizes direct manual pushbuttons for deterministic flashing control:
+### Option 1: Live PC Dashboard & Simulation (Zero-Hardware)
+1. Open [preview_ui.html](preview_ui.html) directly in Chrome, Edge, or Firefox (or visit `http://localhost:8000`).
+2. Test all 5 Cyberpunk themes, interactive 10-band EQ canvas, DRC compressor, signal generator, and RuView CSI radar export!
 
-1. Connect the AuraForge 50X board to your computer via USB Type-C.
-2. Put the ESP32 into ROM Bootloader Mode:
-   * **Press and hold** the **`BOOT`** button (`SW_BOOT1`).
-   * **Press and release** the **`RESET`** button (`SW_RST1`).
-   * **Release** the **`BOOT`** button (`SW_BOOT1`).
-3. Start the firmware upload in your IDE or terminal.
-4. Once the upload finishes (100%), press the **`RESET`** button (`SW_RST1`) once to boot into the audio firmware.
+### Option 2: Virtual Simulation in Wokwi (`wokwi_sim`)
+1. In VS Code, press `Ctrl + Shift + P` -> **`Wokwi: Start Simulator`**.
+2. Run the virtual ESP32 to test Wi-Fi AP (`AuraForge-50X-AP`), AsyncWebServer, DSP engine, and Serial CLI.
 
----
-
-## Building and Flashing
-
-### Method 1: Using PlatformIO (VS Code)
-
-1. Open VS Code and ensure the **PlatformIO IDE** extension is installed.
-2. Open the `firmware/` folder (`File -> Open Folder... -> firmware`).
-3. Connect the board via USB Type-C and put it in Bootloader mode using the button sequence above.
-4. Click the **PlatformIO: Build** icon (`✓`) to compile.
-5. Click the **PlatformIO: Upload** icon (`→`) to flash.
-6. Open the **Serial Monitor** at **115200 baud** to view system boot logs.
-
-### Method 2: PlatformIO Command Line (CLI)
-
-```bash
-cd firmware/
-
-# 1. Compile the firmware
-pio run
-
-# 2. Put board in bootloader mode (Hold BOOT -> Click RESET -> Release BOOT)
-
-# 3. Flash to board
-pio run --target upload
-
-# 4. Open serial terminal monitor
-pio device monitor -b 115200
-```
+### Option 3: Flash to Physical ESP32 Hardware (`auraforge_50x`)
+1. Connect the AuraForge 50X board via USB Type-C.
+2. Build and upload using PlatformIO:
+   ```bash
+   cd firmware/
+   pio run -e auraforge_50x -t upload
+   pio device monitor
+   ```
+3. Connect your smartphone to Bluetooth audio device **`AuraForge 50X`** or Wi-Fi AP **`AuraForge-50X-AP`** (`http://192.168.4.1`)!
 
 ---
 
-## Serial CLI Commands
-
-Connect over USB-C at **115200 baud** (using PlatformIO Monitor, PuTTY, or Arduino Serial Monitor) to send live runtime commands:
-
-| Command | Example | Description |
-| :--- | :--- | :--- |
-| `bass <dB>` | `bass 3.5` | Adjusts Low-Shelf filter boost/cut ($\pm 12.0\text{ dB}$) at $100\text{Hz}$ |
-| `mid <dB>` | `mid -1.0` | Adjusts Peaking EQ filter ($\pm 12.0\text{ dB}$) at $1.0\text{kHz}$ |
-| `treble <dB>` | `treble 2.0` | Adjusts High-Shelf filter ($\pm 12.0\text{ dB}$) at $8.0\text{kHz}$ |
-| `status` | `status` | Prints free heap memory, CPU frequency, active EQ gains, and amplifier status |
+## License & Credits
+Designed and engineered with passion by **Ravi Kachhwaha**. Released under the open-source **MIT License**.
