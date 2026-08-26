@@ -1,0 +1,184 @@
+ERC report (2026-08-26T15:09:20, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(41.91 mm, 148.59 mm): Symbol J3 Pin 5 [5, Unspecified, Line]
+    @(46.99 mm, 148.59 mm): Symbol #PWR055 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 123.19 mm): Symbol U1 Pin 1 [MODSEL, Unspecified, Line]
+    @(116.84 mm, 120.65 mm): Symbol #PWR037 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 140.97 mm): Symbol U1 Pin 8 [GAIN/SLV, Unspecified, Line]
+    @(118.11 mm, 140.97 mm): Symbol #PWR038 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 143.51 mm): Symbol U1 Pin 9 [GND, Unspecified, Line]
+    @(118.11 mm, 143.51 mm): Symbol #PWR039 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 151.13 mm): Symbol U1 Pin 12 [MUTE, Unspecified, Line]
+    @(118.11 mm, 151.13 mm): Symbol #PWR040 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 153.67 mm): Symbol U1 Pin 13 [AM2, Unspecified, Line]
+    @(118.11 mm, 153.67 mm): Symbol #PWR041 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 156.21 mm): Symbol U1 Pin 14 [AM1, Unspecified, Line]
+    @(118.11 mm, 156.21 mm): Symbol #PWR042 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 158.75 mm): Symbol U1 Pin 15 [AM0, Unspecified, Line]
+    @(118.11 mm, 158.75 mm): Symbol #PWR043 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(121.92 mm, 161.29 mm): Symbol U1 Pin 16 [SYNC, Unspecified, Line]
+    @(118.11 mm, 161.29 mm): Symbol #PWR044 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(124.46 mm, 38.10 mm): Symbol J6 Pin 1 [1, Unspecified, Line]
+    @(123.19 mm, 44.45 mm): Symbol #FLG01 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(152.40 mm, 133.35 mm): Symbol U1 Pin 28 [GND, Unspecified, Line]
+    @(165.10 mm, 118.11 mm): Symbol #PWR036 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(152.40 mm, 140.97 mm): Symbol U1 Pin 25 [GND, Unspecified, Line]
+    @(165.10 mm, 118.11 mm): Symbol #PWR036 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(152.40 mm, 148.59 mm): Symbol U1 Pin 22 [GND, Unspecified, Line]
+    @(172.72 mm, 167.64 mm): Symbol #PWR057 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(163.83 mm, 71.12 mm): Symbol U6 Pin 2 [S1, Unspecified, Line]
+    @(161.29 mm, 72.39 mm): Symbol #PWR062 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(163.83 mm, 73.66 mm): Symbol U6 Pin 3 [S1, Unspecified, Line]
+    @(161.29 mm, 72.39 mm): Symbol #PWR062 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(214.63 mm, 36.83 mm): Symbol J2 Pin 2 [2, Unspecified, Line]
+    @(215.90 mm, 36.83 mm): Symbol #PWR061 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(217.17 mm, 36.83 mm): Symbol J2 Pin 3 [3, Unspecified, Line]
+    @(215.90 mm, 36.83 mm): Symbol #PWR061 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(245.11 mm, 212.09 mm): Symbol U2 Pin 2 [EN, Unspecified, Line]
+    @(123.19 mm, 44.45 mm): Symbol #FLG01 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(245.11 mm, 229.87 mm): Symbol U2 Pin 9 [VIN, Unspecified, Line]
+    @(123.19 mm, 44.45 mm): Symbol #FLG01 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(262.89 mm, 196.85 mm): Symbol U2 Pin 21 [PGND, Unspecified, Line]
+    @(267.97 mm, 194.31 mm): Symbol #PWR031 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(265.43 mm, 196.85 mm): Symbol U2 Pin 20 [AGND, Unspecified, Line]
+    @(267.97 mm, 194.31 mm): Symbol #PWR031 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(267.97 mm, 116.84 mm): Symbol U4 Pin 1 [GND, Unspecified, Line]
+    @(265.43 mm, 111.76 mm): Symbol #PWR018 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(267.97 mm, 119.38 mm): Symbol U4 Pin 2 [3V3, Unspecified, Line]
+    @(345.44 mm, 222.25 mm): Symbol #FLG04 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(267.97 mm, 152.40 mm): Symbol U4 Pin 15 [GND, Unspecified, Line]
+    @(255.27 mm, 152.40 mm): Symbol #PWR019 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(275.59 mm, 227.33 mm): Symbol U2 Pin 13 [MODE, Unspecified, Line]
+    @(123.19 mm, 44.45 mm): Symbol #FLG01 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(283.21 mm, 109.22 mm): Symbol U4 Pin 39 [GND, Unspecified, Line]
+    @(283.21 mm, 109.22 mm): Symbol #PWR063 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(298.45 mm, 116.84 mm): Symbol U4 Pin 38 [GND, Unspecified, Line]
+    @(309.88 mm, 116.84 mm): Symbol #PWR020 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(299.72 mm, 33.02 mm): Symbol U3 Pin 9 [EP, Unspecified, Line]
+    @(303.53 mm, 29.21 mm): Symbol #PWR05 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(299.72 mm, 35.56 mm): Symbol U3 Pin 8 [VIN, Unspecified, Line]
+    @(351.79 mm, 34.29 mm): Symbol #FLG02 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(299.72 mm, 43.18 mm): Symbol U3 Pin 5 [BAT, Unspecified, Line]
+    @(123.19 mm, 44.45 mm): Symbol #FLG01 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(363.22 mm, 104.14 mm): Symbol U_UART1 Pin 3 [GND, Unspecified, Line]
+    @(354.33 mm, 104.14 mm): Symbol #PWR010 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(372.11 mm, 219.71 mm): Symbol U7 Pin 1 [GND, Unspecified, Line]
+    @(368.30 mm, 212.09 mm): Symbol #PWR014 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(372.11 mm, 222.25 mm): Symbol U7 Pin 2 [VOUT, Unspecified, Line]
+    @(345.44 mm, 222.25 mm): Symbol #FLG04 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(378.46 mm, 31.75 mm): Symbol J1 Pin A1B12 [GND, Unspecified, Line]
+    @(374.65 mm, 31.75 mm): Symbol #PWR01 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(378.46 mm, 34.29 mm): Symbol J1 Pin A4B9 [VBUS, Unspecified, Line]
+    @(351.79 mm, 34.29 mm): Symbol #FLG02 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(378.46 mm, 57.15 mm): Symbol J1 Pin B4A9 [VBUS, Unspecified, Line]
+    @(351.79 mm, 34.29 mm): Symbol #FLG02 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(378.46 mm, 59.69 mm): Symbol J1 Pin B1A12 [GND, Unspecified, Line]
+    @(372.11 mm, 59.69 mm): Symbol #PWR02 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(383.54 mm, 99.06 mm): Symbol U_UART1 Pin 8 [V3, Unspecified, Line]
+    @(345.44 mm, 222.25 mm): Symbol #FLG04 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power output are connected
+    ; warning
+    @(383.54 mm, 106.68 mm): Symbol U_UART1 Pin 5 [VCC, Unspecified, Line]
+    @(345.44 mm, 222.25 mm): Symbol #FLG04 Pin 1 [Power output, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(396.24 mm, 52.07 mm): Symbol J1 Pin 4 [EH, Unspecified, Line]
+    @(398.78 mm, 54.61 mm): Symbol #PWR052 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(396.24 mm, 54.61 mm): Symbol J1 Pin 3 [EH, Unspecified, Line]
+    @(398.78 mm, 54.61 mm): Symbol #PWR052 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(396.24 mm, 57.15 mm): Symbol J1 Pin 2 [EH, Unspecified, Line]
+    @(398.78 mm, 54.61 mm): Symbol #PWR052 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(396.24 mm, 59.69 mm): Symbol J1 Pin 1 [EH, Unspecified, Line]
+    @(396.24 mm, 60.96 mm): Symbol #PWR054 Pin 1 [Power input, Line]
+
+ ** ERC messages: 43  Errors 0  Warnings 43
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

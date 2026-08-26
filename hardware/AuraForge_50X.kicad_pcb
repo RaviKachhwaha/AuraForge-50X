@@ -123,18 +123,18 @@
 			(dxfusepcbnewfont yes)
 			(psnegative no)
 			(psa4output no)
-			(plot_black_and_white no)
+			(plot_black_and_white yes)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
 			(sketchdnponfab yes)
 			(crossoutdnponfab yes)
 			(subtractmaskfromsilk no)
-			(outputformat 5)
+			(outputformat 1)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "production/gerbers/")
+			(outputdirectory "gerbers/")
 		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
@@ -12003,7 +12003,7 @@
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/libraries/easyeda2kicad.3dshapes/DC-IN-TH_PJ-002AH.step"
 			(offset
-				(xyz 4.75 -2.25 12)
+				(xyz 4.75 -2.25 11)
 			)
 			(scale
 				(xyz 1 1 1)

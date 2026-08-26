@@ -790,7 +790,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "production/gerbers/",
+      "plot": "gerbers/",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
