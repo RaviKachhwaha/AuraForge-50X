@@ -1,46 +1,46 @@
-Reference,Qty,Value,Exclude from BOM,Exclude from Board,Exclude from Simulation,Exclude from Position Files,Footprint,Datasheet,Manufacturer,MPN,LCSC Part
-C1,1,10uF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0805_2012Metric,,Samsung,CL21A106KAYNNNE,
-"C2, C9, C10",3,22uF 10V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0805_2012Metric,,Samsung,CL21A226MPCLRNC,
-"C3, C7, C8, C37",4,100nF 16V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R7BB104,
-C4,1,10uF 16V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0805_2012Metric,,Samsung,CL21A106KOQNNNE,
-C5,1,22uF 6.3V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0805_2012Metric,,Samsung,CL21A226MQQNNNE,
-C6,1,10uF 10V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0805_2012Metric,,Murata,GRM21BR61A106KE19L,
-"C11, C24, C25, C26, C27, C28",6,1uF 16V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R7BB105,
-C12,1,100nF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R8BB104,
-C13,1,10nF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R8BB103,
-C14,1,2.2nF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R8BB222,
-"C15, C16, C17",3,22uF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_1206_3216Metric,,Samsung,CL31A226KAHNNNE,
-C18,1,220uF 25V Radial 8x10.5,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:CP_Elec_8x10.5,,Panasonic,EEE-FK1E221P,
-"C19, C20, C21, C22, C23",5,1uF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R8BB105,
-"C29, C30, C31, C32",4,0.22uF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0603_1608Metric,,Yageo,CC0603KRX7R8BB224,
-"C33, C34, C35, C36",4,0.68uF 25V,,,,${EXCLUDE_FROM_POS_FILES},Capacitor_SMD:C_0805_2012Metric,,Yageo,CC0805KKX7R9BB684,
-"D1, D2, D3",3,SS34 (3A 40V),,,,${EXCLUDE_FROM_POS_FILES},Diode_SMD:D_SMA,,MDD,SS34,
-J1,1,TYPE-C-31-M-12,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:USB-C_SMD-TYPE-C-31-M-12_1,https://lcsc.com/product-detail/USB-Type-C_Korean-Hroparts-Elec-TYPE-C-31-M-12_C165948.html,Korean Hroparts,TYPE-C-31-M-12,C165948
-J2,1,PJ-002AH,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:DC-IN-TH_PJ-002AH,https://www.lcsc.com/datasheet/C2961147.pdf,CUI Devices,PJ-002AH,C2961147
-J3,1,PJ-320A,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:AUDIO-TH_XKB_PJ-320A,https://www.lcsc.com/datasheet/C2884926.pdf,XKB Enterprise,PJ-320A,C2884926
-"J4, J5",2,Speaker_Terminal,,,,${EXCLUDE_FROM_POS_FILES},"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal",,Phoenix Contact,1715721,
-J6,1,B2B-XH-A,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:CONN-TH_B2B-XH-A-LF-SN,https://lcsc.com/product-detail/XH-Connectors_JST_B2B-XH-A-LF-SN_XHsocket-1-2P-pitch2-5mm_C158012.html,JST,B2B-XH-A(LF)(SN),C158012
-L1,1,2.2uH 6.5A,,,,${EXCLUDE_FROM_POS_FILES},Inductor_SMD:L_7.3x7.3_H4.5,,Sunlord,MWSA0603S-2R2MT,
-L2,1,2.2uH 10.0A,,,,${EXCLUDE_FROM_POS_FILES},Inductor_SMD:L_10.4x10.4_H4.8,,Wurth Elektronik,7443340220,
-"L3, L4, L5, L6",4,10uH 3.8A,,,,${EXCLUDE_FROM_POS_FILES},Inductor_SMD:L_Taiyo-Yuden_NR-80xx,,Taiyo Yuden,NRS8040T100MJGJ,
-LED1,1,Red LED (Charge),,,,${EXCLUDE_FROM_POS_FILES},LED_SMD:LED_0603_1608Metric,,Kingbright,APT1608SURCK,
-LED2,1,Green LED (Done),,,,${EXCLUDE_FROM_POS_FILES},LED_SMD:LED_0603_1608Metric,,Kingbright,APT1608ZGC,
-"R1, R2",2,5.1k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-075K1L,
-R3,1,45.3k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-0745K3L,
-R4,1,51k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-0751KL,
-"R5, R6, R17, R18",4,1k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-071KL,
-"R7, R8, R10, R11",4,10k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-0710KL,
-R9,1,165k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-07165KL,
-"R12, R14, R15",3,100k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-07100KL,
-R13,1,120k 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-07120KL,
-R16,1,100R 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-07100RL,
-R19,1,10R 1%,,,,${EXCLUDE_FROM_POS_FILES},Resistor_SMD:R_0603_1608Metric,,Yageo,RC0603FR-0710RL,
-"SW_BOOT1, SW_RST1",2,SMT Tact Switch,,,,${EXCLUDE_FROM_POS_FILES},Button_Switch_SMD:SW_SPST_PTS645Sx43SMTR92,,C&K,PTS645SL43SMTR92LFS,
-U1,1,TPA3116D2 50W Amp,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:HTSSOP-32_L11.0-W6.1-P0.65-LS8.1-BL,https://lcsc.com/product-detail/Audio-OpAmps_TI_TPA3116D2DAD_TPA3116D2DAD_C50144.html,Texas Instruments,TPA3116D2DADR,C50144
-U2,1,TPS61088 10A Boost,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:VQFN-20_L4.6-W3.6-P0.50-BL,https://lcsc.com/product-detail/DC-DC-Converters_TI_TPS61088RHLR_TPS61088RHLR_C87357.html,Texas Instruments,TPS61088RHLR,C87357
-U3,1,IP2312 3A Charger,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:ESOP-8_L4.9-W3.9-P1.27-LS6.0-BL-EP,https://www.lcsc.com/datasheet/C605433.pdf,Injoinic,IP2312,C605433
-U4,1,ESP32-WROOM-32E,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:WIFI-SMD_ESP32-WROOM-32E,https://lcsc.com/product-detail/WIFI-Modules_Espressif-Systems-ESP32-WROOM-32E-4MB_C701341.html,Espressif Systems,ESP32-WROOM-32E-N4,C701341
-U5,1,Battery Protection,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR,https://lcsc.com/product-detail/Battery-Protection-ICs_DW01A-G_C61503.html,Fortune Semi,DW01A-G,C61503
-U6,1,Dual N-MOSFET,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:TSSOP-8_L4.4-W3.0-P0.65-LS6.4-BL-2,https://lcsc.com/product-detail/MOSFET_FS8205A_C16052.html,Fortune Semi,FS8205A,C16052
-U7,1,3.3V 1A LDO,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:SOT-223-3_L6.5-W3.4-P2.30-LS7.0-BR,https://lcsc.com/product-detail/Low-Dropout-Regulators-LDO_AMS_AMS1117-3-3_AMS1117-3-3_C6186.html,AMS,AMS1117-3.3,C6186
-U_UART1,1,USB-to-UART Bridge,,,,${EXCLUDE_FROM_POS_FILES},easyeda2kicad:SOP-8_L4.9-W3.9-P1.27-LS6.0-BL,https://www.lcsc.com/datasheet/C2977777.pdf,WCH,CH340N,C2977777
+Reference,Qty,Value,Manufacturer,MPN,Supplier,Unit_INR,Unit_USD,BOM_Total_INR,BOM_Total_USD,Price_Status,Source_Link
+C1,1,10uF 25V,Samsung,CL21A106KAYNNNE,DigiKey,14.91,0.156326,14.91,0.156326,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/samsung-electro-mechanics/CL21A106KAYNNNE/3888549
+C2,3,22uF 10V,Samsung,CL21A226MPCLRNC,DigiKey,23.63,0.247752,70.89,0.743256,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/samsung-electro-mechanics/CL21A226MPCLRNC/3888574
+"C3,C7,C8,C37",4,100nF 16V,Yageo,CC0603KRX7R7BB104,DigiKey,9.56,0.100233,38.24,0.400932,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R7BB104/302981
+C4,1,10uF 16V,Samsung,CL21A106KOQNNNE,DigiKey,10.25,0.107468,10.25,0.107468,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/samsung-electro-mechanics/CL21A106KOQNNNE/3888550
+C5,1,22uF 6.3V,Samsung,CL21A226MQQNNNE,DigiKey,13.23,0.138712,13.23,0.138712,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/samsung-electro-mechanics/CL21A226MQQNNNE/3888575
+C6,1,10uF 10V,Murata,GRM21BR61A106KE19L,element14 India,6.53,0.068465,6.53,0.068465,VERIFIED DISTRIBUTOR / MPN MATCH,https://in.element14.com/murata/grm21br61a106ke19l/cap-mlcc-10uf-10vdc-x5r-0805/dp/4740627
+"C11,C24,C25,C26,C27,C28",6,1uF 16V,Yageo,CC0603KRX7R7BB105,DigiKey,9.56,0.100233,57.36,0.601398,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R7BB105/302982
+C12,1,100nF 25V,Yageo,CC0603KRX7R8BB104,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R8BB104/2103079
+C13,1,10nF 25V,Yageo,CC0603KRX7R8BB103,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R8BB103/302986
+C14,1,2.2nF 25V,Yageo,CC0603KRX7R8BB222,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R8BB222/2103080
+"C15,C16,C17",3,22uF 25V,Samsung,CL31A226KAHNNNE,DigiKey,36.31,0.380698,108.93,1.142094,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/samsung-electro-mechanics/CL31A226KAHNNNE/3888701
+C18,1,220uF 25V Radial 8x10.5,Panasonic,EEE-FK1E221P,DigiKey,84.11,0.881864,84.11,0.881864,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/panasonic-electronic-components/EEE-FK1E221P/766299
+"C19,C20,C21,C22,C23",5,1uF 25V,Yageo,CC0603KRX7R8BB105,DigiKey,9.56,0.100233,47.8,0.501165,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R8BB105/2103082
+"C29,C30,C31,C32",4,0.22uF 25V,Yageo,CC0603KRX7R8BB224,DigiKey,9.56,0.100233,38.24,0.400932,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0603KRX7R8BB224/2103083
+"C33,C34,C35,C36",4,0.68uF 25V,Yageo,CC0805KKX7R9BB684,DigiKey,19.57,0.205185,78.28,0.82074,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/CC0805KKX7R9BB684/2103138
+"D1,D2,D3",3,SS34 3A 40V,MDD,SS34,DigiKey Marketplace,20.7152,0.217192,62.1456,0.651576,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/micro-commercial-co/SS34-TP/725354
+J1,1,TYPE-C-31-M-12,Korean Hroparts,TYPE-C-31-M-12,Rare Components,5.9,0.061859,5.9,0.061859,VERIFIED DISTRIBUTOR / MPN MATCH,https://lcsc.com/product-detail/USB-Type-C_Korean-Hroparts-Elec-TYPE-C-31-M-12_C165948.html
+J2,1,PJ-002AH,CUI Devices / Same Sky,PJ-002AH,DigiKey,66.16,0.693665,66.16,0.693665,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/same-sky-formerly-cui-devices/PJ-002AH/408446
+J3,1,PJ-320A,XKB,PJ-320A,LCSC (MPN matched),7.077,0.0742,7.077,0.0742,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.lcsc.com/product-detail/Audio-Connectors_XKB-Enterprise-PJ-320A_C2884926.html
+"J4,J5",2,Speaker Terminal,Phoenix Contact,1715721,DigiKey,110.84,1.162119,221.68,2.324238,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/phoenix-contact/1715721/260631
+J6,1,B2B-XH-A,JST,B2B-XH-A(LF)(SN),Mouser India,9.32,0.097717,9.32,0.097717,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.mouser.in/en/ProductDetail/JST-Commercial/B2B-XH-ALFSN
+L1,1,2.2uH 6.5A,Sunlord,MWSA0603S-2R2MT,DigiKey,93.64,0.981783,93.64,0.981783,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/shenzhen-sunlord-electronics-co-ltd/MWSA0603S-2R2MT/14120106
+L2,1,2.2uH 10.0A,Wurth Elektronik,7443340220,DigiKey,202.25,2.120521,202.25,2.120521,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/w%C3%BCrth-elektronik/7443340220/1908865
+"L3,L4,L5,L6",4,10uH 3.8A,Taiyo Yuden,NRS8040T100MJGJ,DigiKey,40.26,0.422112,161.04,1.688448,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/taiyo-yuden/NRS8040T100MJGJ/2666010
+LED1,1,Red LED (Charge),Kingbright,APT1608SURCK,DigiKey,20.07,0.210427,20.07,0.210427,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/kingbright/APT1608SURCK/754-1127-1-ND/1747844
+LED2,1,Green LED (Done),Kingbright,APT1608ZGC,DigiKey,57.31,0.600875,57.31,0.600875,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/kingbright/APT1608ZGC/754-1126-1-ND/1747843
+"R1,R2",2,5.1k 1%,Yageo,RC0603FR-075K1L,DigiKey,9.56,0.100233,19.12,0.200466,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-075K1L/727268
+R3,1,45.3k 1%,Yageo,RC0603FR-0745K3L,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-0745K3L/727216
+R4,1,51k 1%,Yageo,RC0603FR-0751KL,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-0751KL/727263
+"R5,R6,R17,R18",4,1k 1%,Yageo,RC0603FR-071KL,DigiKey,9.56,0.100233,38.24,0.400932,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-071KL/726881
+"R7,R8,R10,R11",4,10k 1%,Yageo,RC0603FR-0710KL,DigiKey,9.56,0.100233,38.24,0.400932,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-0710KL/726880
+R9,1,165k 1%,Yageo,RC0603FR-07165KL,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07165KL/726978
+"R12,R14,R15",3,100k 1%,Yageo,RC0603FR-07100KL,DigiKey,9.56,0.100233,28.68,0.300699,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889
+R13,1,120k 1%,Yageo,RC0603FR-07120KL,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07120KL/726921
+R16,1,100R 1%,Yageo,RC0603FR-07100RL,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100RL/726888
+R19,1,10R 1%,Yageo,RC0603FR-0710RL,DigiKey,9.56,0.100233,9.56,0.100233,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/yageo/RC0603FR-0710RL/726890
+"SW_BOOT1,SW_RST1",2,SMT Tact Switch,C&K,PTS645SL43SMTR92LFS,LionCircuits,36.6,0.383738,73.2,0.767476,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/c-k/PTS645SL43SMTR92LFS/417678
+U1,1,TPA3116D2 50W Amp,Texas Instruments,TPA3116D2DADR,DigiKey,304.8,3.195722,304.8,3.195722,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/texas-instruments/TPA3116D2DADR/3305528
+U2,1,TPS61088 10A Boost,Texas Instruments,TPS61088RHLR,DigiKey,261.81,2.744987,261.81,2.744987,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/texas-instruments/TPS61088RHLR/5253864
+U3,1,IP2312 3A Charger,Injoinic,IP2312-4V35,LCSC (MPN matched),31.7035,0.3324,31.7035,0.3324,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.lcsc.com/product-detail/battery-management_injoinic-ip2312-4v35_C605433.html
+U4,1,ESP32-WROOM-32E,Espressif,ESP32-WROOM-32E-N4,DigiKey,476.79,4.998978,476.79,4.998978,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.digikey.in/en/products/detail/espressif-systems/ESP32-WROOM-32E-N4/11685954
+U5,1,Battery Protection,Fortune Semi,DW01A-G,LCSC / DigiKey,19.5,0.2045,19.5,0.2045,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.lcsc.com/product-detail/Battery-Protection-ICs_Fortune-Semicon-DW01A-G_C61503.html
+U6,1,Dual N-MOSFET,Fortune Semi,FS8205A,DigiKey Marketplace / LCSC,62.11,0.6512,62.11,0.6512,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.lcsc.com/product-detail/MOSFETs_Fortune-Semicon-FS8205A_C16052.html
+U7,1,3.3V 1A LDO,AMS,AMS1117-3.3,DigiKey / LCSC,18.5,0.194,18.5,0.194,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.lcsc.com/product-detail/Linear-Voltage-Regulators-LDO_AMS-AMS1117-3-3_C6186.html
+UART1,1,USB-to-UART Bridge,WCH,CH340N,LCSC (MPN matched),64.7613,0.679,64.7613,0.679,VERIFIED DISTRIBUTOR / MPN MATCH,https://www.lcsc.com/product-detail/usb-converters_wch-jiangsu-qin-heng-ch340n_C2977777.html
