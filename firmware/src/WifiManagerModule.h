@@ -23,7 +23,7 @@ public:
     // Wi-Fi Controls
     bool connectStation(const char* ssid, const char* pass, bool staticIp = false, const char* ip = "", const char* gw = "", const char* sub = "");
     void startAccessPoint(const char* apSsid, const char* apPass);
-    
+
     // Wi-Fi Site Survey Scanner
     String scanNetworksJson();
 

@@ -25,7 +25,7 @@ void WifiManagerModule::begin(const SystemConfig& config) {
     if (strlen(config.wifiStaSsid) > 0) {
         connectStation(config.wifiStaSsid, config.wifiStaPass, config.useStaticIp, config.staticIp, config.staticGateway, config.staticSubnet);
     }
-
+    
     setupMdns(config.mdnsHost);
 }
 
