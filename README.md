@@ -69,6 +69,8 @@ The total cost is structured into three direct expense categories as quoted on *
 
 *(The total project budget of **$165.85 USD** fits within the **$155 – $175 USD** target funding range).*
 
+> **Note on Component Sourcing Cost:** The component sourcing amount in the turnkey budget table above is an estimate. On **pcbpower.com**, exact component prices are confirmed by their engineering/sourcing team after placing the order during BOM review. For verified itemized per-component costs, manufacturer part numbers (MPNs), and direct distributor sourcing links, refer to the [Bill of Materials (BOM)](#bill-of-materials-bom) table below and the dedicated `bom.csv` file.
+
 ---
 
 ## 4-Layer PCB Stackup Architecture
