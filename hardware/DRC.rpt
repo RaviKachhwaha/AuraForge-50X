@@ -1,8 +1,19 @@
 ** Drc report for AuraForge_50X.kicad_pcb **
-** Created on 2026-08-26T15:06:11 **
+** Created on 2026-08-29T15:14:33 **
 ** Report includes: Errors, Warnings **
 
-** Found 13 DRC violations **
+** Found 16 DRC violations **
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(21.0000 mm, 33.0000 mm): Track [/ESP_EN] on B.Cu, length 1.4142 mm
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
+    @(17.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
+    @(35.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
