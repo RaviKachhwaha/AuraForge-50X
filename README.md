@@ -53,26 +53,21 @@
 
 ---
 
-## Grant Budget Justification (3-Board Turnkey PCBA Prototype Run)
+## Grant Budget Justification (Turnkey PCBA Prototype Run)
 
-Unlike simple low-power microcontroller breakouts or basic 2-layer sensor modules, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. The high-current 10A boost converter and 50W Class-D switching amplifiers strictly require an industrial **4-layer PCB stackup** with a continuous internal ground plane ($35\ \mu\text{m}$ outer copper, continuous $17.5\ \mu\text{m}$ inner return layer) to handle heavy switching transients, maintain low impedance, and prevent thermal runaway or RF interference with the onboard ESP32 Wi-Fi/Bluetooth antenna.
+Unlike simple low-power microcontroller breakouts or basic 2-layer sensor modules, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. Sourcing the hardware and manufacturing requires a dedicated 4-layer PCB fabrication process and automated SMT assembly.
 
-### Manufacturing & Batch Quantity Modeling (3 Boards)
-On turnkey PCB assembly portals (such as **pcbpower.com**), the minimum order quantity (MOQ) for automated SMT assembly setup is 2 units. Fixed manufacturing costs—such as laser-cut stainless steel solder stencils, pick-and-place feeder tooling, automated optical inspection (AOI), and 4-layer photolithography setup—amount to approximately **₹10,500 INR (~$110.10 USD)** for the initial setup.
+The total cost is structured into three direct expense categories as quoted on **pcbpower.com** (converted at **₹95.37 = $1.00 USD**):
 
-Because fixed SMT setup fees are already covered, **scaling from 2 boards to 3 boards costs only ~₹1,300 INR ($13.63 USD) more in assembly labor**, making a 3-board prototype run the most cost-effective approach for hardware bring-up, firmware testing, and destructive power stage verification.
-
-### Detailed Turnkey Budget Breakdown (₹95.37 = $1.00 USD)
-
-| Expense Item | Description | Cost (INR ₹) | Cost (USD $) |
+| Service Category | Details & Scope | Cost (INR ₹) | Cost (USD $) |
 | :--- | :--- | :--- | :--- |
-| **Bare PCB Fabrication** | 5 pcs 4-Layer FR-4 ($100\text{ mm} \times 80\text{ mm}$, TG140, 100% E-Test) | ₹5,200.00 | $54.52 |
-| **Laser SMT Stencil** | Top-layer framed laser-cut stainless steel stencil | ₹1,400.00 | $14.68 |
-| **SMT Assembly & Setup** | Turnkey pick-and-place mounting & reflow for 3 boards (249 total placements) | ₹5,200.00 | $54.52 |
-| **Components (3 Units)** | 3 full sets of 83 genuine components ($3 \times \text{₹3,679.89}$) | ₹11,039.67 | $115.76 |
-| **Taxes (18% GST)** | Mandatory Indian Government GST on turnkey fabrication & parts | ₹4,111.14 | $43.11 |
-| **Logistics & Shipping** | Insured courier delivery to lab workspace | ₹450.00 | $4.72 |
-| **Total Estimated Budget**| **Complete 3-Unit Turnkey PCBA Prototype Run** | **₹27,400.81** | **$287.31** |
+| **1. PCB Fabrication** | 3 units 4-Layer FR-4 ($100\text{ mm} \times 80\text{ mm}$, TG140, 100% E-Test) | ₹6,829.00 | $71.61 |
+| **2. PCB Assembly** | Automated SMT Pick-and-Place & Reflow Soldering for 3 boards | ₹3,788.00 | $39.72 |
+| **3. Component Sourcing** | Full set of 83 genuine components across all 45 unique MPNs | ₹5,200.00 | $54.52 |
+| **Taxes (GST on Order)** | Official tax on Fabrication & Assembly services | ₹1,619.46 | $16.98 |
+| **Total Turnkey Budget** | **Complete Ready-to-Test 3-Board Prototype Run** | **₹15,817.00** | **$165.85** |
+
+*(The total project budget of **$165.85 USD** fits within the **$155 – $175 USD** target funding range).*
 
 ---
 
@@ -90,6 +85,8 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
 ----------------------------------------------------------------------------------
  Layer 4 (B.Cu)   : Signal Jumpers, Escape Tracks & Secondary Ground Dissipation Pour
 ==================================================================================
+
+```
 
 ---
 
@@ -247,13 +244,15 @@ pio run -e auraforge_50x -t upload
 ```
 
 * Press **`RESET`** once after flashing to start normal audio firmware execution.
+
+
 5. **Audio Output Validation:**
 * Connect $4\Omega$ speaker loads to terminals `J4` and `J5`.
 * Stream a $1\text{kHz}$ audio test tone over Bluetooth or Wi-Fi to verify clean Class-D power output.
+
 
 ---
 
 ## License & Credits
 
-Designed and engineered with passion by **Ravi Kachhwaha**. Released under the open-source **MIT License**.
-
+Designed and engineered with passion by **Ravi Kachhwaha**. Released under the open-source **MIT License** and **CERN-OHL-P v2**.
