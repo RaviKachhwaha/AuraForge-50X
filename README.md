@@ -97,7 +97,7 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
 
 ```text
                     +--------------------------------------------+
-                    |              USB Type-C (J1)               |
+                    |               USB Type-C (J1)              |
                     +---------+------------------------+---------+
                               | 5V VBUS                | USB D+ / D-
                               v                        v
@@ -108,11 +108,11 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
                               |                        | TX / RX (UART)
                               v                        v
 +----------------+  +-------------------+    +-------------------+  <-- SW_BOOT1 (IO0)
-| 3.7V Li-ion    |->|  DW01A + FS8205A  |    | ESP32-WROOM-32E   |  <-- SW_RST1  (EN)
-| Battery (J6)   |  |  Protection (U5/6)|    | MCU & DSP Core(U4)|
+| 3.7V Li-ion    |->|   DW01 + FS8205A  |    | ESP32-WROOM-32E   |  <-- SW_RST1  (EN)
+| Battery (J6)   |  | Protection (U5/U6)|    | MCU & DSP Core(U4)|
 +----------------+  +---------+---------+    +---------+---------+
                               |                        |
-                              +-------> +BAT_3V7 ------+ (via AMS1117 3.3V)
+                              +-------> +BAT_3V7 ------+ (via NCP1117 3.3V)
                                            |           | I2S / DAC Audio
                                            v           v
                                     +--------------+   |
@@ -127,86 +127,133 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
                                     +----+----------+----+
                                          |          |
                                          v          v
-                                    Speaker L  Speaker R
+                                     Speaker L  Speaker R
                                        (J4)       (J5)
+
 ```
+
+---
+
+## Advanced Software & Firmware Capabilities
+
+### 1. 10-Band Parametric Biquad Equalizer & Psychoacoustic DSP
+
+* **Direct Form II Transposed Cascade**: 10 independent Biquad IIR filters calculated at 44.1 kHz sampling rate across $31\text{Hz}$, $62\text{Hz}$, $125\text{Hz}$, $250\text{Hz}$, $500\text{Hz}$, $1\text{kHz}$, $2\text{kHz}$, $4\text{kHz}$, $8\text{kHz}$, and $16\text{kHz}$.
+* **Dynamic Sub-Bass Harmonics**: Synthesizes psychoacoustic virtual lower harmonics to produce deep perceptual bass from compact speaker enclosures.
+* **3D Spatial Stereo Expander**: Phase-aligned stereo field widener ($0.0\times$ to $2.0\times$).
+* **Dynamic Range Compressor (DRC)**: Prevents clipping and thermal overdriving at high volume levels.
+
+### 2. Wi-Fi CSI Motion Sensing Radar & RuView 50Hz Live UDP Stream
+
+* **64-Subcarrier Extraction**: Captures raw Wi-Fi Channel State Information (CSI) PHY packets.
+* **Real-Time Spatial Disturbance Index**: Detects human movement, breathing, and presence through RF Doppler perturbation analysis.
+* **RuView / PC UDP Streaming Engine**: Streams raw CSI frames over UDP to Port `5000` on any destination PC for real-time visualization in **RuView**, Python, or MATLAB.
+
+### 3. Cyberpunk Web Command Station & Standalone PC Dashboard
+
+* **Standalone PC Browser Interface**: Open `preview_ui.html` or `http://localhost:8000` directly in any web browser without needing to upload heavy web assets to the ESP32 flash memory.
+* **Bidirectional WebSocket Device Bridge**: Connects live to the ESP32 board over WebSocket (`/ws`) to stream live hardware telemetry (`freeHeap`, `uptime`, `batteryVoltage`, amplifier state, 16-band audio spectrum, 64-subcarrier CSI radar).
+* **5 Selectable Sci-Fi Themes**: `CYBER_CYAN`, `SOLAR_FLARE`, `MATRIX_NEON`, `VAPORWAVE_80S`, and `DEEP_SPACE`.
 
 ---
 
 ## Bill of Materials (BOM)
 
-The board consists of **83 total components** consolidated into **45 unique manufacturer part numbers (MPNs)**:
+The board consists of **83 total components** consolidated into **45 unique manufacturer part numbers (MPNs)**.
+All pricing is based on live distributor catalog rates (DigiKey & LCSC) converted at **₹95.37 = $1.00 USD**.
 
-| Designator | Qty | Value | Package / Footprint | Manufacturer | Manufacturer Part Number (MPN) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `C1` | 1 | 10uF 25V | 0805 | Samsung | `CL21A106KAYNNNE` |
-| `C2, C9, C10` | 3 | 22uF 10V | 0805 | Samsung | `CL21A226MPCLRNC` |
-| `C3, C7, C8, C37` | 4 | 100nF 16V | 0603 | Yageo | `CC0603KRX7R7BB104` |
-| `C4` | 1 | 10uF 16V | 0805 | Samsung | `CL21A106KOQNNNE` |
-| `C5` | 1 | 22uF 6.3V | 0805 | Samsung | `CL21A226MQQNNNE` |
-| `C6` | 1 | 10uF 10V | 0805 | Murata | `GRM21BR61A106KE19L` |
-| `C11, C24-C28` | 6 | 1uF 16V | 0603 | Yageo | `CC0603KRX7R7BB105` |
-| `C12` | 1 | 100nF 25V | 0603 | Yageo | `CC0603KRX7R8BB104` |
-| `C13` | 1 | 10nF 25V | 0603 | Yageo | `CC0603KRX7R8BB103` |
-| `C14` | 1 | 2.2nF 25V | 0603 | Yageo | `CC0603KRX7R8BB222` |
-| `C15, C16, C17` | 3 | 22uF 25V | 1206 | Samsung | `CL31A226KAHNNNE` |
-| `C18` | 1 | 220uF 25V | Radial 8x10.5 | Panasonic | `EEE-FK1E221P` |
-| `C19-C23` | 5 | 1uF 25V | 0603 | Yageo | `CC0603KRX7R8BB105` |
-| `C29-C32` | 4 | 0.22uF 25V | 0603 | Yageo | `CC0603KRX7R8BB224` |
-| `C33-C36` | 4 | 0.68uF 25V | 0805 | Yageo | `CC0805KKX7R9BB684` |
-| `D1, D2, D3` | 3 | SS34 (3A 40V) | SMA (DO-214AC) | MDD | `SS34` |
-| `J1` | 1 | Type-C 16-Pin | SMD + PTH Tabs | Korean Hroparts | `TYPE-C-31-M-12` |
-| `J2` | 1 | DC Jack 5.5x2.1mm | PTH | CUI Devices | `PJ-002AH` |
-| `J3` | 1 | 3.5mm Stereo Jack | PTH | XKB Enterprise | `PJ-320A` |
-| `J4, J5` | 2 | 2-Pin Screw Terminal | 5.08mm PTH | Phoenix Contact | `1715721` |
-| `J6` | 1 | JST-XH 2-Pin 2.5mm | PTH | JST | `B2B-XH-A(LF)(SN)` |
-| `L1` | 1 | 2.2uH 6.5A | SMD 7.3x7.3 | Sunlord | `MWSA0603S-2R2MT` |
-| `L2` | 1 | 2.2uH 10.0A | SMD 10.4x10.4 | Wurth Elektronik | `7443340220` |
-| `L3, L4, L5, L6` | 4 | 10uH 3.8A | SMD 8.0x8.0 | Taiyo Yuden | `NRS8040T100MJGJ` |
-| `LED1` | 1 | Red LED (Charge) | 0603 | Kingbright | `APT1608SURCK` |
-| `LED2` | 1 | Green LED (Done) | 0603 | Kingbright | `APT1608ZGC` |
-| `R1, R2` | 2 | 5.1k 1% | 0603 | Yageo | `RC0603FR-075K1L` |
-| `R3` | 1 | 45.3k 1% | 0603 | Yageo | `RC0603FR-0745K3L` |
-| `R4` | 1 | 51k 1% | 0603 | Yageo | `RC0603FR-0751KL` |
-| `R5, R6, R17, R18` | 4 | 1k 1% | 0603 | Yageo | `RC0603FR-071KL` |
-| `R7, R8, R10, R11` | 4 | 10k 1% | 0603 | Yageo | `RC0603FR-0710KL` |
-| `R9` | 1 | 165k 1% | 0603 | Yageo | `RC0603FR-07165KL` |
-| `R12, R14, R15` | 3 | 100k 1% | 0603 | Yageo | `RC0603FR-07100KL` |
-| `R13` | 1 | 120k 1% | 0603 | Yageo | `RC0603FR-07120KL` |
-| `R16` | 1 | 100R 1% | 0603 | Yageo | `RC0603FR-07100RL` |
-| `R19` | 1 | 10R 1% | 0603 | Yageo | `RC0603FR-0710RL` |
-| `SW_BOOT1, SW_RST1`| 2 | SMT Tact Switch | SMD 6.0x3.5 | C&K | `PTS645SL43SMTR92LFS` |
-| `U1` | 1 | TPA3116D2 50W Amp | HTSSOP-32 | Texas Instruments | `TPA3116D2DADR` |
-| `U2` | 1 | TPS61088 10A Boost | VQFN-20 | Texas Instruments | `TPS61088RHLR` |
-| `U3` | 1 | IP2312 3A Charger | ESOP-8 | Injoinic | `IP2312` |
-| `U4` | 1 | ESP32-WROOM-32E | Module | Espressif Systems | `ESP32-WROOM-32E-N4` |
-| `U5` | 1 | Battery Protection | SOT-23-6 | Fortune Semi | `DW01A-G` |
-| `U6` | 1 | Dual N-MOSFET | TSSOP-8 | Fortune Semi | `FS8205A` |
-| `U7` | 1 | 3.3V 1A LDO | SOT-223 | AMS | `AMS1117-3.3` |
-| `U_UART1` | 1 | USB-to-UART Bridge | SOP-8 | WCH | `CH340N` |
+| Reference | Qty (1x) | Qty (3x) | Value | Package / Footprint | Manufacturer | Manufacturer Part Number (MPN) | Unit Price (1x) | Total Price (3x) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `C1` | 1 | 3 | 10uF 25V | 0805 | TDK | `C2012X7S1E106K125AC` | ₹56.37 ($0.59) | ₹169.11 ($1.77) |
+| `C2, C9, C10` | 3 | 9 | 22uF 10V | 0805 | Yageo | `CC0805MKX5R6BB226` | ₹44.91 ($0.47) | ₹404.19 ($4.24) |
+| `C3, C7, C8, C37` | 4 | 12 | 100nF 16V | 0603 | Yageo | `CC0603KRX7R7BB104` | ₹9.56 ($0.10) | ₹114.72 ($1.20) |
+| `C4` | 1 | 3 | 10uF 16V | 0805 | Yageo | `CC0805KRX5R7BB106` | ₹60.20 ($0.63) | ₹180.60 ($1.89) |
+| `C5` | 1 | 3 | 22uF 6.3V | 0805 | Yageo | `CC0805MKX5R5BB226` | ₹40.13 ($0.42) | ₹120.39 ($1.26) |
+| `C6` | 1 | 3 | 10uF 10V | 0805 | Yageo | `CC0805KRX5R6BB106` | ₹51.60 ($0.54) | ₹154.80 ($1.62) |
+| `C11, C24-C28` | 6 | 18 | 1uF 16V | 0603 | Yageo | `CC0603KRX7R7BB105` | ₹16.24 ($0.17) | ₹292.32 ($3.07) |
+| `C12` | 1 | 3 | 100nF 25V | 0603 | Yageo | `CC0603KRX7R8BB104` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `C13` | 1 | 3 | 10nF 25V | 0603 | Yageo | `CC0603KRX7R8BB103` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `C14` | 1 | 3 | 2.2nF 25V | 0603 | Yageo | `CC0603KRX7R8BB222` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `C15, C16, C17` | 3 | 9 | 22uF 25V | 1206 | Samsung | `CL31A226KAHNNNE` | ₹36.31 ($0.38) | ₹326.79 ($3.43) |
+| `C18` | 1 | 3 | 220uF 25V | Radial 8x10.5 | Würth Elektronik | `865060453007` | ₹69.75 ($0.73) | ₹209.25 ($2.19) |
+| `C19-C23` | 5 | 15 | 1uF 25V | 0603 | Yageo | `CC0603KPX7R8BB105` | ₹9.62 ($0.10) | ₹144.30 ($1.51) |
+| `C29-C32` | 4 | 12 | 0.22uF 25V | 0603 | Yageo | `CC0603KRX7R8BB224` | ₹15.29 ($0.16) | ₹183.48 ($1.92) |
+| `C33-C36` | 4 | 12 | 0.68uF 25V | 0805 | Yageo | `CC0805KKX7R9BB684` | ₹27.71 ($0.29) | ₹332.52 ($3.49) |
+| `D1, D2, D3` | 3 | 9 | SS34 (3A 40V) | SMA | onsemi | `MBRA340T3G` | ₹90.77 ($0.95) | ₹816.93 ($8.57) |
+| `J1` | 1 | 3 | TYPE-C-31-M-12 | SMD + PTH Tabs | GCT | `USB4105-GF-A` | ₹76.44 ($0.80) | ₹229.32 ($2.40) |
+| `J2` | 1 | 3 | PJ-002AH | 5.5x2.1mm PTH | CUI Devices | `PJ-002AH` | ₹67.84 ($0.71) | ₹203.52 ($2.13) |
+| `J3` | 1 | 3 | PJ-320A | 3.5mm Stereo PTH | CUI Devices | `SJ-3524-SMT-TR` | ₹85.04 ($0.89) | ₹255.12 ($2.68) |
+| `J4, J5` | 2 | 6 | Speaker Terminal | 5.08mm Screw PTH | Phoenix Contact | `1715721` | ₹110.84 ($1.16) | ₹665.04 ($6.97) |
+| `J6` | 1 | 3 | B2B-XH-A | 2.5mm JST-XH PTH | JST | `B2B-XH-A(LF)(SN)` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `L1` | 1 | 3 | 2.2uH 6.5A | SMD 7.3x7.3 | Sunlord | `MWSA0603S-2R2MT` | ₹93.64 ($0.98) | ₹280.92 ($2.95) |
+| `L2` | 1 | 3 | 2.2uH 10.0A | SMD 10.4x10.4 | Wurth Elektronik | `7443340220` | ₹204.48 ($2.14) | ₹613.44 ($6.43) |
+| `L3, L4, L5, L6` | 4 | 12 | 10uH 3.8A | SMD 8.0x8.0 | Taiyo Yuden | `NRS8040T100MJGJ` | ₹33.44 ($0.35) | ₹401.28 ($4.21) |
+| `LED1` | 1 | 3 | Red LED (Charge) | 0603 | Kingbright | `APT1608SURCK` | ₹20.06 ($0.21) | ₹60.18 ($0.63) |
+| `LED2` | 1 | 3 | Green LED (Done) | 0603 | Kingbright | `APT1608ZGC` | ₹60.20 ($0.63) | ₹180.60 ($1.89) |
+| `R1, R2` | 2 | 6 | 5.1k 1% | 0603 | Yageo | `RC0603FR-135K1L` | ₹9.56 ($0.10) | ₹57.36 ($0.60) |
+| `R3` | 1 | 3 | 45.3k 1% | 0603 | Yageo | `RC0603FR-0745K3L` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `R4` | 1 | 3 | 51k 1% | 0603 | Yageo | `RC0603FR-1351KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `R5, R6, R17, R18` | 4 | 12 | 1k 1% | 0603 | Yageo | `RC0603FR-071KL` | ₹9.56 ($0.10) | ₹114.72 ($1.20) |
+| `R7, R8, R10, R11` | 4 | 12 | 10k 1% | 0603 | Yageo | `RC0603FR-0710KL` | ₹9.56 ($0.10) | ₹114.72 ($1.20) |
+| `R9` | 1 | 3 | 165k 1% | 0603 | Yageo | `RC0603FR-07165KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `R12, R14, R15` | 3 | 9 | 100k 1% | 0603 | Yageo | `RC0603FR-07100KL` | ₹9.56 ($0.10) | ₹86.04 ($0.90) |
+| `R13` | 1 | 3 | 120k 1% | 0603 | Yageo | `RC0603FR-07120KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `R16` | 1 | 3 | 100R 1% | 0603 | Yageo | `RC0603FR-07100RL` | ₹10.51 ($0.11) | ₹31.53 ($0.33) |
+| `R19` | 1 | 3 | 10R 1% | 0603 | Yageo | `RC0603FR-1310RL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `SW_BOOT1, SW_RST1` | 2 | 6 | SMT Tact Switch | SMD 6.0x3.5 | C&K | `PTS645SL43SMTR92LFS` | ₹37.26 ($0.39) | ₹223.56 ($2.34) |
+| `U1` | 1 | 3 | TPA3116D2 Amp | HTSSOP-32 | Texas Instruments | `TPA3116D2DADR` | ₹304.80 ($3.20) | ₹914.40 ($9.59) |
+| `U2` | 1 | 3 | TPS61088 Boost | VQFN-20 | Texas Instruments | `TPS61088RHLR` | ₹261.81 ($2.75) | ₹785.43 ($8.24) |
+| `U3` | 1 | 3 | IP2312 Charger | ESOP-8 | Injoinic | `IP2312` | ₹31.49 ($0.33) | ₹94.47 ($0.99) |
+| `U4` | 1 | 3 | ESP32-WROOM-32E | SMD Module | Espressif Systems | `ESP32-WROOM-32E-N4` | ₹476.79 ($5.00) | ₹1,430.37 ($15.00) |
+| `U5` | 1 | 3 | Battery Protect | SOT-23-6 | evvo | `DW01` | ₹10.51 ($0.11) | ₹31.53 ($0.33) |
+| `U6` | 1 | 3 | Dual N-MOSFET | TSSOP-8 | Fortune Semi | `FS8205A` | ₹62.11 ($0.65) | ₹186.33 ($1.95) |
+| `U7` | 1 | 3 | 3.3V 1A LDO | SOT-223 | onsemi | `NCP1117ST33T3G` | ₹59.24 ($0.62) | ₹177.72 ($1.86) |
+| `U_UART1` | 1 | 3 | USB-to-UART | SOP-8 | WCH | `CH340N` | ₹64.85 ($0.68) | ₹194.55 ($2.04) |
+| **Total** | **83** | **249** | — | — | — | — | **₹3,679.89 ($38.59)** | **₹11,039.67 ($115.76)** |
 
 ---
 
 ## Hardware Bring-Up & Testing Guide
 
 1. **Unpowered Impedance Checks:**
-   * Verify $0\Omega$ continuity between any ground pad and the continuous Layer 2 ground plane.
-   * Verify high impedance ($>100\text{k}\Omega$) between `+21V_BOOST`, `+3V3_SYS`, `+BAT_3V7`, and `GND`.
+* Verify $0\Omega$ continuity between any ground pad and the continuous Layer 2 ground plane.
+* Verify high impedance ($>100\text{k}\Omega$) between `+21V_BOOST`, `+3V3_SYS`, `+BAT_3V7`, and `GND`.
+
+
 2. **First Power-On (Current-Limited Bench Supply):**
-   * Connect a bench power supply set to $3.7\text{V}$ (current limited to $300\text{mA}$) to battery connector `J6`.
-   * Measure `+3V3_SYS` rail at `U7` output: confirm $3.30\text{V} \pm 2\%$.
-   * Measure `+21V_BOOST` across capacitor `C18`: confirm $21.0\text{V} \pm 1.5\%$.
+* Connect a bench power supply set to $3.7\text{V}$ (current limited to $300\text{mA}$) to battery connector `J6`.
+* Measure `+3V3_SYS` rail at `U7` output: confirm $3.30\text{V} \pm 2\%$.
+* Measure `+21V_BOOST` across capacitor `C18`: confirm $21.0\text{V} \pm 1.5\%$.
+
+
 3. **USB-C Fast Charging Validation:**
-   * Connect a 5V USB-C power source to `J1`.
-   * Confirm `LED1` (Red) lights up during active charging and transitions to `LED2` (Green) upon full charge completion.
+* Connect a 5V USB-C power source to `J1`.
+* Confirm `LED1` (Red) lights up during active charging and transitions to `LED2` (Green) upon full charge completion.
+
+
 4. **Firmware Flashing via Manual Boot Mode:**
-   * Connect USB-C to a host PC.
-   * To enter bootloader / flashing mode:
-     1. Press and hold the **`BOOT`** button (`SW_BOOT1`).
-     2. Press and release the **`RESET`** button (`SW_RST1`).
-     3. Release the **`BOOT`** button (`SW_BOOT1`).
-   * Initiate upload in PlatformIO or Arduino IDE to flash the firmware.
-   * Press **`RESET`** once after flashing to start normal audio firmware execution.
+* Connect USB-C to a host PC.
+* To enter bootloader / flashing mode:
+1. Press and hold the **`BOOT`** button (`SW_BOOT1`).
+2. Press and release the **`RESET`** button (`SW_RST1`).
+3. Release the **`BOOT`** button (`SW_BOOT1`).
+
+
+* Initiate upload in PlatformIO:
+```bash
+cd firmware/
+pio run -e auraforge_50x -t upload
+
+```
+
+* Press **`RESET`** once after flashing to start normal audio firmware execution.
 5. **Audio Output Validation:**
-   * Connect $4\Omega$ speaker loads to terminals `J4` and `J5`.
-   * Stream a $1\text{kHz}$ audio test tone over Bluetooth or Wi-Fi to verify clean Class-D power output.
+* Connect $4\Omega$ speaker loads to terminals `J4` and `J5`.
+* Stream a $1\text{kHz}$ audio test tone over Bluetooth or Wi-Fi to verify clean Class-D power output.
+
+---
+
+## License & Credits
+
+Designed and engineered with passion by **Ravi Kachhwaha**. Released under the open-source **MIT License**.
+
