@@ -1,13 +1,19 @@
-# AuraForge 50X — Programmable 50W High-Fidelity Wireless DSP Audio Platform
+# AuraForge 50X — Programmable 50W High-Fidelity Wireless DSP & CSI Sensing Platform
 
 [![KiCad 10](https://img.shields.io/badge/EDA-KiCad%2010.0-blue.svg)](https://kicad.org)
 [![PCB Layers](https://img.shields.io/badge/PCB%20Layers-4--Layer%20Stackup-orange.svg)]()
 [![DRC Status](https://img.shields.io/badge/DRC%20Status-Passed%20(0%20Errors)-brightgreen.svg)]()
+[![ESP32 Dual-Core](https://img.shields.io/badge/ESP32-240MHz%20Dual--Core-red.svg)](https://espressif.com)
+[![Wi-Fi CSI Radar](https://img.shields.io/badge/Wi--Fi%20CSI-RuView%2050Hz%20UDP-cyan.svg)]()
 [![Hack Club](https://img.shields.io/badge/Hack%20Club-Forge%20Grant-red.svg)](https://hackclub.com)
 
-**AuraForge 50X** is an open-source, programmable 4-layer wireless audio platform and DSP computer. Unlike conventional single-purpose Bluetooth receiver boards, AuraForge 50X features an integrated **ESP32** dual-core microcontroller running real-time digital signal processing (DSP), custom parametric equalizers, Wi-Fi audio streaming (AirPlay/DLNA/Spotify Connect), and Bluetooth 4.2 A2DP playback.
+**AuraForge 50X** is an open-source, programmable 4-layer wireless audio computer, real-time digital signal processing (DSP) station, and wireless RF sensing platform. Going far beyond standard single-purpose Bluetooth receiver breakout boards, AuraForge 50X combines:
 
-The hardware integrates a complete high-current power stage: a Texas Instruments **TPS61088** 10A synchronous boost converter stepping a single 3.7V lithium cell up to 21.0V, an Injoinic **IP2312** 3A fast switching lithium charger, an onboard **DW01A + FS8205A** active battery protection system, and a Texas Instruments **TPA3116D2** Class-D dual BTL power amplifier delivering clean stereo output.
+1. **High-Power Class-D Audio Stage**: Texas Instruments **TPA3116D2** dual BTL stereo amplifier delivering up to $2 \times 50\text{W}$ into $4\Omega$ at $21\text{V}$.
+2. **Synchronous 10A Boost Power Converter**: Texas Instruments **TPS61088** stepping a single-cell 3.7V lithium battery up to 21.0V with hardware soft-start anti-pop sequencing.
+3. **Advanced Digital Signal Processing (DSP)**: 10-Band Parametric Biquad IIR Equalizer, Dynamic Sub-Bass Psychoacoustic Harmonics, 3D Spatial Stereo Expander, and Dynamic Range Compressor (DRC).
+4. **Wi-Fi Channel State Information (CSI) Motion Sensing Radar**: 64-subcarrier spatial disturbance sensing engine streaming live at 50 Hz over UDP (Port 5000) directly to PC software (**RuView**, Python, MATLAB).
+5. **Cyberpunk Web Command Station**: Real-time bidirectional WebSocket telemetry bridge with 5 selectable sci-fi themes (`CYBER_CYAN`, `SOLAR_FLARE`, `MATRIX_NEON`, `VAPORWAVE_80S`, and `DEEP_SPACE`).
 
 ---
 
@@ -38,20 +44,35 @@ The hardware integrates a complete high-current power stage: a Texas Instruments
 | **Audio Power Stage** | Texas Instruments TPA3116D2 Dual BTL Class-D ($2 \times 50\text{W}$ into $4\Omega$ @ $21\text{V}$) |
 | **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR ($3.7\text{V} \rightarrow 21.0\text{V}$, up to $10\text{A}$ switch current) |
 | **Battery Fast Charging** | Injoinic IP2312 Synchronous Buck Converter ($3.0\text{A}$ CC/CV charging via USB-C) |
-| **Battery Protection Matrix** | Fortune Semi DW01A-G + FS8205A Dual N-MOSFET ($2.5\text{V}$ UVP, $4.3\text{V}$ OVP, $6\text{A}$ OCP) |
+| **Battery Protection Matrix** | Fortune Semi DW01 + FS8205A Dual N-MOSFET ($2.5\text{V}$ UVP, $4.3\text{V}$ OVP, $6\text{A}$ OCP) |
+| **Wi-Fi CSI Sensing** | 64-Subcarrier Channel State Information at 50Hz with UDP broadcast on port 5000 (RuView compatible) |
+| **DSP Equalizer** | 10-Band Direct Form II Transposed Biquad Cascade ($31\text{Hz}$ – $16\text{kHz}$, $\pm 12\text{dB}$ range) |
 | **USB-to-UART Bridge** | WCH CH340N with dedicated manual hardware pushbuttons (`SW_BOOT1` & `SW_RST1`) |
 | **Power Inputs** | Single-Cell 3.7V Li-ion/LiPo (via JST-XH) or External DC Barrel Jack ($12\text{V}$–$21\text{V}$) |
 | **Board Dimensions** | $100.0\text{ mm} \times 80.0\text{ mm}$ (4-Layer FR-4 Standard TG140, 1.6mm finished thickness) |
 
 ---
 
-## Grant Budget Justification (Why this Project Requires >$150 Funding)
+## Grant Budget Justification (3-Board Turnkey PCBA Prototype Run)
 
-Unlike simple low-power microcontroller breakouts or basic 2-layer sensor modules, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. The high-current 10A boost converter and 50W Class-D switching amplifiers strictly require an industrial **4-layer PCB stackup** with a continuous internal ground plane ($35\ \mu\text{m}$ outer copper, continuous $17.5\ \mu\text{m}$ inner return layer) to handle heavy switching transients, maintain low impedance, and prevent thermal runaway or RF interference with the onboard ESP32 Wi-Fi/Bluetooth antenna. 
+Unlike simple low-power microcontroller breakouts or basic 2-layer sensor modules, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. The high-current 10A boost converter and 50W Class-D switching amplifiers strictly require an industrial **4-layer PCB stackup** with a continuous internal ground plane ($35\ \mu\text{m}$ outer copper, continuous $17.5\ \mu\text{m}$ inner return layer) to handle heavy switching transients, maintain low impedance, and prevent thermal runaway or RF interference with the onboard ESP32 Wi-Fi/Bluetooth antenna.
 
-Fabricating a custom 4-layer $100\text{ mm} \times 80\text{ mm}$ PCB panel with four-film photolithography tooling and 100% flying-probe electrical testing incurs substantial base fabrication costs (~$72 / ₹6,869). Sourcing all 83 high-grade components—including specialized high-current shielded power inductors ($10\text{A}$ boost choke and four $3.8\text{A}$ output LC filters), genuine Texas Instruments TPA3116D2 and TPS61088 ICs, high-voltage 25V ceramic capacitor banks, ESP32 wireless modules, and precision connectors—totals ~$68 to ~$85 across authorized distributors. 
+### Manufacturing & Batch Quantity Modeling (3 Boards)
+On turnkey PCB assembly portals (such as **pcbpower.com**), the minimum order quantity (MOQ) for automated SMT assembly setup is 2 units. Fixed manufacturing costs—such as laser-cut stainless steel solder stencils, pick-and-place feeder tooling, automated optical inspection (AOI), and 4-layer photolithography setup—amount to approximately **₹10,500 INR (~$110.10 USD)** for the initial setup.
 
-Furthermore, automated SMT pick-and-place assembly setup, laser-cut solder stencils for fine-pitch packages (such as the $0.50\text{ mm}$ pitch VQFN-20 and HTSSOP-32 PowerPAD), 18% mandatory GST, and insured logistics elevate the true turnkey prototype cost to **~$165 – $175 (₹15,743 – ₹16,697)**. This funding directly enables custom high-power hardware that cannot be breadboarded or built on low-cost 2-layer boards.
+Because fixed SMT setup fees are already covered, **scaling from 2 boards to 3 boards costs only ~₹1,300 INR ($13.63 USD) more in assembly labor**, making a 3-board prototype run the most cost-effective approach for hardware bring-up, firmware testing, and destructive power stage verification.
+
+### Detailed Turnkey Budget Breakdown (₹95.37 = $1.00 USD)
+
+| Expense Item | Description | Cost (INR ₹) | Cost (USD $) |
+| :--- | :--- | :--- | :--- |
+| **Bare PCB Fabrication** | 5 pcs 4-Layer FR-4 ($100\text{ mm} \times 80\text{ mm}$, TG140, 100% E-Test) | ₹5,200.00 | $54.52 |
+| **Laser SMT Stencil** | Top-layer framed laser-cut stainless steel stencil | ₹1,400.00 | $14.68 |
+| **SMT Assembly & Setup** | Turnkey pick-and-place mounting & reflow for 3 boards (249 total placements) | ₹5,200.00 | $54.52 |
+| **Components (3 Units)** | 3 full sets of 83 genuine components ($3 \times \text{₹3,679.89}$) | ₹11,039.67 | $115.76 |
+| **Taxes (18% GST)** | Mandatory Indian Government GST on turnkey fabrication & parts | ₹4,111.14 | $43.11 |
+| **Logistics & Shipping** | Insured courier delivery to lab workspace | ₹450.00 | $4.72 |
+| **Total Estimated Budget**| **Complete 3-Unit Turnkey PCBA Prototype Run** | **₹27,400.81** | **$287.31** |
 
 ---
 
@@ -69,7 +90,6 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
 ----------------------------------------------------------------------------------
  Layer 4 (B.Cu)   : Signal Jumpers, Escape Tracks & Secondary Ground Dissipation Pour
 ==================================================================================
-```
 
 ---
 
