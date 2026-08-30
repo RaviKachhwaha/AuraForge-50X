@@ -1,0 +1,9 @@
+Item #,Category,Description,Qty,Unit Price (₹),Unit Price ($),Total Price (₹),Total Price ($),Supplier / Platform,Reference File / Sourcing Link
+1,PCB Fabrication,"4-Layer FR-4 PCB (100mm x 80mm, TG140, 1.6mm, 100% E-Test)",3,2276.33,23.87,6829.00,71.61,pcbpower.com,https://www.pcbpower.com/
+2,PCB Assembly,"Automated SMT Pick-and-Place & Reflow Assembly (3 Boards, 249 Placements)",3,1262.67,13.24,3788.00,39.72,pcbpower.com,https://www.pcbpower.com/
+3,Fabrication Tax,"Mandatory 18% GST on PCB Fabrication & SMT Assembly Services",1,1619.46,16.98,1619.46,16.98,pcbpower.com,https://www.pcbpower.com/
+4,Electronic Components,"Full Bill of Materials (83 Total Components, 45 Unique MPNs)",1,3679.89,38.59,3679.89,38.59,DigiKey / LCSC,components_bom.csv
+5,Battery Power,"3.7V 3000mAh High-Drain Li-ion 21700/18650 Battery Cell with JST-XH 2-Pin Lead",1,450.00,4.72,450.00,4.72,Robu.in / Local,https://robu.in/
+6,Acoustic Transducers,"Dual 4 Ohm 30W-50W Full-Range Stereo Speaker Drivers (J4 & J5 Audio Testing)",2,425.00,4.46,850.00,8.91,Robu.in / Local,https://robu.in/
+7,Hardware Accessories,"Shielded High-Current USB Type-C Flashing & Fast-Charging Cable (1.0m)",1,180.00,1.89,180.00,1.89,Amazon / Local,https://amazon.in/
+,TOTAL,"Complete AuraForge 50X Prototype Kit (3 PCBA Boards + Components + Peripherals)",,10280.00,107.79,17396.35,182.42,,
