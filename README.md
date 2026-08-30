@@ -59,7 +59,7 @@ The platform integrates:
 
 ## Grant Budget Justification (Turnkey PCBA Prototype Run)
 
-Unlike simple low-power microcontroller breakouts or basic 2-layer sensor boards, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. Sourcing the hardware and manufacturing requires an industrial 4-layer PCB fabrication process with solid ground plane isolation and automated SMT pick-and-place assembly.
+Unlike simple low-power microcontroller breakouts or basic 2-layer sensor boards, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. Sourcing the hardware and manufacturing requires an industrial 4-layer PCB fabrication process with solid ground plane isolation, automated SMT pick-and-place assembly, battery power, and acoustic test transducers.
 
 ### Manufacturing & Batch Quantity Modeling (3 Boards)
 On turnkey PCB assembly portals (such as **pcbpower.com**), the minimum order quantity (MOQ) for automated SMT assembly setup is 2 units. Fixed manufacturing costs—such as laser-cut stainless steel solder stencils, pick-and-place feeder tooling, automated optical inspection (AOI), and 4-layer photolithography setup—amount to approximately **₹10,500 INR (~$110.10 USD)** for the initial setup.
@@ -68,17 +68,18 @@ Because fixed SMT setup fees are already covered, **scaling from 2 boards to 3 b
 
 ### Turnkey Budget Breakdown (Converted at ₹95.37 = $1.00 USD)
 
-| Service Category | Details & Scope | Cost (INR ₹) | Cost (USD $) |
-| :--- | :--- | :--- | :--- |
-| **1. PCB Fabrication** | 3 units 4-Layer FR-4 ($100\text{ mm} \times 80\text{ mm}$, TG140, 100% E-Test) | ₹6,829.00 | $71.61 |
-| **2. PCB Assembly** | Automated SMT Pick-and-Place & Reflow Soldering for 3 boards | ₹3,788.00 | $39.72 |
-| **3. Component Sourcing** | Full set of 83 genuine components across all 45 unique MPNs | ₹5,200.00 | $54.52 |
-| **Taxes (GST on Order)** | Official tax on Fabrication & Assembly services | ₹1,619.46 | $16.98 |
-| **Total Turnkey Budget** | **Complete Ready-to-Test 3-Board Prototype Run** | **₹15,817.00** | **$165.85** |
+| Item # | Category | Description | Qty | Unit Price (₹ / $) | Total Cost (INR ₹) | Total Cost (USD $) | Sourcing / File Link |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| **1** | **Turnkey PCB & PCBA** | 3 units 4-Layer Fab + Automated SMT Assembly (Invoice Net Total incl. GST) | 1 | ₹10,617.00 ($111.32) | ₹10,617.00 | $111.32 | [pcbpower.com](https://www.pcbpower.com/) |
+| **2** | **Components Sourcing** | Component BOM sourcing package on pcbpower (1.5× volume factor) | 1 | ₹5,519.84 ($57.88) | ₹5,519.84 | $57.88 | [`components_bom.csv`](components_bom.csv) |
+| **3** | **Battery Power** | 18650 3.7V 3000mAh Li-ion Battery with JST-XH Lead & BMS Protection | 1 | ₹580.00 ($6.08) | ₹580.00 | $6.08 | [Amazon India](https://www.amazon.in/Charging-18650-Rechargeable-Connector-Protection/dp/B0DBR36C91) |
+| **4** | **Acoustic Speakers** | Electronic Spices 5" $4\Omega$ 25W Full-Range Woofer Drivers (Stereo Pair) | 2 | ₹389.00 ($4.08) | ₹778.00 | $8.16 | [Amazon India](https://www.amazon.in/-/hi/Electronic-Spices-%E0%A4%95%E0%A5%88%E0%A4%AC%E0%A4%BF%E0%A4%A8%E0%A5%87%E0%A4%9F-%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%B2%E0%A5%87%E0%A4%B8%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A4%9F-%E0%A4%A1%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%87%E0%A4%B5%E0%A4%B0/dp/B0BN44KVVL) |
+| **5** | **Flashing & Power** | Anker PowerLine III Flow 100W USB-C to USB-C Silicone Cable (3ft / 1.0m) | 1 | ₹786.00 ($8.24) | ₹786.00 | $8.24 | [Amazon India](https://www.amazon.in/-/hi/Anker-A8552/dp/B093GGVB89) |
+| **—** | **TOTAL** | **Complete Prototype Kit (3 PCBs + PCBA Assembly + Components + Peripherals)** | **—** | **—** | **₹18,280.84** | **$191.68** | [`bom.csv`](bom.csv) |
 
-*(The total project budget of **$165.85 USD** fits within the **$155 – $175 USD** target funding range).*
-
-> **Note on Component Sourcing Cost:** The component sourcing amount in the turnkey budget table above is an estimate. On **pcbpower.com**, exact component prices are confirmed by their engineering/sourcing team after placing the order during BOM review. For verified itemized per-component costs, manufacturer part numbers (MPNs), and direct distributor sourcing links, refer to the [Bill of Materials (BOM)](#bill-of-materials-bom) table below and the dedicated `bom.csv` file.
+> **Budget Scalability Note ($165 – $175 Minimum Target):** The table above represents the upper-bound buffer with a 1.5× component sourcing package. The actual grant expenditure scales down directly to **$165.00 – $175.00 USD (₹15,736 – ₹16,690 INR)** by procuring a single fully populated board BOM (1.0× baseline = ₹3,679.89 / $38.59, bringing the total to **$172.39 USD / ₹16,440.89 INR**) or through volume consolidation discounts finalized during the pcbpower.com post-order BOM engineering review.
+>
+> **Itemized Components Breakdown:** For the complete individual component list (resistors, capacitors, TI TPA3116D2, TI TPS61088, ESP32-WROOM-32E) and exact manufacturer part numbers (MPNs), refer to [`components_bom.csv`](components_bom.csv).
 
 ---
 
