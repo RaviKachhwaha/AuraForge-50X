@@ -311,6 +311,3 @@ pio device monitor
 * **Firmware & Web HUD:** Licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
 * **Author & Lead Engineer:** **Ravi Kachhwaha**
 
-```
-
-```
