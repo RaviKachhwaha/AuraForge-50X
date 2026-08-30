@@ -1,9 +1,8 @@
 Item #,Category,Description,Qty,Unit Price (₹),Unit Price ($),Total Price (₹),Total Price ($),Supplier / Platform,Reference File / Sourcing Link
-1,PCB Fabrication,"4-Layer FR-4 PCB (100mm x 80mm, TG140, 1.6mm, 100% E-Test)",3,2276.33,23.87,6829.00,71.61,pcbpower.com,https://www.pcbpower.com/
-2,PCB Assembly,"Automated SMT Pick-and-Place & Reflow Assembly (3 Boards, 249 Placements)",3,1262.67,13.24,3788.00,39.72,pcbpower.com,https://www.pcbpower.com/
-3,Fabrication Tax,"Mandatory 18% GST on PCB Fabrication & SMT Assembly Services",1,1619.46,16.98,1619.46,16.98,pcbpower.com,https://www.pcbpower.com/
-4,Electronic Components,"Full Bill of Materials (83 Total Components, 45 Unique MPNs)",1,3679.89,38.59,3679.89,38.59,DigiKey / LCSC,components_bom.csv
-5,Battery Power,"3.7V 3000mAh High-Drain Li-ion 21700/18650 Battery Cell with JST-XH 2-Pin Lead",1,450.00,4.72,450.00,4.72,Robu.in / Local,https://robu.in/
-6,Acoustic Transducers,"Dual 4 Ohm 30W-50W Full-Range Stereo Speaker Drivers (J4 & J5 Audio Testing)",2,425.00,4.46,850.00,8.91,Robu.in / Local,https://robu.in/
-7,Hardware Accessories,"Shielded High-Current USB Type-C Flashing & Fast-Charging Cable (1.0m)",1,180.00,1.89,180.00,1.89,Amazon / Local,https://amazon.in/
-,TOTAL,"Complete AuraForge 50X Prototype Kit (3 PCBA Boards + Components + Peripherals)",,10280.00,107.79,17396.35,182.42,,
+1,Turnkey PCB & PCBA,"PCB Fabrication (3 pcs 4-Layer) + SMT Assembly Setup & Mounting (Incl. 18% GST)",1,10617.00,111.32,10617.00,111.32,pcbpower.com,https://www.pcbpower.com/
+2,Electronic Components,"Bill of Materials (83 Total Components across 45 unique MPNs)",1,3679.89,38.59,3679.89,38.59,DigiKey / LCSC,components_bom.csv
+3,Components GST,"18% Mandatory GST / Import Tax on Electronic Components",1,662.38,6.95,662.38,6.95,Authorized Distributors,components_bom.csv
+4,Battery Power,"3.7V 18650 Li-ion Rechargeable Battery with JST-XH 2-Pin Connector & Protection",1,329.00,3.45,329.00,3.45,Amazon India,https://www.amazon.in/Charging-18650-Rechargeable-Connector-Protection/dp/B0DBR36C91
+5,Acoustic Speakers,"Electronic Spices 4 Ohm Stereo Speaker Replacement Drivers (Pair)",1,449.00,4.71,449.00,4.71,Amazon India,https://www.amazon.in/-/hi/Electronic-Spices-%E0%A4%95%E0%A5%88%E0%A4%AC%E0%A4%BF%E0%A4%A8%E0%A5%87%E0%A4%9F-%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%B2%E0%A5%87%E0%A4%B8%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A4%9F-%E0%A4%A1%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%87%E0%A4%B5%E0%A4%B0/dp/B0BN44KVVL
+6,Data & Power Cable,"High-Speed Braided USB Type-C Fast Charging & UART Flashing Cable (1.0m)",1,149.00,1.56,149.00,1.56,Amazon India,https://www.amazon.in/
+,TOTAL,"Complete AuraForge 50X Prototype Kit (3 PCBA Boards + Components + Peripherals)",,16886.27,177.08,15886.27,166.58,,
