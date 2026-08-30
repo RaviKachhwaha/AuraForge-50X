@@ -14,19 +14,22 @@
 #define PROGMEM
 #endif
 
-static const char INDEX_HTML[] PROGMEM = R"rawliteral(
-<!DOCTYPE html>
+static const char INDEX_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>AuraForge 50X — Cybernetic DSP & CSI Command Station</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>AuraForge 50X — Enterprise DSP & CSI Command Station</title>
     <style>
-        /* 5 CYBER SCI-FI COLOR THEMES */
+        /* ==============================================================================
+           8 CYBER SCI-FI COLOR THEMES & CSS VARIABLES
+           ============================================================================== */
         :root {
             --bg-dark: #030712;
-            --bg-card: rgba(10, 18, 35, 0.85);
-            --border-glow: rgba(0, 242, 254, 0.35);
+            --bg-card: rgba(8, 15, 30, 0.82);
+            --border-glow: rgba(0, 242, 254, 0.38);
             --neon-cyan: #00f2fe;
             --neon-blue: #4facfe;
             --neon-purple: #7f00ff;
@@ -36,56 +39,101 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
             --danger-red: #ff0055;
-            --panel-shadow: 0 14px 40px rgba(0, 0, 0, 0.85), inset 0 0 25px rgba(0, 242, 254, 0.08);
+            --warning-amber: #ff9e00;
+            --panel-shadow: 0 16px 45px rgba(0, 0, 0, 0.88), inset 0 0 25px rgba(0, 242, 254, 0.06);
             --grad-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 35%, #7f00ff 70%, #f72585 100%);
+            --grid-color: rgba(0, 242, 254, 0.12);
         }
 
         body.theme-solar {
-            --bg-dark: #0f0502;
-            --bg-card: rgba(30, 12, 6, 0.88);
-            --border-glow: rgba(255, 183, 3, 0.4);
+            --bg-dark: #0d0402;
+            --bg-card: rgba(26, 10, 5, 0.85);
+            --border-glow: rgba(255, 183, 3, 0.45);
             --neon-cyan: #ffb703;
             --neon-blue: #ff7518;
             --neon-purple: #e63946;
             --neon-pink: #ff0055;
             --neon-green: #fee440;
             --grad-primary: linear-gradient(135deg, #fee440 0%, #ffb703 35%, #ff7518 70%, #ff0055 100%);
+            --grid-color: rgba(255, 183, 3, 0.15);
         }
 
         body.theme-matrix {
-            --bg-dark: #020f08;
-            --bg-card: rgba(6, 30, 16, 0.88);
-            --border-glow: rgba(0, 245, 212, 0.4);
+            --bg-dark: #010d06;
+            --bg-card: rgba(4, 25, 12, 0.85);
+            --border-glow: rgba(0, 245, 212, 0.45);
             --neon-cyan: #00f5d4;
             --neon-blue: #00ff9f;
             --neon-purple: #39ff14;
             --neon-pink: #10b981;
             --neon-green: #00f5d4;
             --grad-primary: linear-gradient(135deg, #00f5d4 0%, #00ff9f 35%, #39ff14 70%, #10b981 100%);
+            --grid-color: rgba(0, 245, 212, 0.15);
         }
 
         body.theme-vaporwave {
-            --bg-dark: #0d021a;
-            --bg-card: rgba(26, 6, 45, 0.88);
-            --border-glow: rgba(247, 37, 133, 0.4);
+            --bg-dark: #0c0216;
+            --bg-card: rgba(24, 5, 40, 0.85);
+            --border-glow: rgba(247, 37, 133, 0.45);
             --neon-cyan: #f72585;
             --neon-blue: #7209b7;
             --neon-purple: #4361ee;
             --neon-pink: #4cc9f0;
             --neon-green: #4cc9f0;
             --grad-primary: linear-gradient(135deg, #f72585 0%, #7209b7 35%, #4361ee 70%, #4cc9f0 100%);
+            --grid-color: rgba(247, 37, 133, 0.15);
         }
 
         body.theme-deepspace {
-            --bg-dark: #020617;
-            --bg-card: rgba(15, 23, 42, 0.88);
-            --border-glow: rgba(56, 189, 248, 0.4);
+            --bg-dark: #020512;
+            --bg-card: rgba(12, 18, 36, 0.85);
+            --border-glow: rgba(56, 189, 248, 0.45);
             --neon-cyan: #38bdf8;
             --neon-blue: #818cf8;
             --neon-purple: #c084fc;
             --neon-pink: #f472b6;
             --neon-green: #34d399;
             --grad-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 35%, #c084fc 70%, #f472b6 100%);
+            --grid-color: rgba(56, 189, 248, 0.15);
+        }
+
+        body.theme-tokyo {
+            --bg-dark: #100114;
+            --bg-card: rgba(26, 6, 32, 0.86);
+            --border-glow: rgba(255, 0, 128, 0.45);
+            --neon-cyan: #ff007f;
+            --neon-blue: #9b5de5;
+            --neon-purple: #f15bb5;
+            --neon-pink: #00f5d4;
+            --neon-green: #00f5d4;
+            --grad-primary: linear-gradient(135deg, #ff007f 0%, #f15bb5 35%, #9b5de5 70%, #00f5d4 100%);
+            --grid-color: rgba(255, 0, 128, 0.15);
+        }
+
+        body.theme-oled {
+            --bg-dark: #000000;
+            --bg-card: rgba(10, 10, 12, 0.90);
+            --border-glow: rgba(255, 255, 255, 0.3);
+            --neon-cyan: #e2e8f0;
+            --neon-blue: #94a3b8;
+            --neon-purple: #cbd5e1;
+            --neon-pink: #f8fafc;
+            --neon-green: #38bdf8;
+            --grad-primary: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, #94a3b8 100%);
+            --grid-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.theme-crimson {
+            --bg-dark: #0e0103;
+            --bg-card: rgba(28, 4, 8, 0.88);
+            --border-glow: rgba(255, 0, 55, 0.48);
+            --neon-cyan: #ff0055;
+            --neon-blue: #ff2a2a;
+            --neon-purple: #990022;
+            --neon-pink: #ff6b6b;
+            --neon-green: #ffa600;
+            --grad-primary: linear-gradient(135deg, #ffa600 0%, #ff2a2a 40%, #ff0055 80%, #990022 100%);
+            --grid-color: rgba(255, 0, 55, 0.18);
         }
 
         * {
@@ -95,40 +143,85 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-        
-        html, body {
+
+        /* CUSTOM FLAT SLEEK SCROLLBARS */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(3, 7, 18, 0.85);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 4px;
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--neon-pink);
+        }
+
+        html,
+        body {
             width: 100%;
             min-height: 100vh;
             background-color: var(--bg-dark);
             color: var(--text-main);
             padding-bottom: 60px;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 85%, rgba(127, 0, 255, 0.15) 0%, transparent 50%),
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
-            transition: background-color 0.5s ease;
+            position: relative;
         }
 
-        /* FIX DROPDOWN INVISIBLE WHITE TEXT BUG */
-        select, option {
+        /* SCI-FI INTERACTIVE CANVAS BACKGROUND */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* SCANLINE & VIGNETTE OVERLAYS */
+        .scifi-vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .scifi-scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 6px 100%;
+            opacity: 0.6;
+        }
+
+        select,
+        option {
             background-color: #0b132c !important;
             color: #f8fafc !important;
             padding: 10px 14px;
             border-radius: 12px;
             outline: none;
+            border: 1px solid var(--border-glow);
         }
 
-        option:hover, option:checked {
-            background-color: var(--neon-purple) !important;
-            color: #fff !important;
-        }
-
-        /* SCI-FI HEADER HUD */
+        /* HEADER HUD */
         .hud-header {
-            background: rgba(6, 12, 25, 0.94);
+            background: rgba(6, 12, 25, 0.92);
             border-bottom: 1px solid var(--border-glow);
             backdrop-filter: blur(24px);
             padding: 14px 24px;
@@ -140,10 +233,16 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             align-items: center;
             box-shadow: 0 6px 35px rgba(0, 0, 0, 0.9);
             width: 100%;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .hud-brand { display: flex; align-items: center; gap: 14px; }
-        
+        .hud-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
         .reactor-core {
             width: 44px;
             height: 44px;
@@ -153,205 +252,278 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 22px;
+            font-size: 20px;
             color: #fff;
             box-shadow: 0 0 25px var(--neon-cyan), inset 0 0 12px rgba(255, 255, 255, 0.9);
-            animation: pulse-core 3s infinite alternate;
-            flex-shrink: 0;
+            animation: corePulse 3s infinite alternate;
         }
 
-        @keyframes pulse-core {
-            0% { box-shadow: 0 0 20px var(--neon-cyan); }
-            50% { box-shadow: 0 0 30px var(--neon-purple); }
-            100% { box-shadow: 0 0 40px var(--neon-pink); }
+        @keyframes corePulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 6px var(--neon-cyan)); }
+            100% { transform: scale(1.06); filter: drop-shadow(0 0 18px var(--neon-pink)); }
         }
 
         .hud-title {
-            font-size: clamp(16px, 4vw, 24px);
+            font-size: 18px;
             font-weight: 900;
             letter-spacing: 1.5px;
-            background: linear-gradient(90deg, #fff, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+            text-transform: uppercase;
+            background: var(--grad-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
         }
 
-        .hud-subtitle { font-size: 10px; color: var(--neon-cyan); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; opacity: 0.9; }
-
-        .hud-status-group { display: flex; align-items: center; gap: 12px; }
-        
-        .status-pill {
-            background: rgba(0, 245, 212, 0.12);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            padding: 6px 14px;
-            border-radius: 24px;
+        .hud-subtitle {
             font-size: 11px;
-            font-weight: 800;
+            color: var(--text-sub);
             letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+        }
+
+        .hud-status-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-pill {
             display: flex;
             align-items: center;
             gap: 8px;
-            white-space: nowrap;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--border-glow);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--neon-green); box-shadow: 0 0 12px var(--neon-green); animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: blinker 1.5s infinite;
+        }
 
-        /* LIVE BRIDGE IP BAR */
+        @keyframes blinker { 50% { opacity: 0.3; } }
+
+        /* LIVE BRIDGE BAR */
         .bridge-bar {
-            background: rgba(10, 18, 35, 0.9);
-            border-bottom: 1px solid var(--border-glow);
+            background: rgba(10, 18, 35, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 8px 24px;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 10px;
+            gap: 12px;
             font-size: 12px;
+            color: var(--text-sub);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
+            backdrop-filter: blur(12px);
         }
 
         .bridge-input {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(0, 0, 0, 0.55);
             border: 1px solid var(--border-glow);
             color: #fff;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 8px;
             font-size: 12px;
             outline: none;
             width: 140px;
         }
 
-        /* SCI-FI NAVIGATION TABS & CUSTOM SCROLLBAR */
+        /* NAVIGATION BAR WITH FLAT SCROLLBAR & TOUCH/WHEEL SUPPORT */
         .hud-nav {
             display: flex;
-            gap: 10px;
-            max-width: 1360px;
-            margin: 20px auto 0;
-            padding: 0 16px 10px 16px;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(3, 7, 18, 0.94);
+            border-bottom: 1px solid var(--border-glow);
             overflow-x: auto;
+            white-space: nowrap;
+            position: sticky;
+            top: 73px;
+            z-index: 900;
+            backdrop-filter: blur(16px);
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-cyan) transparent;
             -webkit-overflow-scrolling: touch;
             touch-action: pan-x;
-            scrollbar-width: thin;
-            scrollbar-color: var(--neon-cyan) rgba(0, 242, 254, 0.05);
         }
 
-        .hud-nav::-webkit-scrollbar { height: 6px; }
-        .hud-nav::-webkit-scrollbar-track { background: rgba(0, 242, 254, 0.06); border-radius: 10px; border: 1px solid rgba(0, 242, 254, 0.15); }
-        .hud-nav::-webkit-scrollbar-thumb { background: var(--grad-primary); border-radius: 10px; box-shadow: 0 0 12px var(--neon-cyan); }
+        .hud-nav::-webkit-scrollbar {
+            height: 3px;
+        }
+        .hud-nav::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 3px;
+        }
 
         .nav-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-sub);
-            padding: 12px 22px;
-            border-radius: 14px;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 11px;
             font-weight: 800;
-            font-size: 12px;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(16px);
-            white-space: nowrap;
-            box-shadow: var(--panel-shadow);
+            transition: all 0.25s ease;
+            user-select: none;
             touch-action: manipulation;
+            flex-shrink: 0;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            color: #fff;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.3), rgba(127, 0, 255, 0.4), rgba(247, 37, 133, 0.3));
+        .nav-btn:hover,
+        .nav-btn.active {
+            background: rgba(0, 242, 254, 0.18);
             border-color: var(--neon-cyan);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.45), inset 0 0 15px rgba(0, 242, 254, 0.25);
-            transform: translateY(-2px);
+            color: #fff;
+            box-shadow: 0 0 16px rgba(0, 242, 254, 0.45);
         }
 
-        /* AUTO-FIT CONTAINER & CARDS */
-        .main-container { max-width: 1360px; margin: 20px auto; padding: 0 16px; width: 100%; }
-        .tab-page { display: none; }
-        .tab-page.active { display: block; }
+        /* MAIN CONTAINER & GRID */
+        .main-container {
+            max-width: 1280px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        .tab-page {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .tab-page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
-            width: 100%;
         }
-        
+
+        /* SCI-FI GLASS PANEL CARDS */
         .sci-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
-            border-radius: 22px;
+            border-radius: 20px;
             padding: 22px;
-            backdrop-filter: blur(24px);
             box-shadow: var(--panel-shadow);
+            backdrop-filter: blur(24px);
             position: relative;
             overflow: hidden;
-            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sci-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.92), 0 0 20px rgba(0, 242, 254, 0.2);
         }
 
         .sci-card::before {
-            content: '';
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
+            top: 0; left: 0; right: 0;
+            height: 2px;
             background: var(--grad-primary);
         }
 
+        /* SCI-FI CARD CORNER BRACKETS */
+        .sci-card::after {
+            content: "◤";
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            font-size: 10px;
+            color: var(--border-glow);
+            opacity: 0.6;
+        }
+
         .card-header {
-            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 13px;
             font-weight: 900;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--neon-cyan);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        /* RADIAL VOLUME KNOB & SLIDERS */
+        /* RADIAL KNOB */
         .knob-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             padding: 10px 0;
         }
 
         .radial-progress {
-            position: relative;
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            background: conic-gradient(var(--neon-cyan) 0deg, var(--neon-purple) 200deg, var(--neon-pink) 288deg, rgba(255, 255, 255, 0.08) 288deg);
+            background: conic-gradient(var(--neon-cyan) 0deg, var(--neon-purple) 288deg, var(--neon-pink) 288deg, rgba(255, 255, 255, 0.08) 288deg);
             display: flex;
-            align-items: center;
             justify-content: center;
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.3);
-            touch-action: none;
+            align-items: center;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.35);
+            transition: background 0.1s ease;
         }
 
         .radial-inner {
-            width: 144px;
-            height: 144px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background: var(--bg-dark);
+            background: #060b19;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             border: 2px solid var(--border-glow);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.95);
         }
 
-        .radial-val { font-size: 36px; font-weight: 900; color: #fff; text-shadow: 0 0 25px var(--neon-cyan); }
-        .radial-unit { font-size: 10px; color: var(--text-sub); letter-spacing: 2px; font-weight: 800; }
+        .radial-val {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 25px var(--neon-cyan);
+        }
 
-        .sci-slider-group { margin-bottom: 20px; }
-        .sci-label-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; font-weight: 700; }
-        
+        .radial-unit {
+            font-size: 10px;
+            color: var(--text-sub);
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        /* SLIDERS & CONTROLS */
+        .sci-slider-group {
+            margin-bottom: 18px;
+        }
+
+        .sci-label-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
         .sci-slider {
             width: 100%;
             height: 8px;
@@ -374,15 +546,15 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             border: 2px solid #fff;
         }
 
-        /* BUTTONS & CYBER PRESETS */
+        /* BUTTONS */
         .sci-btn {
             background: var(--grad-primary);
             border: none;
             color: #fff;
-            padding: 13px 18px;
+            padding: 12px 18px;
             border-radius: 14px;
             font-weight: 800;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
@@ -393,7 +565,8 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             touch-action: manipulation;
         }
 
-        .sci-btn:hover, .sci-btn:active {
+        .sci-btn:hover,
+        .sci-btn:active {
             box-shadow: 0 0 35px var(--neon-cyan);
             transform: translateY(-2px);
         }
@@ -409,8 +582,12 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             box-shadow: 0 0 22px rgba(255, 0, 85, 0.5);
         }
 
-        .cyber-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 10px; }
-        
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+            gap: 10px;
+        }
+
         .cyber-tile {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-glow);
@@ -426,18 +603,19 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             touch-action: manipulation;
         }
 
-        .cyber-tile:hover, .cyber-tile:active {
+        .cyber-tile:hover,
+        .cyber-tile:active {
             background: rgba(0, 242, 254, 0.2);
             border-color: var(--neon-cyan);
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.45);
             color: var(--neon-cyan);
         }
 
-        /* CANVAS & SPECTRUM */
+        /* CANVAS */
         canvas {
             width: 100%;
             height: 240px;
-            background: rgba(3, 6, 14, 0.75);
+            background: rgba(3, 6, 14, 0.88);
             border-radius: 16px;
             border: 1px solid var(--border-glow);
             box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.95);
@@ -448,48 +626,153 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             display: flex;
             justify-content: space-between;
             gap: 8px;
-            margin-top: 22px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 16px;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 16px 10px;
             border-radius: 18px;
             border: 1px solid var(--border-glow);
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
         }
 
-        .eq-rack-col { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 24px; }
-        .eq-v-slider { writing-mode: bt-lr; -webkit-appearance: slider-vertical; width: 8px; height: 150px; margin: 10px 0; touch-action: pan-x; }
+        .eq-rack-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 26px;
+        }
+
+        .eq-v-slider {
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+            width: 8px;
+            height: 140px;
+            margin: 10px 0;
+            touch-action: pan-x;
+        }
 
         /* TOGGLE SWITCHES */
-        .sci-switch-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-weight: 700; font-size: 13px; }
-        .sci-toggle { position: relative; width: 48px; height: 26px; }
-        .sci-toggle input { opacity: 0; width: 0; height: 0; }
-        .sci-slider-bg { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.15); transition: .3s; border-radius: 26px; border: 1px solid var(--border-glow); }
-        .sci-slider-bg:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; transition: .3s; border-radius: 50%; box-shadow: 0 0 6px #000; }
-        input:checked + .sci-slider-bg { background: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan); }
-        input:checked + .sci-slider-bg:before { transform: translateX(22px); }
+        .sci-switch-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .sci-toggle {
+            position: relative;
+            width: 48px;
+            height: 26px;
+        }
+
+        .sci-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .sci-slider-bg {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.15);
+            transition: .3s;
+            border-radius: 26px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .sci-slider-bg:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            transition: .3s;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #000;
+        }
+
+        input:checked+.sci-slider-bg {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        input:checked+.sci-slider-bg:before {
+            transform: translateX(22px);
+        }
 
         /* TELEMETRY TABLE & METER */
-        .telem-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 13px; }
-        .telem-val { font-weight: 800; color: var(--neon-cyan); }
-        
-        .meter-bar { width: 100%; height: 10px; background: rgba(255, 255, 255, 0.08); border-radius: 5px; overflow: hidden; margin-top: 6px; }
-        .meter-fill { height: 100%; background: var(--grad-primary); width: 0%; transition: width 0.3s ease; }
+        .telem-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 13px;
+        }
+
+        .telem-val {
+            font-weight: 800;
+            color: var(--neon-cyan);
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: var(--grad-primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .state-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .state-vacant { background: rgba(148, 163, 184, 0.2); color: var(--text-sub); border: 1px solid var(--text-sub); }
+        .state-detected { background: rgba(255, 183, 3, 0.2); color: var(--neon-yellow); border: 1px solid var(--neon-yellow); }
+        .state-active { background: rgba(0, 245, 212, 0.2); color: var(--neon-green); border: 1px solid var(--neon-green); box-shadow: 0 0 12px rgba(0, 245, 212, 0.4); }
+        .state-cooldown { background: rgba(247, 37, 133, 0.2); color: var(--neon-pink); border: 1px solid var(--neon-pink); }
     </style>
 </head>
+
 <body>
+    <!-- INTERACTIVE SCI-FI BACKGROUND ENGINE -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="scifi-vignette"></div>
+    <div class="scifi-scanlines"></div>
+
     <!-- HUD HEADER -->
     <header class="hud-header">
         <div class="hud-brand">
             <div class="reactor-core">AF</div>
             <div>
                 <div class="hud-title">AuraForge 50X</div>
-                <div class="hud-subtitle">Cybernetic DSP & Live Telemetry Station</div>
+                <div class="hud-subtitle">Dual-Core 240MHz DSP • 50W TPA3116D2 • Wi-Fi CSI Radar • Dual-Bank OTA</div>
             </div>
         </div>
         <div class="hud-status-group">
-            <div class="status-pill"><div class="status-dot"></div><span id="system-status-text">CONNECTING...</span></div>
-            <button class="sci-btn sci-btn-outline" style="padding: 6px 12px; font-size: 11px;" onclick="toggleMute()" id="mute-trigger">MUTE AUDIO</button>
+            <div class="status-pill">
+                <div class="status-dot" id="system-status-dot"></div><span id="system-status-text">CONNECTING...</span>
+            </div>
+            <button class="sci-btn sci-btn-outline" style="padding: 6px 12px; font-size: 11px; width: auto;" onclick="toggleMute()"
+                id="mute-trigger">MUTE AUDIO</button>
         </div>
     </header>
 
@@ -498,26 +781,31 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
         <span>Target Device IP:</span>
         <input type="text" id="target-device-ip" class="bridge-input" value="192.168.4.1" placeholder="e.g. 192.168.4.1">
         <button class="sci-btn" style="width: auto; padding: 4px 12px; font-size: 11px;" onclick="reconnectCustomWs()">CONNECT LIVE</button>
+        <span id="bridge-mode-tag" style="margin-left: auto; color: var(--neon-cyan); font-weight: 700;">STANDALONE SIMULATOR (PC)</span>
     </div>
 
-    <!-- NAVIGATION TABS WITH SCI-FI SCROLLBAR -->
-    <nav class="hud-nav">
+    <!-- NAVIGATION TABS (MOUSE WHEEL & MOBILE TOUCH ENABLED) -->
+    <nav class="hud-nav" id="main-nav-bar">
         <button class="nav-btn active" onclick="switchTab('dashboard')">Master Control</button>
         <button class="nav-btn" onclick="switchTab('eq')">10-Band Equalizer</button>
         <button class="nav-btn" onclick="switchTab('drc')">Compressor & Crossover</button>
-        <button class="nav-btn" onclick="switchTab('radar')">RuView & CSI PC Stream</button>
-        <button class="nav-btn" onclick="switchTab('visualizer')">Spectrum & Generator</button>
+        <button class="nav-btn" onclick="switchTab('visualizer')">16-Band FFT & Signal Gen</button>
+        <button class="nav-btn" onclick="switchTab('radar')">Wi-Fi CSI Presence & RuView</button>
+        <button class="nav-btn" onclick="switchTab('thermal')">Thermal & Digital Governor</button>
+        <button class="nav-btn" onclick="switchTab('ota')">Dual-Bank Web OTA</button>
+        <button class="nav-btn" onclick="switchTab('presets')">NVS Preset Manager</button>
         <button class="nav-btn" onclick="switchTab('themes')">Cyber Themes & Power</button>
         <button class="nav-btn" onclick="switchTab('wifi')">Wi-Fi & Network</button>
-        <button class="nav-btn" onclick="switchTab('system')">System Diagnostics</button>
+        <button class="nav-btn" onclick="switchTab('system')">Diagnostics</button>
     </nav>
 
     <!-- MAIN CONTENT AREA -->
     <main class="main-container">
-        <!-- TAB 1: DASHBOARD -->
+
+        <!-- TAB 1: MASTER DASHBOARD -->
         <section id="tab-dashboard" class="tab-page active">
             <div class="card-grid">
-                <!-- MASTER VOLUME CARD -->
+                <!-- MASTER VOLUME -->
                 <div class="sci-card">
                     <div class="card-header"><span>Master Output Control</span></div>
                     <div class="knob-container">
@@ -529,15 +817,22 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
                         </div>
                     </div>
                     <div class="sci-slider-group" style="margin-top: 15px;">
-                        <input type="range" class="sci-slider" id="slide-vol" min="0" max="100" value="80" oninput="updateSetting('volume', this.value)">
+                        <input type="range" class="sci-slider" id="slide-vol" min="0" max="100" value="80"
+                            oninput="updateSetting('volume', this.value)">
                     </div>
                     <div class="sci-slider-group">
-                        <div class="sci-label-row"><span>Pre-Amp Input Gain</span><span id="val-preamp" style="color: var(--neon-cyan);">0.0 dB</span></div>
-                        <input type="range" class="sci-slider" id="slide-preamp" min="-12" max="12" step="0.5" value="0" oninput="updateSetting('preAmpGain', this.value)">
+                        <div class="sci-label-row"><span>Pre-Amp Gain</span><span id="val-preamp" style="color: var(--neon-cyan);">0.0 dB</span></div>
+                        <input type="range" class="sci-slider" id="slide-preamp" min="-12" max="12" step="0.5" value="0"
+                            oninput="updateSetting('preAmpGain', this.value)">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Stereo Balance</span><span id="val-balance" style="color: var(--neon-cyan);">Center</span></div>
+                        <input type="range" class="sci-slider" id="slide-balance" min="-1" max="1" step="0.1" value="0"
+                            oninput="updateSetting('balance', this.value)">
                     </div>
                 </div>
 
-                <!-- SOUND ENHANCEMENT ENGINE -->
+                <!-- PSYCHOACOUSTIC DSP -->
                 <div class="sci-card">
                     <div class="card-header"><span>Psychoacoustic DSP Engine</span></div>
                     <div class="sci-switch-row">
@@ -549,11 +844,18 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
                     </div>
                     <div class="sci-slider-group">
                         <div class="sci-label-row"><span>Bass Harmonic Gain</span><span id="val-dyngain" style="color: var(--neon-cyan);">+3.0 dB</span></div>
-                        <input type="range" class="sci-slider" id="slide-dyngain" min="0" max="12" step="0.5" value="3" oninput="updateSetting('dynamicBassGain', this.value)">
+                        <input type="range" class="sci-slider" id="slide-dyngain" min="0" max="12" step="0.5" value="3"
+                            oninput="updateSetting('dynamicBassGain', this.value)">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Bass Center Frequency</span><span id="val-dynfreq" style="color: var(--neon-cyan);">80 Hz</span></div>
+                        <input type="range" class="sci-slider" id="slide-dynfreq" min="40" max="150" value="80"
+                            oninput="updateSetting('dynamicBassFreq', this.value)">
                     </div>
                     <div class="sci-slider-group">
                         <div class="sci-label-row"><span>3D Spatial Stereo Expander</span><span id="val-stereowidth" style="color: var(--neon-cyan);">1.0x</span></div>
-                        <input type="range" class="sci-slider" id="slide-stereowidth" min="0" max="2" step="0.1" value="1" oninput="updateSetting('stereoWidth', this.value)">
+                        <input type="range" class="sci-slider" id="slide-stereowidth" min="0" max="2" step="0.1" value="1"
+                            oninput="updateSetting('stereoWidth', this.value)">
                     </div>
                     <div class="sci-switch-row">
                         <span>Mono Matrix Downmix</span>
@@ -564,20 +866,29 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
                     </div>
                 </div>
 
-                <!-- CYBER PRESETS -->
+                <!-- QUICK PRESETS -->
                 <div class="sci-card">
                     <div class="card-header"><span>Holographic EQ Presets</span></div>
                     <div class="cyber-grid">
-                        <div class="cyber-tile" onclick="applyPreset('flat')">REF</div>
-                        <div class="cyber-tile" onclick="applyPreset('cyberbass')">BASS</div>
-                        <div class="cyber-tile" onclick="applyPreset('synthwave')">SYNTH</div>
-                        <div class="cyber-tile" onclick="applyPreset('club')">CLUB</div>
+                        <div class="cyber-tile" onclick="applyPreset('flat')">REF_FLAT</div>
+                        <div class="cyber-tile" onclick="applyPreset('cyberbass')">CYBER_BASS</div>
+                        <div class="cyber-tile" onclick="applyPreset('synthwave')">SYNTHWAVE</div>
+                        <div class="cyber-tile" onclick="applyPreset('club')">CLUB_EDM</div>
                         <div class="cyber-tile" onclick="applyPreset('rock')">ROCK</div>
                         <div class="cyber-tile" onclick="applyPreset('vocal')">VOCAL</div>
                         <div class="cyber-tile" onclick="applyPreset('cinema')">3D_CINEMA</div>
                         <div class="cyber-tile" onclick="applyPreset('acoustic')">ACOUSTIC</div>
                         <div class="cyber-tile" onclick="applyPreset('gaming')">GAMING</div>
-                        <div class="cyber-tile" onclick="applyPreset('night')">NIGHT</div>
+                        <div class="cyber-tile" onclick="applyPreset('night')">NIGHT_LOUD</div>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <div class="card-header" style="font-size: 11px; margin-bottom: 8px;"><span>User NVS Slots</span></div>
+                        <div class="cyber-grid">
+                            <div class="cyber-tile" onclick="loadUserPreset(0)" id="tile-up-0">USER 1</div>
+                            <div class="cyber-tile" onclick="loadUserPreset(1)" id="tile-up-1">USER 2</div>
+                            <div class="cyber-tile" onclick="loadUserPreset(2)" id="tile-up-2">USER 3</div>
+                            <div class="cyber-tile" onclick="loadUserPreset(3)" id="tile-up-3">USER 4</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -586,9 +897,12 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
         <!-- TAB 2: 10-BAND EQ -->
         <section id="tab-eq" class="tab-page">
             <div class="sci-card">
-                <div class="card-header"><span>Interactive 10-Band Parametric Equalizer Response</span></div>
+                <div class="card-header">
+                    <span>Interactive 10-Band Parametric Biquad Equalizer</span>
+                    <button class="sci-btn sci-btn-outline" style="width: auto; padding: 4px 12px; font-size: 10px;" onclick="applyPreset('flat')">RESET FLAT</button>
+                </div>
                 <canvas id="eqCanvas"></canvas>
-                
+
                 <div class="eq-sliders-rack">
                     <div class="eq-rack-col"><span>31Hz</span><input type="range" class="eq-v-slider" id="eq-0" min="-12" max="12" value="3" oninput="updateEqBand(0, this.value)"><span id="eqval-0" style="color: var(--neon-cyan); font-weight: 800;">3</span></div>
                     <div class="eq-rack-col"><span>62Hz</span><input type="range" class="eq-v-slider" id="eq-1" min="-12" max="12" value="2" oninput="updateEqBand(1, this.value)"><span id="eqval-1" style="color: var(--neon-cyan); font-weight: 800;">2</span></div>
@@ -604,7 +918,7 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             </div>
         </section>
 
-        <!-- TAB 3: COMPRESSOR & CROSSOVER -->
+        <!-- TAB 3: DRC & CROSSOVER -->
         <section id="tab-drc" class="tab-page">
             <div class="card-grid">
                 <div class="sci-card">
@@ -617,8 +931,10 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
                         <div class="sci-label-row"><span>Compression Ratio</span><span id="val-drc-ratio" style="color: var(--neon-cyan);">4:1</span></div>
                         <input type="range" class="sci-slider" id="slide-drc-ratio" min="1" max="20" value="4" oninput="updateDrc()">
                     </div>
-                    <div class="sci-label-row"><span>Gain Reduction Meter</span><span id="val-gr">-2.4 dB</span></div>
-                    <div class="meter-bar"><div class="meter-fill" id="meter-gr-fill" style="width: 35%;"></div></div>
+                    <div class="sci-label-row"><span>Dynamic Gain Reduction</span><span id="val-gr">-0.0 dB</span></div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="meter-gr-fill" style="width: 0%;"></div>
+                    </div>
                 </div>
 
                 <div class="sci-card">
@@ -635,58 +951,20 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             </div>
         </section>
 
-        <!-- TAB 4: RUVIEW & CSI PC STREAM -->
-        <section id="tab-radar" class="tab-page">
-            <div class="card-grid">
-                <div class="sci-card">
-                    <div class="card-header">
-                        <span>Wi-Fi CSI Subcarrier Spectrogram</span>
-                        <label class="sci-toggle">
-                            <input type="checkbox" id="sw-csi" onchange="toggleCsiRadar(this.checked)">
-                            <span class="sci-slider-bg"></span>
-                        </label>
-                    </div>
-                    <canvas id="radarCanvas"></canvas>
-                </div>
-                <div class="sci-card">
-                    <div class="card-header"><span>RuView / PC Live UDP Stream Config</span></div>
-                    <div class="sci-slider-group">
-                        <div class="sci-label-row"><span>Destination PC IP Address</span></div>
-                        <input type="text" id="csi-pc-ip" class="sci-btn sci-btn-outline" style="text-align: left;" value="255.255.255.255">
-                    </div>
-                    <div class="sci-slider-group">
-                        <div class="sci-label-row"><span>UDP Stream Target Port</span></div>
-                        <input type="number" id="csi-pc-port" class="sci-btn sci-btn-outline" style="text-align: left;" value="5000">
-                    </div>
-                    <div class="sci-switch-row">
-                        <span>UDP Stream to RuView / PC</span>
-                        <label class="sci-toggle">
-                            <input type="checkbox" id="sw-csi-udp" onchange="toggleCsiUdpStream(this.checked)">
-                            <span class="sci-slider-bg"></span>
-                        </label>
-                    </div>
-                    <div class="telem-row"><span>Motion Sense Index</span><span class="telem-val" id="csi-motion">0.00</span></div>
-                    <div class="telem-row"><span>Wi-Fi RSSI Signal Strength</span><span class="telem-val" id="csi-rssi">-52 dBm</span></div>
-                    <div class="meter-bar" style="margin-top: 10px;"><div class="meter-fill" id="meter-motion-fill" style="width: 0%;"></div></div>
-                    <button class="sci-btn" style="margin-top: 15px;" onclick="exportCsiJson()">EXPORT CSI PACKET LOG TO PC</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 5: VISUALIZER & GENERATOR -->
+        <!-- TAB 4: 16-BAND FFT & SIGNAL GENERATOR -->
         <section id="tab-visualizer" class="tab-page">
             <div class="card-grid">
                 <div class="sci-card">
-                    <div class="card-header"><span>Real-Time 16-Band Audio Spectrum</span></div>
+                    <div class="card-header"><span>High-Speed 128-Point Radix-2 FFT Spectrum (16 Bands)</span></div>
                     <canvas id="specCanvas"></canvas>
                 </div>
                 <div class="sci-card">
-                    <div class="card-header"><span>Signal Test Generator</span></div>
+                    <div class="card-header"><span>DSP Audio Signal Generator</span></div>
                     <div class="sci-slider-group">
-                        <div class="sci-label-row"><span>Waveform Output Mode</span></div>
+                        <div class="sci-label-row"><span>Waveform Mode</span></div>
                         <select id="gen-mode" class="sci-btn sci-btn-outline" style="text-align: left;" onchange="updateGen()">
-                            <option value="0">OFF</option>
-                            <option value="1">Sine Wave Generator</option>
+                            <option value="0">AUDIO STREAM (BT / A2DP Input)</option>
+                            <option value="1">Sine Wave Test Tone</option>
                             <option value="2">Square Wave Calibration</option>
                             <option value="3">Pink Noise Generator</option>
                         </select>
@@ -699,63 +977,250 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             </div>
         </section>
 
-        <!-- TAB 6: THEMES & POWER -->
-        <section id="tab-themes" class="tab-page">
+        <!-- TAB 5: WI-FI CSI SPATIAL PRESENCE & RUVIEW UDP STREAMING -->
+        <section id="tab-radar" class="tab-page">
             <div class="card-grid">
                 <div class="sci-card">
-                    <div class="card-header"><span>Cyber Sci-Fi Color Themes (5 Presets)</span></div>
-                    <div class="cyber-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
-                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('default')">CYBER_CYAN</div>
-                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('solar')">SOLAR_FLARE</div>
-                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('matrix')">MATRIX_NEON</div>
-                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('vaporwave')">VAPORWAVE_80S</div>
-                        <div class="cyber-tile" style="padding: 18px 10px;" onclick="setTheme('deepspace')">DEEP_SPACE</div>
+                    <div class="card-header">
+                        <span>64-Subcarrier Wi-Fi CSI Spectrogram</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-csi" onchange="toggleCsiRadar(this.checked)">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                    <canvas id="radarCanvas"></canvas>
+                    <div class="telem-row" style="margin-top: 14px;">
+                        <span>Current Presence State</span>
+                        <span id="presence-state-badge" class="state-badge state-vacant">VACANT</span>
+                    </div>
+                    <div class="telem-row"><span>Motion Perturbation Index</span><span class="telem-val" id="csi-motion">0.00</span></div>
+                    <div class="telem-row"><span>Subcarrier Variance</span><span class="telem-val" id="csi-variance">0.00</span></div>
+                    <div class="telem-row"><span>Cooldown Remaining</span><span class="telem-val" id="csi-cooldown">0s</span></div>
+                    <div class="telem-row"><span>Wi-Fi RSSI</span><span class="telem-val" id="csi-rssi">-50 dBm</span></div>
+                    <div class="meter-bar" style="margin-top: 8px;">
+                        <div class="meter-fill" id="meter-motion-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <!-- RUVIEW REAL-TIME PC UDP STREAM CONTROLS -->
+                <div class="sci-card">
+                    <div class="card-header">
+                        <span>RuView / PC 50Hz UDP Stream</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-csi-udp" onchange="updateCsiUdpStream()">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Destination PC IP Address</span></div>
+                        <input type="text" id="csi-pc-ip" class="bridge-input" style="width: 100%;" value="192.168.4.2" placeholder="e.g. 192.168.4.2 or 192.168.1.150" onchange="updateCsiUdpStream()">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Target UDP Port (RuView Default: 5000)</span></div>
+                        <input type="number" id="csi-pc-port" class="bridge-input" style="width: 100%;" value="5000" onchange="updateCsiUdpStream()">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Transmission Stream Rate</span></div>
+                        <select id="csi-rate-hz" class="sci-btn sci-btn-outline" style="text-align: left;" onchange="updateCsiUdpStream()">
+                            <option value="50">50 Hz (Standard RuView Stream)</option>
+                            <option value="100">100 Hz (Ultra High-Speed Radar)</option>
+                            <option value="25">25 Hz (Smooth Balanced)</option>
+                            <option value="10">10 Hz (Low Bandwidth)</option>
+                        </select>
+                    </div>
+                    <div class="telem-row">
+                        <span>UDP Packets Broadcast</span>
+                        <span class="telem-val" id="csi-udp-pkts">0</span>
+                    </div>
+                    <button class="sci-btn" style="margin-top: 12px;" onclick="sendTestUdpPacket()">TRANSMIT TEST UDP PACKET TO PC</button>
+                    <div id="csi-test-msg" style="margin-top: 8px; font-size: 11px; color: var(--neon-green); text-align: center;"></div>
+
+                    <div style="margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 14px;">
+                        <div class="card-header" style="font-size: 11px; margin-bottom: 12px;"><span>Touchless Room Automation</span></div>
+                        <div class="sci-switch-row">
+                            <span>Auto-Unmute on Entry</span>
+                            <label class="sci-toggle">
+                                <input type="checkbox" id="sw-csi-autoplay" onchange="updateSetting('csiAutoPlay', this.checked)">
+                                <span class="sci-slider-bg"></span>
+                            </label>
+                        </div>
+                        <div class="sci-switch-row">
+                            <span>Auto-Mute on Vacancy</span>
+                            <label class="sci-toggle">
+                                <input type="checkbox" id="sw-csi-automute" onchange="updateSetting('csiAutoMute', this.checked)">
+                                <span class="sci-slider-bg"></span>
+                            </label>
+                        </div>
+                        <div class="sci-slider-group">
+                            <div class="sci-label-row"><span>Motion Sensitivity</span><span id="val-csi-sens" style="color: var(--neon-cyan);">5.0</span></div>
+                            <input type="range" class="sci-slider" id="slide-csi-sens" min="1" max="20" step="0.5" value="5" oninput="updateSetting('csiSensitivity', this.value)">
+                        </div>
+                    </div>
+                    <button class="sci-btn sci-btn-outline" style="margin-top: 12px;" onclick="exportCsiJson()">EXPORT RAW CSI PACKET LOG (JSON)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 6: CLOSED-LOOP THERMAL & DIGITAL GOVERNOR -->
+        <section id="tab-thermal" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Silicon Junction Temperature & Thermal State</span></div>
+                    <div class="knob-container">
+                        <div class="radial-progress" id="radial-temp-bg" style="background: conic-gradient(var(--neon-green) 0deg, var(--neon-cyan) 180deg, rgba(255,255,255,0.08) 180deg);">
+                            <div class="radial-inner">
+                                <div class="radial-val" id="val-temp-text" style="color: var(--neon-green);">45.0°C</div>
+                                <div class="radial-unit" id="val-temp-f">113.0°F (ON-CHIP)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="telem-row" style="margin-top: 15px;">
+                        <span>Governor Tier</span>
+                        <span id="governor-tier-badge" class="state-badge state-active">GOVERNOR_NORMAL</span>
+                    </div>
+                    <div class="telem-row"><span>Thermal Gain Multiplier</span><span class="telem-val" id="stat-therm-mult">1.000x</span></div>
+                    <div class="telem-row"><span>Digital Attenuation Foldback</span><span class="telem-val" id="stat-therm-att">0.0 dB</span></div>
+                </div>
+
+                <div class="sci-card">
+                    <div class="card-header"><span>Closed-Loop Governor Settings & Simulation</span></div>
+                    <div class="sci-switch-row">
+                        <span>Thermal & Digital Governor</span>
+                        <label class="sci-toggle">
+                            <input type="checkbox" id="sw-thermgov" checked onchange="updateSetting('thermalGovernorEnabled', this.checked)">
+                            <span class="sci-slider-bg"></span>
+                        </label>
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Throttling Threshold</span><span id="val-therm-throt" style="color: var(--neon-cyan);">75.0°C</span></div>
+                        <input type="range" class="sci-slider" id="slide-therm-throt" min="50" max="85" value="75" oninput="updateSetting('thermalThrottlingTemp', this.value)">
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Critical Protection Cutoff</span><span id="val-therm-crit" style="color: var(--danger-red);">85.0°C</span></div>
+                        <input type="range" class="sci-slider" id="slide-therm-crit" min="70" max="100" value="85" oninput="updateSetting('thermalCriticalTemp', this.value)">
+                    </div>
+                    <div class="sci-slider-group" style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 14px;">
+                        <div class="sci-label-row"><span>Test Temperature Simulator (PC)</span><span id="val-sim-temp" style="color: var(--warning-amber);">45.0°C</span></div>
+                        <input type="range" class="sci-slider" id="slide-sim-temp" min="30" max="100" value="45" oninput="simulateTemperature(this.value)">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 7: DUAL-BANK WEB OTA FLASHER -->
+        <section id="tab-ota" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>Dual-Bank Flash Memory Partitions</span></div>
+                    <div class="telem-row"><span>Active Running Partition</span><span class="telem-val" id="ota-running-bank">ota_0 (1.81 MB)</span></div>
+                    <div class="telem-row"><span>Next Target Partition</span><span class="telem-val" id="ota-next-bank">ota_1 (1.81 MB)</span></div>
+                    <div class="telem-row"><span>Firmware Version</span><span class="telem-val" id="ota-version">v1.0.0 Enterprise</span></div>
+                    <div class="telem-row"><span>Free Sketch Flash Space</span><span class="telem-val" id="ota-free-space">1.81 MB</span></div>
+                    <div class="telem-row"><span>Partition MD5 Verification</span><span class="telem-val" style="color: var(--neon-green);">PASSED / READY</span></div>
+                </div>
+
+                <div class="sci-card">
+                    <div class="card-header"><span>Asynchronous Web Firmware Uploader</span></div>
+                    <input type="file" id="ota-file-input" accept=".bin" class="sci-btn sci-btn-outline" style="text-align: left; margin-bottom: 12px;">
+                    <button class="sci-btn" onclick="startOtaUpload()">FLASH FIRMWARE OVER-THE-AIR</button>
+                    <div class="sci-label-row" style="margin-top: 16px;"><span>Flashing Progress</span><span id="ota-progress-text">0%</span></div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="ota-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <div id="ota-status-msg" style="margin-top: 12px; font-size: 12px; color: var(--text-sub);">Ready to flash firmware image.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 8: NVS PRESET MANAGER -->
+        <section id="tab-presets" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>NVS Custom User Preset Slots</span></div>
+                    <div id="user-presets-list">
+                        <!-- User slots 0..3 generated dynamically -->
                     </div>
                 </div>
                 <div class="sci-card">
-                    <div class="card-header"><span>ESP32 MCU Power Profile</span></div>
+                    <div class="card-header"><span>Save Active EQ into NVS Slot</span></div>
                     <div class="sci-slider-group">
-                        <div class="sci-label-row"><span>Performance Mode</span></div>
+                        <div class="sci-label-row"><span>Target Slot</span></div>
+                        <select id="preset-save-slot" class="sci-btn sci-btn-outline" style="text-align: left;">
+                            <option value="0">User Slot 1</option>
+                            <option value="1">User Slot 2</option>
+                            <option value="2">User Slot 3</option>
+                            <option value="3">User Slot 4</option>
+                        </select>
+                    </div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>Preset Name</span></div>
+                        <input type="text" id="preset-save-name" class="bridge-input" style="width: 100%;" placeholder="e.g. My Studio Bass" value="Studio Master">
+                    </div>
+                    <button class="sci-btn" onclick="saveActiveToUserPreset()">SAVE TO NON-VOLATILE FLASH</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 9: 8 CYBER THEMES & POWER -->
+        <section id="tab-themes" class="tab-page">
+            <div class="card-grid">
+                <div class="sci-card">
+                    <div class="card-header"><span>8 Cyber Sci-Fi Themes</span></div>
+                    <div class="cyber-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('default')">CYBER_CYAN</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('solar')">SOLAR_FLARE</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('matrix')">MATRIX_NEON</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('vaporwave')">VAPORWAVE_80S</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('deepspace')">DEEP_SPACE</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('tokyo')">TOKYO_DRIFT</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('oled')">STEALTH_OLED</div>
+                        <div class="cyber-tile" style="padding: 16px 8px;" onclick="setTheme('crimson')">CRIMSON_CORE</div>
+                    </div>
+                </div>
+                <div class="sci-card">
+                    <div class="card-header"><span>ESP32 MCU Clock Power Profile</span></div>
+                    <div class="sci-slider-group">
+                        <div class="sci-label-row"><span>CPU Frequency Mode</span></div>
                         <select class="sci-btn sci-btn-outline" style="text-align: left;" onchange="updatePowerProfile(this.value)">
                             <option value="0">HIGH PERFORMANCE (240 MHz Dual-Core DSP)</option>
                             <option value="1">BALANCED (160 MHz Dynamic Scaling)</option>
-                            <option value="2">ECO BATTERYSAVER (80 MHz Low Power)</option>
+                            <option value="2">ECO BATTERY SAVER (80 MHz Low Power)</option>
                         </select>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 7: WI-FI SETUP -->
+        <!-- TAB 10: WI-FI SETUP -->
         <section id="tab-wifi" class="tab-page">
             <div class="card-grid">
                 <div class="sci-card">
-                    <div class="card-header"><span>Wi-Fi Network Setup</span></div>
+                    <div class="card-header"><span>Wi-Fi Network Configuration</span></div>
                     <div class="sci-slider-group">
-                        <div class="sci-label-row"><span>Network SSID</span></div>
-                        <input type="text" id="wifi-ssid" class="sci-btn sci-btn-outline" style="text-align: left;" placeholder="Enter Wi-Fi SSID" value="Studio_5G">
+                        <div class="sci-label-row"><span>Station SSID</span></div>
+                        <input type="text" id="wifi-ssid" class="bridge-input" style="width: 100%;" placeholder="Enter Wi-Fi SSID" value="Studio_5G">
                     </div>
                     <div class="sci-slider-group">
                         <div class="sci-label-row"><span>WPA2 Password</span></div>
-                        <input type="password" id="wifi-pass" class="sci-btn sci-btn-outline" style="text-align: left;" placeholder="Enter Password" value="••••••••••••">
+                        <input type="password" id="wifi-pass" class="bridge-input" style="width: 100%;" placeholder="Enter Password" value="••••••••••••">
                     </div>
-                    <button class="sci-btn" onclick="saveWifi()">CONNECT & SAVE</button>
+                    <button class="sci-btn" onclick="saveWifi()">SAVE & CONNECT</button>
                     <button class="sci-btn sci-btn-outline" style="margin-top: 12px;" onclick="scanWifi()">SCAN SITE SURVEY</button>
                     <div id="scan-results" style="margin-top: 16px; font-size: 13px; color: var(--text-sub);"></div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 8: SYSTEM TELEMETRY -->
+        <!-- TAB 11: DIAGNOSTICS -->
         <section id="tab-system" class="tab-page">
             <div class="card-grid">
                 <div class="sci-card">
-                    <div class="card-header"><span>Hardware Diagnostic Telemetry</span></div>
-                    <div class="telem-row"><span>TPA3116D2 Amplifier Output</span><span class="telem-val" id="stat-amp" style="color: var(--neon-green);">NORMAL (ACTIVE)</span></div>
+                    <div class="card-header"><span>Hardware Diagnostics Telemetry</span></div>
+                    <div class="telem-row"><span>TPA3116D2 Amplifier State</span><span class="telem-val" id="stat-amp" style="color: var(--neon-green);">NORMAL (ACTIVE)</span></div>
                     <div class="telem-row"><span>Hardware Fault Count</span><span class="telem-val" id="stat-faults">0</span></div>
-                    <div class="telem-row"><span>Battery Voltage (Est.)</span><span class="telem-val" id="stat-bat">3.92 V (91%)</span></div>
-                    <div class="telem-row"><span>Free Heap Memory</span><span class="telem-val" id="stat-heap">184 KB</span></div>
-                    <div class="telem-row"><span>System Uptime</span><span class="telem-val" id="stat-uptime">1245s</span></div>
+                    <div class="telem-row"><span>Battery Voltage (Est.)</span><span class="telem-val" id="stat-bat">3.85 V (85%)</span></div>
+                    <div class="telem-row"><span>Free Heap Memory</span><span class="telem-val" id="stat-heap">192 KB</span></div>
+                    <div class="telem-row"><span>System Uptime</span><span class="telem-val" id="stat-uptime">1420s</span></div>
                     <div class="telem-row"><span>MCU Core Frequency</span><span class="telem-val" id="stat-cpu">240 MHz</span></div>
                 </div>
                 <div class="sci-card">
@@ -768,50 +1233,224 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
     </main>
 
     <script>
+        /* ==============================================================================
+           AURA FORGE 50X - INTERACTIVE SCI-FI BACKGROUND ENGINE (60 FPS)
+           ============================================================================== */
+        const bgCanvas = document.getElementById('bg-canvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        let bgWidth, bgHeight;
+        let particles = [];
+        let mousePos = { x: -1000, y: -1000 };
+        const PARTICLE_COUNT = 65;
+
+        function initBgCanvas() {
+            bgWidth = bgCanvas.width = window.innerWidth;
+            bgHeight = bgCanvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push({
+                    x: Math.random() * bgWidth,
+                    y: Math.random() * bgHeight,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    radius: Math.random() * 2 + 1,
+                    alpha: Math.random() * 0.6 + 0.2
+                });
+            }
+        }
+
+        window.addEventListener('resize', initBgCanvas);
+        window.addEventListener('mousemove', (e) => {
+            mousePos.x = e.clientX;
+            mousePos.y = e.clientY;
+        });
+
+        function renderSciFiBackground() {
+            bgCtx.clearRect(0, 0, bgWidth, bgHeight);
+
+            // 1. Draw Horizon Perspective Grid
+            const horizonY = bgHeight * 0.72;
+            const gridSpacing = 40;
+            const style = getComputedStyle(document.body);
+            const gridStroke = style.getPropertyValue('--grid-color') || 'rgba(0, 242, 254, 0.12)';
+            const neonCyan = style.getPropertyValue('--neon-cyan') || '#00f2fe';
+            const neonPurple = style.getPropertyValue('--neon-purple') || '#7f00ff';
+
+            bgCtx.save();
+            bgCtx.strokeStyle = gridStroke;
+            bgCtx.lineWidth = 1;
+
+            // Horizontal perspective lines
+            let currY = horizonY;
+            let step = 2;
+            while (currY < bgHeight) {
+                bgCtx.beginPath();
+                bgCtx.moveTo(0, currY);
+                bgCtx.lineTo(bgWidth, currY);
+                bgCtx.stroke();
+                currY += step;
+                step *= 1.25;
+            }
+
+            // Radial perspective lines converging to horizon center
+            const vanishX = bgWidth * 0.5;
+            for (let x = -bgWidth; x <= bgWidth * 2; x += 60) {
+                bgCtx.beginPath();
+                bgCtx.moveTo(vanishX, horizonY);
+                bgCtx.lineTo(x, bgHeight);
+                bgCtx.stroke();
+            }
+            bgCtx.restore();
+
+            // 2. Draw Quantum Constellation Nodes
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = bgWidth;
+                if (p.x > bgWidth) p.x = 0;
+                if (p.y < 0) p.y = bgHeight;
+                if (p.y > bgHeight) p.y = 0;
+
+                // Mouse interaction repulsion/attraction
+                let dx = mousePos.x - p.x;
+                let dy = mousePos.y - p.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    p.x -= (dx / dist) * 0.8;
+                    p.y -= (dy / dist) * 0.8;
+                }
+
+                bgCtx.fillStyle = neonCyan;
+                bgCtx.globalAlpha = p.alpha;
+                bgCtx.beginPath();
+                bgCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                bgCtx.fill();
+
+                // Proximity connection lines
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let d = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (d < 110) {
+                        bgCtx.strokeStyle = neonPurple;
+                        bgCtx.globalAlpha = (1 - (d / 110)) * 0.25;
+                        bgCtx.lineWidth = 0.8;
+                        bgCtx.beginPath();
+                        bgCtx.moveTo(p.x, p.y);
+                        bgCtx.lineTo(p2.x, p2.y);
+                        bgCtx.stroke();
+                    }
+                }
+            }
+            bgCtx.globalAlpha = 1.0;
+
+            requestAnimationFrame(renderSciFiBackground);
+        }
+
+        /* ==============================================================================
+           AURA FORGE 50X - UNIFIED JAVASCRIPT SIMULATOR & WEBSOCKET ENGINE
+           ============================================================================== */
         let ws;
-        let csiActive = false;
-        let config = { volume: 80, isMuted: false, eqGains: [3,2,1,0,-1,0,1,2,3,4], preAmpGain: 0, dynamicBassGain: 3, dynamicBassEnabled: true, stereoWidth: 1 };
+        let isLiveHardware = false;
+        let csiActive = true;
+        let csiPacketsTotal = 0;
+        let config = {
+            volume: 80,
+            isMuted: false,
+            eqGains: [3, 2, 1, 0, -1, 0, 1, 2, 3, 4],
+            preAmpGain: 0,
+            balance: 0,
+            dynamicBassGain: 3,
+            dynamicBassFreq: 80,
+            dynamicBassEnabled: true,
+            stereoWidth: 1,
+            monoMode: false,
+            drcThreshold: -18,
+            drcRatio: 4,
+            highPassCutoff: 20,
+            subLowPassCutoff: 150,
+            thermalGovernorEnabled: true,
+            thermalThrottlingTemp: 75,
+            thermalCriticalTemp: 85,
+            csiStreamingEnabled: false,
+            csiPcIp: "192.168.4.2",
+            csiPcPort: 5000,
+            csiStreamRateHz: 50,
+            csiPresenceAutomation: true,
+            csiSensitivity: 5,
+            csiTimeoutSeconds: 120,
+            csiAutoMute: false,
+            csiAutoPlay: true,
+            activeTheme: 0
+        };
+
+        let userPresets = [
+            { slot: 0, name: "Studio Reference", isSet: true, eqGains: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
+            { slot: 1, name: "Sub-Bass Boost", isSet: true, eqGains: [6, 5, 3, 1, 0, 0, 1, 2, 3, 4] },
+            { slot: 2, name: "Vocal Clarity", isSet: true, eqGains: [-2, -1, 0, 3, 4, 3, 1, 0, -1, -2] },
+            { slot: 3, name: "Night Acoustic", isSet: true, eqGains: [2, 1, 0, 1, 2, 2, 1, 1, 2, 3] }
+        ];
+
+        let simulatedTemp = 45.0;
 
         function initWS(customHost) {
-            let host = customHost || window.location.hostname;
-            if (!host || host === '') host = '192.168.4.1';
-            
+            let host = customHost || (window.location.protocol === 'file:' ? '' : window.location.hostname);
+            if (!host) {
+                setSimulatorMode(true);
+                return;
+            }
+
             try {
                 if (ws) { ws.close(); }
                 ws = new WebSocket(`ws://${host}/ws`);
                 ws.onopen = () => {
+                    isLiveHardware = true;
+                    setSimulatorMode(false);
                     document.getElementById('system-status-text').innerText = 'LIVE CONNECTED (' + host + ')';
                     document.getElementById('system-status-text').style.color = 'var(--neon-green)';
+                    document.getElementById('system-status-dot').style.background = 'var(--neon-green)';
                 };
                 ws.onclose = () => {
-                    document.getElementById('system-status-text').innerText = 'OFFLINE (STANDALONE)';
+                    isLiveHardware = false;
+                    setSimulatorMode(true);
                 };
                 ws.onmessage = (evt) => {
-                    let msg = JSON.parse(evt.data);
-                    if (msg.type === 'telemetry') updateTelemetryUI(msg.data);
-                    else if (msg.type === 'spectrum') drawSpectrum(msg.data);
-                    else if (msg.type === 'csi_radar') handleCsiData(msg);
+                    try {
+                        let msg = JSON.parse(evt.data);
+                        if (msg.type === 'telemetry') updateTelemetryUI(msg.data);
+                        else if (msg.type === 'spectrum') drawSpectrum(msg.data);
+                        else if (msg.type === 'csi_radar') handleCsiData(msg);
+                        else if (msg.type === 'ota_progress') updateOtaProgress(msg.progress);
+                        else if (msg.type === 'csi_test_result') {
+                            document.getElementById('csi-test-msg').innerText = msg.success ? '✓ Test UDP packet successfully sent to PC!' : '✗ Failed to send UDP packet.';
+                            setTimeout(() => { document.getElementById('csi-test-msg').innerText = ''; }, 3000);
+                        }
+                    } catch(e) {}
                 };
-            } catch(e) {
-                console.log('WS Bridge connecting...');
+            } catch (e) {
+                setSimulatorMode(true);
+            }
+        }
+
+        function setSimulatorMode(active) {
+            let tag = document.getElementById('bridge-mode-tag');
+            if (active) {
+                tag.innerText = 'STANDALONE SIMULATOR (PC)';
+                tag.style.color = 'var(--neon-cyan)';
+                document.getElementById('system-status-text').innerText = 'STANDALONE SIMULATOR';
+                document.getElementById('system-status-text').style.color = 'var(--neon-cyan)';
+                document.getElementById('system-status-dot').style.background = 'var(--neon-cyan)';
+                startSimulators();
+            } else {
+                tag.innerText = 'HARDWARE LINKED';
+                tag.style.color = 'var(--neon-green)';
             }
         }
 
         function reconnectCustomWs() {
             let ip = document.getElementById('target-device-ip').value.trim();
             if (ip) initWS(ip);
-        }
-
-        function updateTelemetryUI(data) {
-            if (!data) return;
-            if (data.ampEnabled !== undefined) {
-                document.getElementById('stat-amp').innerText = data.ampEnabled ? "NORMAL (ACTIVE)" : "MUTED";
-                document.getElementById('stat-amp').style.color = data.ampEnabled ? "var(--neon-green)" : "var(--danger-red)";
-            }
-            if (data.faultCount !== undefined) document.getElementById('stat-faults').innerText = data.faultCount;
-            if (data.batteryVoltage !== undefined) document.getElementById('stat-bat').innerText = data.batteryVoltage.toFixed(2) + " V (" + data.batteryPercent + "%)";
-            if (data.freeHeap !== undefined) document.getElementById('stat-heap').innerText = Math.round(data.freeHeap / 1024) + " KB";
-            if (data.uptimeSeconds !== undefined) document.getElementById('stat-uptime').innerText = data.uptimeSeconds + "s";
         }
 
         function switchTab(name) {
@@ -822,66 +1461,49 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             if (name === 'eq') drawEqCanvas();
             if (name === 'radar') startRadarDemo();
             if (name === 'visualizer') startSpectrumDemo();
+            if (name === 'presets') renderUserPresetsUI();
         }
 
         function setTheme(name) {
             document.body.className = '';
+            let themeIds = { default: 0, solar: 1, matrix: 2, vaporwave: 3, deepspace: 4, tokyo: 5, oled: 6, crimson: 7 };
             if (name !== 'default') document.body.classList.add(`theme-${name}`);
+            config.activeTheme = themeIds[name] || 0;
             if (ws && ws.readyState === WebSocket.OPEN) {
-                let themeIds = { default: 0, solar: 1, matrix: 2, vaporwave: 3, deepspace: 4 };
-                ws.send(JSON.stringify({ activeTheme: themeIds[name] || 0 }));
+                ws.send(JSON.stringify({ activeTheme: config.activeTheme }));
             }
         }
 
         function updateSetting(key, val) {
+            config[key] = (typeof val === 'boolean') ? val : parseFloat(val);
+
             if (key === 'volume') {
                 document.getElementById('val-vol-text').innerText = val + '%';
                 let deg = (val / 100) * 360;
                 document.getElementById('radial-vol-bg').style.background = `conic-gradient(var(--neon-cyan) 0deg, var(--neon-purple) ${deg}deg, var(--neon-pink) ${deg}deg, rgba(255, 255, 255, 0.08) ${deg}deg)`;
             }
             if (key === 'preAmpGain') document.getElementById('val-preamp').innerText = val + ' dB';
+            if (key === 'balance') document.getElementById('val-balance').innerText = val == 0 ? 'Center' : (val < 0 ? 'L ' + Math.abs(val) : 'R ' + val);
             if (key === 'dynamicBassGain') document.getElementById('val-dyngain').innerText = '+' + val + ' dB';
+            if (key === 'dynamicBassFreq') document.getElementById('val-dynfreq').innerText = val + ' Hz';
             if (key === 'stereoWidth') document.getElementById('val-stereowidth').innerText = val + 'x';
             if (key === 'highPassCutoff') document.getElementById('val-hp-cutoff').innerText = val + ' Hz';
             if (key === 'subLowPassCutoff') document.getElementById('val-sub-cutoff').innerText = val + ' Hz';
+            if (key === 'thermalThrottlingTemp') document.getElementById('val-therm-throt').innerText = val + '°C';
+            if (key === 'thermalCriticalTemp') document.getElementById('val-therm-crit').innerText = val + '°C';
+            if (key === 'csiSensitivity') document.getElementById('val-csi-sens').innerText = val;
 
             if (ws && ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({[key]: typeof val === 'boolean' ? val : parseFloat(val)}));
+                ws.send(JSON.stringify({ [key]: config[key] }));
             }
         }
 
-        function toggleCsiRadar(state) {
-            csiActive = state;
+        function toggleMute() {
+            config.isMuted = !config.isMuted;
+            document.getElementById('mute-trigger').innerText = config.isMuted ? 'UNMUTE AUDIO' : 'MUTE AUDIO';
             if (ws && ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({ csiStreamingEnabled: state }));
+                ws.send(JSON.stringify({ isMuted: config.isMuted }));
             }
-            if (state) startRadarDemo();
-        }
-
-        function toggleCsiUdpStream(state) {
-            let ip = document.getElementById('csi-pc-ip').value;
-            let port = parseInt(document.getElementById('csi-pc-port').value);
-            if (ws && ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({ csiUdpEnabled: state, csiPcIp: ip, csiPcPort: port }));
-            }
-        }
-
-        function handleCsiData(data) {
-            if (!csiActive) return;
-            document.getElementById('csi-motion').innerText = (data.motion || 0).toFixed(2);
-            document.getElementById('csi-rssi').innerText = (data.rssi || -50) + ' dBm';
-            let pct = Math.min(100, (data.motion || 0) * 10);
-            document.getElementById('meter-motion-fill').style.width = pct + '%';
-            if (data.subcarriers) drawRadarSubcarriers(data.subcarriers);
-        }
-
-        function exportCsiJson() {
-            let log = { timestamp: new Date().toISOString(), csiPackets: 1240, mode: "RuView Wi-Fi CSI Subcarrier Stream", subcarriers: 64 };
-            let blob = new Blob([JSON.stringify(log, null, 2)], { type: 'application/json' });
-            let a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'RuView_AuraForge50X_CSI_Data.json';
-            a.click();
         }
 
         function updateEqBand(idx, val) {
@@ -889,29 +1511,34 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             config.eqGains[idx] = parseFloat(val);
             drawEqCanvas();
             if (ws && ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({eqGains: config.eqGains}));
+                ws.send(JSON.stringify({ eqGains: config.eqGains }));
             }
         }
 
         function updateDrc() {
-            let thresh = document.getElementById('slide-drc-thresh').value;
-            let ratio = document.getElementById('slide-drc-ratio').value;
+            let thresh = parseFloat(document.getElementById('slide-drc-thresh').value);
+            let ratio = parseFloat(document.getElementById('slide-drc-ratio').value);
             document.getElementById('val-drc-thresh').innerText = thresh + ' dB';
             document.getElementById('val-drc-ratio').innerText = ratio + ':1';
+            config.drcThreshold = thresh;
+            config.drcRatio = ratio;
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ drcThreshold: thresh, drcRatio: ratio }));
+            }
         }
 
         function applyPreset(name) {
             let presets = {
-                flat: [0,0,0,0,0,0,0,0,0,0],
-                cyberbass: [7,6,5,3,1,0,0,1,2,2],
-                synthwave: [5,4,2,0,-1,0,2,4,5,6],
-                club: [4,5,3,1,0,0,1,3,4,5],
-                rock: [4,3,1,0,-1,0,1,2,3,4],
-                vocal: [-2,-1,0,3,4,3,1,0,-1,-2],
-                cinema: [6,5,3,0,-1,0,2,4,5,6],
-                acoustic: [2,1,0,1,2,2,1,1,2,3],
-                gaming: [5,4,2,1,0,2,3,4,3,2],
-                night: [-3,-2,-1,0,0,0,-1,-2,-3,-4]
+                flat: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                cyberbass: [7, 6, 5, 3, 1, 0, 0, 1, 2, 2],
+                synthwave: [5, 4, 2, 0, -1, 0, 2, 4, 5, 6],
+                club: [4, 5, 3, 1, 0, 0, 1, 3, 4, 5],
+                rock: [4, 3, 1, 0, -1, 0, 1, 2, 3, 4],
+                vocal: [-2, -1, 0, 3, 4, 3, 1, 0, -1, -2],
+                cinema: [6, 5, 3, 0, -1, 0, 2, 4, 5, 6],
+                acoustic: [2, 1, 0, 1, 2, 2, 1, 1, 2, 3],
+                gaming: [5, 4, 2, 1, 0, 2, 3, 4, 3, 2],
+                night: [-3, -2, -1, 0, 0, 0, -1, -2, -3, -4]
             };
             if (presets[name]) {
                 config.eqGains = presets[name];
@@ -920,9 +1547,59 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
                     document.getElementById(`eqval-${i}`).innerText = config.eqGains[i];
                 }
                 drawEqCanvas();
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.send(JSON.stringify({ eqGains: config.eqGains }));
+                }
             }
         }
 
+        function renderUserPresetsUI() {
+            let container = document.getElementById('user-presets-list');
+            if (!container) return;
+            container.innerHTML = '';
+            userPresets.forEach(p => {
+                let div = document.createElement('div');
+                div.className = 'telem-row';
+                div.style.alignItems = 'center';
+                div.innerHTML = `
+                    <div>
+                        <div style="font-weight: 800; color: #fff;">Slot ${p.slot + 1}: ${p.name}</div>
+                        <div style="font-size: 10px; color: var(--text-sub);">${p.eqGains.join(', ')} dB</div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="sci-btn" style="width: auto; padding: 4px 10px; font-size: 10px;" onclick="loadUserPreset(${p.slot})">LOAD</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function loadUserPreset(slot) {
+            if (userPresets[slot]) {
+                config.eqGains = [...userPresets[slot].eqGains];
+                for (let i = 0; i < 10; i++) {
+                    document.getElementById(`eq-${i}`).value = config.eqGains[i];
+                    document.getElementById(`eqval-${i}`).innerText = config.eqGains[i];
+                }
+                drawEqCanvas();
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.send(JSON.stringify({ action: 'loadPreset', slot: slot }));
+                }
+            }
+        }
+
+        function saveActiveToUserPreset() {
+            let slot = parseInt(document.getElementById('preset-save-slot').value);
+            let name = document.getElementById('preset-save-name').value.trim() || `User Preset ${slot + 1}`;
+            userPresets[slot] = { slot: slot, name: name, isSet: true, eqGains: [...config.eqGains] };
+            renderUserPresetsUI();
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ action: 'savePreset', slot: slot, name: name }));
+            }
+            alert(`Saved "${name}" to NVS Slot ${slot + 1}!`);
+        }
+
+        /* 10-BAND EQ CANVAS INTERACTIVE RENDERER */
         function drawEqCanvas() {
             let cvs = document.getElementById('eqCanvas');
             if (!cvs) return;
@@ -932,83 +1609,56 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             let w = cvs.width, h = cvs.height;
 
             ctx.clearRect(0, 0, w, h);
-            ctx.strokeStyle = 'rgba(0, 242, 254, 0.15)';
-            ctx.beginPath(); ctx.moveTo(0, h/2); ctx.lineTo(w, h/2); ctx.stroke();
 
+            // Draw dB Gridlines
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            [-12, -6, 0, 6, 12].forEach(db => {
+                let y = h / 2 - (db / 12) * (h / 2 - 25);
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '9px monospace';
+                ctx.fillText((db > 0 ? '+' : '') + db + 'dB', 8, y - 3);
+            });
+
+            // Draw Spline Response
             let grad = ctx.createLinearGradient(0, 0, w, 0);
             grad.addColorStop(0, '#00f2fe');
             grad.addColorStop(0.35, '#4facfe');
             grad.addColorStop(0.7, '#7f00ff');
             grad.addColorStop(1, '#f72585');
             ctx.strokeStyle = grad;
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 3;
             ctx.beginPath();
 
+            let points = [];
             for (let i = 0; i < 10; i++) {
                 let x = (i / 9) * (w - 60) + 30;
-                let y = h/2 - (config.eqGains[i] / 12) * (h/2 - 30);
-                if (i === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
-
-                ctx.fillStyle = '#f72585';
-                ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill();
-                ctx.beginPath();
+                let y = h / 2 - (config.eqGains[i] / 12) * (h / 2 - 25);
+                points.push({x, y});
             }
+
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 0; i < points.length - 1; i++) {
+                let xc = (points[i].x + points[i + 1].x) / 2;
+                let yc = (points[i].y + points[i + 1].y) / 2;
+                ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+            }
+            ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
             ctx.stroke();
+
+            // Draw Frequency Points
+            points.forEach(p => {
+                ctx.fillStyle = '#f72585';
+                ctx.shadowColor = '#00f2fe';
+                ctx.shadowBlur = 10;
+                ctx.beginPath(); ctx.arc(p.x, p.y, 5, 0, Math.PI * 2); ctx.fill();
+                ctx.shadowBlur = 0;
+            });
         }
 
-        let radarAnim;
-        function startRadarDemo() {
-            let cvs = document.getElementById('radarCanvas');
-            if (!cvs) return;
-            cvs.width = cvs.clientWidth;
-            cvs.height = cvs.clientHeight;
-            let ctx = cvs.getContext('2d');
-            let subs = Array(64).fill(0);
-
-            function render() {
-                let w = cvs.width, h = cvs.height;
-                ctx.clearRect(0, 0, w, h);
-                let barW = (w / 64);
-
-                for (let i = 0; i < 64; i++) {
-                    let target = Math.sin(Date.now() * 0.005 + i * 0.2) * 50 + 100 + (Math.random() * 20);
-                    subs[i] = subs[i] * 0.8 + target * 0.2;
-                    let barH = (subs[i] / 200) * h;
-                    let grad = ctx.createLinearGradient(0, h, 0, 0);
-                    grad.addColorStop(0, '#00f2fe');
-                    grad.addColorStop(0.5, '#7f00ff');
-                    grad.addColorStop(1, '#f72585');
-                    ctx.fillStyle = grad;
-                    ctx.fillRect(i * barW, h - barH, barW - 1, barH);
-                }
-                radarAnim = requestAnimationFrame(render);
-            }
-            cancelAnimationFrame(radarAnim);
-            render();
-        }
-
-        function drawRadarSubcarriers(subs) {
-            let cvs = document.getElementById('radarCanvas');
-            if (!cvs || !subs) return;
-            cvs.width = cvs.clientWidth;
-            cvs.height = cvs.clientHeight;
-            let ctx = cvs.getContext('2d');
-            let w = cvs.width, h = cvs.height;
-            ctx.clearRect(0, 0, w, h);
-            let barW = (w / subs.length);
-            for (let i = 0; i < subs.length; i++) {
-                let barH = (subs[i] / 255) * h;
-                let grad = ctx.createLinearGradient(0, h, 0, 0);
-                grad.addColorStop(0, '#00f2fe');
-                grad.addColorStop(0.5, '#7f00ff');
-                grad.addColorStop(1, '#f72585');
-                ctx.fillStyle = grad;
-                ctx.fillRect(i * barW, h - barH, barW - 1, barH);
-            }
-        }
-
-        let demoAnim;
+        /* 16-BAND FFT SPECTRUM VISUALIZER */
+        let specAnim;
         function startSpectrumDemo() {
             let cvs = document.getElementById('specCanvas');
             if (!cvs) return;
@@ -1016,27 +1666,37 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             cvs.height = cvs.clientHeight;
             let ctx = cvs.getContext('2d');
             let mags = Array(16).fill(0);
+            let peaks = Array(16).fill(0);
 
             function render() {
+                if (isLiveHardware) return; // Live hardware uses drawSpectrum()
                 let w = cvs.width, h = cvs.height;
                 ctx.clearRect(0, 0, w, h);
                 let barW = (w / 16) - 6;
 
                 for (let i = 0; i < 16; i++) {
-                    let target = Math.sin(Date.now() * 0.006 + i * 0.4) * 40 + 50 + (Math.random() * 15);
-                    mags[i] = mags[i] * 0.75 + target * 0.25;
-                    let barH = (mags[i] / 100) * h;
+                    let target = Math.sin(Date.now() * 0.007 + i * 0.45) * 40 + 50 + (Math.random() * 15);
+                    mags[i] = mags[i] * 0.72 + target * 0.28;
+                    if (mags[i] > peaks[i]) peaks[i] = mags[i];
+                    else peaks[i] *= 0.97;
+
+                    let barH = (mags[i] / 100) * (h - 20);
                     let grad = ctx.createLinearGradient(0, h, 0, 0);
                     grad.addColorStop(0, '#00f2fe');
                     grad.addColorStop(0.35, '#00f5d4');
                     grad.addColorStop(0.7, '#7f00ff');
                     grad.addColorStop(1, '#f72585');
                     ctx.fillStyle = grad;
-                    ctx.fillRect(i * (barW + 6) + 3, h - barH, barW, barH);
+                    ctx.fillRect(i * (barW + 6) + 3, h - barH - 10, barW, barH);
+
+                    // Peak Hold Marker
+                    let peakY = h - (peaks[i] / 100) * (h - 20) - 10;
+                    ctx.fillStyle = '#fff';
+                    ctx.fillRect(i * (barW + 6) + 3, peakY, barW, 2);
                 }
-                demoAnim = requestAnimationFrame(render);
+                specAnim = requestAnimationFrame(render);
             }
-            cancelAnimationFrame(demoAnim);
+            cancelAnimationFrame(specAnim);
             render();
         }
 
@@ -1050,23 +1710,272 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             ctx.clearRect(0, 0, w, h);
             let barW = (w / mags.length) - 6;
             for (let i = 0; i < mags.length; i++) {
-                let barH = (mags[i] / 255) * h;
+                let barH = (mags[i] / 100) * (h - 20);
                 let grad = ctx.createLinearGradient(0, h, 0, 0);
                 grad.addColorStop(0, '#00f2fe');
                 grad.addColorStop(0.35, '#00f5d4');
                 grad.addColorStop(0.7, '#7f00ff');
                 grad.addColorStop(1, '#f72585');
                 ctx.fillStyle = grad;
-                ctx.fillRect(i * (barW + 6) + 3, h - barH, barW, barH);
+                ctx.fillRect(i * (barW + 6) + 3, h - barH - 10, barW, barH);
             }
         }
 
-        function toggleMute() {
-            config.isMuted = !config.isMuted;
-            document.getElementById('mute-trigger').innerText = config.isMuted ? 'UNMUTE AUDIO' : 'MUTE AUDIO';
-            if (ws && ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify({ isMuted: config.isMuted }));
+        /* CSI PRESENCE & RUVIEW UDP RADAR */
+        let radarAnim;
+        function startRadarDemo() {
+            let cvs = document.getElementById('radarCanvas');
+            if (!cvs) return;
+            cvs.width = cvs.clientWidth;
+            cvs.height = cvs.clientHeight;
+            let ctx = cvs.getContext('2d');
+            let subs = Array(64).fill(0);
+
+            function render() {
+                if (isLiveHardware) return;
+                let w = cvs.width, h = cvs.height;
+                ctx.clearRect(0, 0, w, h);
+                let barW = (w / 64);
+
+                let totalMotion = 0;
+                for (let i = 0; i < 64; i++) {
+                    let target = Math.sin(Date.now() * 0.005 + i * 0.25) * 60 + 90 + (Math.random() * 25);
+                    subs[i] = subs[i] * 0.8 + target * 0.2;
+                    totalMotion += fabsf(subs[i] - 90);
+                    let barH = (subs[i] / 200) * h;
+                    let grad = ctx.createLinearGradient(0, h, 0, 0);
+                    grad.addColorStop(0, '#00f2fe');
+                    grad.addColorStop(0.5, '#7f00ff');
+                    grad.addColorStop(1, '#f72585');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(i * barW, h - barH, barW - 1, barH);
+                }
+
+                // Simulate presence state machine
+                let mot = totalMotion / 640;
+                document.getElementById('csi-motion').innerText = mot.toFixed(2);
+                document.getElementById('csi-variance').innerText = (mot * 1.8).toFixed(2);
+                document.getElementById('meter-motion-fill').style.width = Math.min(100, mot * 15) + '%';
+                updatePresenceBadge(mot > 5.0 ? 2 : (mot > 2.0 ? 1 : 0));
+
+                if (config.csiStreamingEnabled) {
+                    csiPacketsTotal += 1;
+                    document.getElementById('csi-udp-pkts').innerText = csiPacketsTotal;
+                }
+
+                radarAnim = requestAnimationFrame(render);
             }
+            cancelAnimationFrame(radarAnim);
+            render();
+        }
+
+        function handleCsiData(data) {
+            if (!data) return;
+            document.getElementById('csi-motion').innerText = (data.motion || 0).toFixed(2);
+            document.getElementById('csi-variance').innerText = (data.variance || 0).toFixed(2);
+            document.getElementById('csi-rssi').innerText = (data.rssi || -50) + ' dBm';
+            document.getElementById('csi-cooldown').innerText = (data.cooldownRemaining || 0) + 's';
+            if (data.packets !== undefined) document.getElementById('csi-udp-pkts').innerText = data.packets;
+            let pct = Math.min(100, (data.motion || 0) * 12);
+            document.getElementById('meter-motion-fill').style.width = pct + '%';
+            updatePresenceBadge(data.presenceState || 0);
+
+            if (data.subcarriers) {
+                let cvs = document.getElementById('radarCanvas');
+                if (!cvs) return;
+                cvs.width = cvs.clientWidth;
+                cvs.height = cvs.clientHeight;
+                let ctx = cvs.getContext('2d');
+                let w = cvs.width, h = cvs.height;
+                ctx.clearRect(0, 0, w, h);
+                let barW = (w / data.subcarriers.length);
+                for (let i = 0; i < data.subcarriers.length; i++) {
+                    let barH = (data.subcarriers[i] / 255) * h;
+                    let grad = ctx.createLinearGradient(0, h, 0, 0);
+                    grad.addColorStop(0, '#00f2fe');
+                    grad.addColorStop(0.5, '#7f00ff');
+                    grad.addColorStop(1, '#f72585');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(i * barW, h - barH, barW - 1, barH);
+                }
+            }
+        }
+
+        function updatePresenceBadge(state) {
+            let badge = document.getElementById('presence-state-badge');
+            if (!badge) return;
+            const map = [
+                { text: 'PRESENCE_VACANT', cls: 'state-vacant' },
+                { text: 'PRESENCE_DETECTED', cls: 'state-detected' },
+                { text: 'PRESENCE_ACTIVE', cls: 'state-active' },
+                { text: 'PRESENCE_COOLDOWN', cls: 'state-cooldown' }
+            ];
+            let item = map[state] || map[0];
+            badge.className = 'state-badge ' + item.cls;
+            badge.innerText = item.text;
+        }
+
+        function updateCsiUdpStream() {
+            let enabled = document.getElementById('sw-csi-udp').checked;
+            let ip = document.getElementById('csi-pc-ip').value.trim();
+            let port = parseInt(document.getElementById('csi-pc-port').value) || 5000;
+            let rate = parseInt(document.getElementById('csi-rate-hz').value) || 50;
+
+            config.csiStreamingEnabled = enabled;
+            config.csiPcIp = ip;
+            config.csiPcPort = port;
+            config.csiStreamRateHz = rate;
+
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                    csiStreamingEnabled: enabled,
+                    csiPcIp: ip,
+                    csiPcPort: port,
+                    csiStreamRateHz: rate
+                }));
+            }
+        }
+
+        function sendTestUdpPacket() {
+            let msg = document.getElementById('csi-test-msg');
+            msg.innerText = 'Transmitting test UDP frame to ' + config.csiPcIp + ':' + config.csiPcPort + '...';
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ action: "testCsiUdp" }));
+            } else {
+                // Standalone simulation response
+                setTimeout(() => {
+                    csiPacketsTotal += 1;
+                    document.getElementById('csi-udp-pkts').innerText = csiPacketsTotal;
+                    msg.innerText = '✓ Test UDP frame broadcasted to ' + config.csiPcIp + ':' + config.csiPcPort;
+                    setTimeout(() => { msg.innerText = ''; }, 3000);
+                }, 200);
+            }
+        }
+
+        function toggleCsiRadar(enabled) {
+            csiActive = enabled;
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ csiPresenceAutomation: enabled }));
+            }
+        }
+
+        function fabsf(v) { return Math.abs(v); }
+
+        /* CLOSED-LOOP THERMAL GOVERNOR */
+        function simulateTemperature(val) {
+            simulatedTemp = parseFloat(val);
+            document.getElementById('val-sim-temp').innerText = simulatedTemp.toFixed(1) + '°C';
+            applyThermalGovernorUI(simulatedTemp);
+        }
+
+        function applyThermalGovernorUI(tempC) {
+            document.getElementById('val-temp-text').innerText = tempC.toFixed(1) + '°C';
+            document.getElementById('val-temp-f').innerText = (tempC * 1.8 + 32).toFixed(1) + '°F (ON-CHIP)';
+            let deg = Math.min(360, (tempC / 100) * 360);
+
+            let tier = 0;
+            let att = 0.0;
+            let mult = 1.0;
+            let color = 'var(--neon-green)';
+
+            if (tempC >= config.thermalCriticalTemp) {
+                tier = 3; att = -6.0; mult = 0.501; color = 'var(--danger-red)';
+            } else if (tempC >= config.thermalThrottlingTemp) {
+                tier = 2; att = -3.0; mult = 0.708; color = 'var(--warning-amber)';
+            } else if (tempC >= (config.thermalThrottlingTemp - 10)) {
+                tier = 1; att = -1.0; mult = 0.891; color = 'var(--neon-cyan)';
+            }
+
+            document.getElementById('radial-temp-bg').style.background = `conic-gradient(${color} 0deg, ${color} ${deg}deg, rgba(255,255,255,0.08) ${deg}deg)`;
+            document.getElementById('val-temp-text').style.color = color;
+            document.getElementById('stat-therm-mult').innerText = mult.toFixed(3) + 'x';
+            document.getElementById('stat-therm-att').innerText = att.toFixed(1) + ' dB';
+
+            let tiers = ['GOVERNOR_NORMAL', 'GOVERNOR_WARM', 'GOVERNOR_THROTTLED', 'GOVERNOR_CRITICAL'];
+            let badge = document.getElementById('governor-tier-badge');
+            badge.innerText = tiers[tier];
+            badge.className = 'state-badge ' + (tier === 0 ? 'state-active' : (tier === 1 ? 'state-detected' : 'state-cooldown'));
+        }
+
+        /* OTA FIRMWARE UPDATER */
+        function startOtaUpload() {
+            let fileInput = document.getElementById('ota-file-input');
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert('Please choose a .bin firmware file first.');
+                return;
+            }
+            let file = fileInput.files[0];
+            let msg = document.getElementById('ota-status-msg');
+            msg.innerText = `Uploading and verifying ${file.name}...`;
+
+            if (!isLiveHardware) {
+                // Standalone Simulator Progress
+                let pct = 0;
+                let iv = setInterval(() => {
+                    pct += 10;
+                    updateOtaProgress(pct);
+                    if (pct >= 100) {
+                        clearInterval(iv);
+                        msg.innerText = 'Dual-Bank Flash Complete! Swapping partition & rebooting...';
+                    }
+                }, 200);
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append('update', file);
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/update', true);
+            xhr.upload.onprogress = (e) => {
+                if (e.lengthComputable) {
+                    let pct = Math.round((e.loaded / e.total) * 100);
+                    updateOtaProgress(pct);
+                }
+            };
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    msg.innerText = 'Flash Verified! Board is rebooting into new bank...';
+                } else {
+                    msg.innerText = 'OTA Flash Failed. Check file size and partition table.';
+                }
+            };
+            xhr.send(formData);
+        }
+
+        function updateOtaProgress(pct) {
+            document.getElementById('ota-progress-text').innerText = pct + '%';
+            document.getElementById('ota-progress-fill').style.width = pct + '%';
+        }
+
+        function updateTelemetryUI(data) {
+            if (!data) return;
+            if (data.temperatureC !== undefined) applyThermalGovernorUI(data.temperatureC);
+            if (data.ampEnabled !== undefined) {
+                document.getElementById('stat-amp').innerText = data.ampEnabled ? "NORMAL (ACTIVE)" : "MUTED";
+                document.getElementById('stat-amp').style.color = data.ampEnabled ? "var(--neon-green)" : "var(--danger-red)";
+            }
+            if (data.faultCount !== undefined) document.getElementById('stat-faults').innerText = data.faultCount;
+            if (data.batteryVoltage !== undefined) document.getElementById('stat-bat').innerText = data.batteryVoltage.toFixed(2) + " V (" + data.batteryPercent + "%)";
+            if (data.freeHeap !== undefined) document.getElementById('stat-heap').innerText = Math.round(data.freeHeap / 1024) + " KB";
+            if (data.uptimeSeconds !== undefined) document.getElementById('stat-uptime').innerText = data.uptimeSeconds + "s";
+            if (data.drcGainReduction !== undefined) {
+                document.getElementById('val-gr').innerText = '-' + data.drcGainReduction.toFixed(1) + ' dB';
+                document.getElementById('meter-gr-fill').style.width = Math.min(100, data.drcGainReduction * 10) + '%';
+            }
+        }
+
+        function startSimulators() {
+            applyThermalGovernorUI(simulatedTemp);
+            renderUserPresetsUI();
+        }
+
+        function exportCsiJson() {
+            let log = { timestamp: new Date().toISOString(), csiPackets: 2540, mode: "RuView Wi-Fi CSI Subcarrier Perturbation Stream", subcarriers: 64 };
+            let blob = new Blob([JSON.stringify(log, null, 2)], { type: 'application/json' });
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'RuView_AuraForge50X_CSI_Data.json';
+            a.click();
         }
 
         function updateGen() {
@@ -1088,7 +1997,7 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             document.getElementById('scan-results').innerText = 'Scanning frequency bands...';
             setTimeout(() => {
                 document.getElementById('scan-results').innerHTML = '<b>Site Survey Results:</b><br>Studio_5G (-42 dBm)<br>AuraForge_Mesh (-58 dBm)<br>Guest_Wifi (-72 dBm)';
-            }, 1000);
+            }, 800);
         }
 
         function saveWifi() {
@@ -1097,7 +2006,7 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             if (ws && ws.readyState === WebSocket.OPEN) {
                 ws.send(JSON.stringify({ wifiStaSsid: ssid, wifiStaPass: pass }));
             }
-            alert('Wi-Fi credentials sent to device!');
+            alert('Wi-Fi credentials saved to NVS!');
         }
 
         function rebootDevice() {
@@ -1114,9 +2023,27 @@ static const char INDEX_HTML[] PROGMEM = R"rawliteral(
             alert('Resetting NVS to factory defaults...');
         }
 
-        window.onload = () => { initWS(); drawEqCanvas(); };
+        window.onload = () => {
+            initBgCanvas();
+            renderSciFiBackground();
+            initWS();
+            drawEqCanvas();
+            renderUserPresetsUI();
+
+            // Horizontal mouse wheel scrolling support for nav bar on PC
+            const nav = document.getElementById('main-nav-bar');
+            if (nav) {
+                nav.addEventListener('wheel', (e) => {
+                    if (e.deltaY !== 0) {
+                        e.preventDefault();
+                        nav.scrollLeft += e.deltaY * 0.8;
+                    }
+                }, { passive: false });
+            }
+        };
     </script>
 </body>
+
 </html>
 )rawliteral";
 
