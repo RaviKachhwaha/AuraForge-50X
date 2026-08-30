@@ -309,54 +309,121 @@ All pricing is based on live distributor catalog rates (DigiKey & LCSC) converte
 
 ---
 
-## Hardware Bring-Up & Testing Guide
+## Bill of Materials (BOM) & Sourcing Files
 
-1. **Unpowered Impedance Checks:**
-* Verify $0\Omega$ continuity between any ground pad and the continuous Layer 2 ground plane.
-* Verify high impedance ($>100\text{k}\Omega$) between `+21V_BOOST`, `+3V3_SYS`, `+BAT_3V7`, and `GND`.
+The hardware bill of materials is maintained in two structured CSV files in the repository root:
 
+* **[`bom.csv`](bom.csv)**: Complete turnkey project budget covering 4-layer PCB fabrication, automated SMT assembly, total component sourcing, 18650 Li-ion battery, stereo woofer speakers, and Anker 100W USB-C data cable.
+* **[`components_bom.csv`](components_bom.csv)**: Detailed line-by-line itemization of all 83 SMD/PTH components across all 45 unique Manufacturer Part Numbers (MPNs) with package footprints, quantities, verified distributor pricing, and direct distributor links (DigiKey, LCSC).
 
-2. **First Power-On (Current-Limited Bench Supply):**
-* Connect a bench power supply set to $3.7\text{V}$ (current limited to $300\text{mA}$) to battery connector `J6`.
-* Measure `+3V3_SYS` rail at `U7` output: confirm $3.30\text{V} \pm 2\%$.
-* Measure `+21V_BOOST` across capacitor `C18`: confirm $21.0\text{V} \pm 1.5\%$.
+---
 
+## Assembly & Hardware Build Instructions
 
-3. **USB-C Fast Charging Validation:**
-* Connect a 5V USB-C power source to `J1`.
-* Confirm `LED1` (Red) lights up during active charging and transitions to `LED2` (Green) upon full charge completion.
+Follow this step-by-step guide to assemble and bring up the AuraForge 50X hardware:
 
+### Step 1: Component SMT Pick-and-Place & Soldering
+1. **Turnkey SMT Assembly (Recommended):** Submit the Gerber archive (`hardware/gerbers/AuraForge_50X_Gerbers.zip`), BOM (`hardware/production/AuraForge_50X_BOM.csv`), and Centroid file (`hardware/production/AuraForge_50X_Centroid.pos`) to **pcbpower.com** for automated SMT pick-and-place and reflow soldering.
+2. **Manual Soldering Inspection:** If assembling prototypes manually:
+   * Solder power management ICs first: `U3` (IP2312 ESOP-8) and `U2` (TPS61088 VQFN-20), applying solder paste to the exposed bottom thermal ground pad.
+   * Solder `U1` (TPA3116D2 HTSSOP-32) and `U4` (ESP32-WROOM-32E module), ensuring the 2.4 GHz antenna hangs completely past the top board edge into free air.
+   * Place passives (0603/0805 capacitors and resistors), power inductors (`L1–L6`), and Schottky diodes (`D1–D3`).
+   * Solder through-hole connectors last: USB-C (`J1`), DC Barrel Jack (`J2`), 3.5mm Jack (`J3`), Speaker Terminal Blocks (`J4`, `J5`), and 2-pin Battery Header (`J6`).
 
-4. **Firmware Flashing via Manual Boot Mode:**
-* Connect USB-C to a host PC.
-* To enter bootloader / flashing mode:
-1. Press and hold the **`BOOT`** button (`SW_BOOT1`).
-2. Press and release the **`RESET`** button (`SW_RST1`).
-3. Release the **`BOOT`** button (`SW_BOOT1`).
+### Step 2: Thermal Dissipation & Heatsink Installation
+1. Apply a small thermally conductive silicone pad ($15\text{ mm} \times 15\text{ mm}$, $1.0\text{ mm}$ thickness) on the top surface of `U1` (TPA3116D2).
+2. Attach a low-profile anodized aluminum heatsink ($15\text{ mm} \times 15\text{ mm} \times 10\text{ mm}$) to dissipate heat during continuous $2 \times 50\text{W}$ Class-D operation.
 
+### Step 3: Mechanical Mounting & Wiring
+1. Mount the PCB inside an enclosure using 4 × M3 screws through the $3.0\text{ mm}$ radius corner mounting holes.
+2. Connect a single 3.7V 3000mAh 18650 Li-ion battery to `J6` using the 2.5mm JST-XH keyed connector (Red = `+BAT`, Black = `GND`).
+3. Strip $5\text{ mm}$ of insulation from $4\Omega$ stereo speaker wires, insert them into terminal blocks `J4` (Left Channel) and `J5` (Right Channel), and tighten the clamping screws with a flathead screwdriver.
 
-* Initiate upload in PlatformIO:
+---
+
+## Firmware Flashing & Software Setup Guide
+
+### 1. Toolchain Installation
+* Install **VS Code** with the **PlatformIO IDE** extension (or install `platformio-core` via CLI).
+
+### 2. Flashing Over USB-C (Hardware UART)
+1. Connect the AuraForge 50X board to your computer using a USB Type-C data cable connected to port `J1`.
+2. Enter hardware bootloader mode:
+   * Press and hold the **`BOOT`** button (`SW_BOOT1`).
+   * Press and release the **`RESET`** button (`SW_RST1`).
+   * Release the **`BOOT`** button (`SW_BOOT1`).
+3. Open a terminal in the `firmware/` directory and execute:
 ```bash
-cd firmware/
-pio run -e auraforge_50x -t upload
+   # Build and upload the firmware image and partition table
+   pio run -e auraforge_50x -t upload
+
+   # Launch serial monitor at 115200 baud
+   pio device monitor
 
 ```
 
+4. Press the **`RESET`** button (`SW_RST1`) once. The onboard LED (`LED1`) will indicate active system boot.
 
-* Press **`RESET`** once after flashing to start normal audio firmware execution.
+### 3. Over-the-Air (OTA) Web Flashing
+
+1. Connect your PC or phone to the Wi-Fi AP **`AuraForge-50X-AP`** (Default IP: `192.168.4.1`).
+2. Open `http://192.168.4.1` in any browser and navigate to the **Dual-Bank Web OTA** tab.
+3. Drag and drop the compiled `firmware.bin` file into the upload zone to update the inactive partition (`ota_1`) with real-time percentage progress and automatic reboot rollback protection.
+
+---
+
+## Known Issues & Workarounds
+
+* **ESP32 ADC Non-Linearity at Low Battery Voltages:**
+* *Issue:* The internal ESP32 SAR ADC exhibits non-linear voltage measurements below $0.1\text{V}$ and above $3.1\text{V}$.
+* *Workaround:* The firmware implements a calibrated two-point piecewise lookup table and a 16-sample Exponential Moving Average (EMA) filter in `HardwareMonitor.cpp` to linearize battery percentage reporting.
 
 
-5. **Audio Output Validation:**
-* Connect $4\Omega$ speaker loads to terminals `J4` and `J5`.
-* Stream a $1\text{kHz}$ audio test tone over Bluetooth or Wi-Fi to verify clean Class-D power output.
+* **Bluetooth Audio & Wi-Fi CSI Radio Coexistence:**
+* *Issue:* Classic Bluetooth A2DP audio streaming and 2.4 GHz Wi-Fi CSI promiscuous frame capture share the same internal RF transceiver on the ESP32.
+* *Workaround:* The FreeRTOS scheduler time-slices RF events: when Bluetooth A2DP is actively receiving audio packets, CSI capture frequency is throttled to 25 Hz to prevent audio buffer underruns.
+
+
+* **Thermal Throttling During Sustained High-Power Output:**
+* *Issue:* Continuous playback at $>40\text{W}$ RMS per channel inside sealed enclosures can heat the TPA3116D2 amplifier die.
+* *Workaround:* The closed-loop thermal governor in `HardwareMonitor.cpp` monitors junction temperature and automatically attenuates digital pre-amp gain by $-3.0\text{ dB}$ if temperature exceeds $75^\circ\text{C}$, preventing thermal shutdown trips.
 
 
 
 ---
 
-## License & Credits
+## Peer Review & Design Sanity Check
 
-Designed and engineered by **Ravi Kachhwaha**.
+The schematic architecture, 4-layer PCB layout, and high-power thermal calculations were independently reviewed by community engineers on the Hack Club forum before fabrication sign-off:
 
-* **Hardware CAD & Schematics:** Licensed under [CERN-OHL-P v2](https://spdx.org/licenses/CERN-OHL-P-2.0.html).
-* **Firmware & Web HUD Source Code:** Licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
+* **RF Antenna Isolation Review (by *tty7* & *Madhav*):**
+* *Feedback:* Pointed out that placing the ESP32 MIFA antenna directly over internal copper plane pours would detune the 50Ω antenna impedance and sink RF energy into the ground plane.
+* *Resolution Implemented:* Re-engineered the board edge in KiCad 10 so the entire ESP32 antenna overhangs past the `Edge.Cuts` boundary into open air, with zero copper planes beneath the radiating element.
+
+
+* **Power Inductor Saturation Current Review (by *tty7*):**
+* *Feedback:* Verified that the synchronous boost converter (`TPS61088`) requires a shielded inductor capable of sustaining $>10\text{A}$ peak saturation current under maximum 50W audio transients.
+* *Resolution Implemented:* Specified the Würth Elektronik `7443340220` ($2.2\mu\text{H}$, $10.0\text{A}$ $I_{\text{sat}}$) high-current power inductor in `L2`.
+
+
+
+---
+
+## Credits & Open-Source Attributions
+
+AuraForge 50X is made possible thanks to the following open-source frameworks, libraries, and EDA tools:
+
+* **[KiCad EDA](https://www.kicad.org/):** Professional open-source schematic capture and 4-layer PCB design suite.
+* **[Espressif Systems](https://github.com/espressif):** ESP-IDF development framework, FreeRTOS dual-core SMP scheduler, and Wi-Fi CSI promiscuous RX API.
+* **[ESP32-A2DP](https://github.com/pschatzmann/ESP32-A2DP) by Phil Schatzmann:** High-performance Classic Bluetooth A2DP audio sink library with I2S DMA streaming.
+* **[ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) & [AsyncTCP](https://github.com/me-no-dev/AsyncTCP):** Asynchronous HTTP and WebSocket engine powering the Cyberpunk HUD.
+* **[ArduinoJson](https://arduinojson.org/) by Benoît Blanchon:** Efficient embedded JSON parser and serializer for real-time telemetry streaming.
+* **[RuView](https://www.google.com/search?q=https://github.com/mikus/ruview):** Real-time PC visualization engine for 64-subcarrier Wi-Fi Channel State Information streams.
+* **[Hack Club](https://hackclub.com/):** For supporting open-source hardware makers through the Forge Grant program.
+
+## License
+Designed and engineered by Ravi Kachhwaha.
+
+Hardware CAD & Schematics: Licensed under CERN-OHL-P v2.
+Firmware & Web HUD Source Code: Licensed under the MIT License.
+
