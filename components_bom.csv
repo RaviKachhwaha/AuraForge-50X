@@ -30,7 +30,7 @@ R3,1,45.3k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-0745K3L,,9.56,0.1002
 R4,1,51k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-1351KL,,9.56,0.1002,9.56,0.10,https://www.digikey.in/en/products/detail/yageo/RC0603FR-1351KL/14286485?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AKwCMA0gDIgC6AvkA
 "R5, R6, R17, R18",4,1k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-071KL,,9.56,0.1002,38.24,0.40,https://www.digikey.in/en/products/detail/yageo/RC0603FR-071KL/726843?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AIwDSAMiALoC%2BQA
 "R7, R8, R10, R11",4,10k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-0710KL,,9.56,0.1002,38.24,0.40,https://www.digikey.in/en/products/detail/yageo/RC0603FR-0710KL/726880?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AIxIDSAMiALoC%2BQA
-R9,1,165k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-07165KL,,9.56,0.1002,9.56,0.10,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07165KL/726977?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AIwoCsA0gDIgC6AvkA
+R9,1,91k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-0791KL,,9.56,0.1002,9.56,0.10,https://www.digikey.in/en/products/detail/yageo/RC0603FR-0791KL/727428
 "R12, R14, R15",3,100k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-07100KL,,9.56,0.1002,28.68,0.30,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AIxJIDSAMiALoC%2BQA
 R13,1,120k 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-07120KL,,9.56,0.1002,9.56,0.10,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07120KL/726921?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AIxhIDSAMiALoC%2BQA
 R16,1,100R 1%,Resistor_SMD:R_0603_1608Metric,Yageo,RC0603FR-07100RL,,10.51,0.1102,10.51,0.11,https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100RL/726888?s=N4IgTCBcDaIEoGEAMA2JBmAYnAtEg7AIxJJwAyIAugL5A
