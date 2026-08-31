@@ -1,6 +1,7 @@
 /**
  * @file WebUiAssets.h
- * @brief AuraForge 50X - Multi-Theme CSI Motion Radar, Live WebSocket Bridge & DSP Command Station
+ * @brief AuraForge 50X - Multi-Theme CSI Motion Radar, Live WebSocket Bridge &
+ * DSP Command Station
  * @author Ravi Kachhwaha
  */
 

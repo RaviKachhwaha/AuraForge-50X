@@ -1,6 +1,7 @@
 /**
  * @file WebServerModule.h
- * @brief AuraForge 50X - Async Web Server, WebSocket Telemetry & REST API Engine
+ * @brief AuraForge 50X - Async Web Server, WebSocket Telemetry & REST API
+ * Engine
  * @author Ravi Kachhwaha
  */
 
@@ -8,27 +9,28 @@
 #define WEB_SERVER_MODULE_H
 
 #include <Arduino.h>
-#include <ESPAsyncWebServer.h>
+#include <ArduinoJson.h>
 #include <AsyncJson.h>
 #include <AsyncTCP.h>
-#include <ArduinoJson.h>
+#include <ESPAsyncWebServer.h>
 
 class WebServerModule {
 public:
-    WebServerModule();
-    void begin();
-    void update();
+  WebServerModule();
+  void begin();
+  void update();
 
 private:
-    AsyncWebServer server;
-    AsyncWebSocket ws;
+  AsyncWebServer server;
+  AsyncWebSocket ws;
 
-    void setupRoutes();
-    void setupWebSockets();
-    void handleWebSocketMessage(void *arg, uint8_t *data, size_t len, AsyncWebSocketClient *client);
-    void broadcastTelemetry();
+  void setupRoutes();
+  void setupWebSockets();
+  void handleWebSocketMessage(void *arg, uint8_t *data, size_t len,
+                              AsyncWebSocketClient *client);
+  void broadcastTelemetry();
 
-    unsigned long lastWsBroadcast = 0;
+  unsigned long lastWsBroadcast = 0;
 };
 
 extern WebServerModule g_webServerModule;

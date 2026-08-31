@@ -8,7 +8,8 @@
 		(title "AuraForge_50X - 50W Wi-Fi & Bluetooth Audio System")
 		(date "2026-08-13")
 		(rev "v1.0")
-		(company "Hack Club Forge Tier 3 Project")
+		(company "Hack Club Forge Tier 2 Project")
+		(comment 1 "Ravi Kachhwaha")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"
@@ -19714,7 +19715,7 @@
 				)
 			)
 		)
-		(property "Value" "165k 1%"
+		(property "Value" "91k 1%"
 			(at 303.784 218.44 90)
 			(show_name no)
 			(do_not_autoplace no)
