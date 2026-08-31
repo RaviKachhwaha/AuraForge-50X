@@ -14,7 +14,7 @@
 
 The platform integrates:
 1. **High-Power Class-D Audio Stage**: Texas Instruments **TPA3116D2** dual BTL stereo amplifier delivering up to $2 \times 50\text{W}$ into $4\Omega$ at $21.0\text{V}$.
-2. **Synchronous 10A Boost Power Converter**: Texas Instruments **TPS61088** stepping a single-cell 3.7V lithium battery up to 21.0V with integrated soft-start anti-pop sequencing.
+2. **Hybrid Dual-Rail Power Architecture**: Battery Boost Mode (TPS61088): Steps $3.7\text{V} \rightarrow 12.0\text{V}$ on-the-go ($2 \times 15\text{W}$ to $2 \times 20\text{W}$ output, $<5\text{A}$ battery draw within the DW01 6A protection limit).High-Power DC Mode (J2 Barrel Jack): Accepts $12\text{V} - 21.0\text{V}$ external DC power for full $2 \times 50\text{W}$ Class-D output into $4\Omega$.
 3. **Advanced Digital Signal Processing (DSP)**: 10-Band Parametric Biquad IIR Equalizer, Dynamic Sub-Bass Psychoacoustic Harmonics, 3D Spatial Stereo Expander, and Dynamic Range Compressor (DRC).
 4. **Wi-Fi Channel State Information (CSI) Motion Sensing Radar**: 64-subcarrier spatial disturbance sensing engine streaming live at 50 Hz over UDP (Port 5000) directly to PC telemetry tools (**RuView**, Python, MATLAB).
 5. **Cyberpunk Web Command Station**: Real-time bidirectional WebSocket telemetry bridge with 11 navigation tabs, 8 selectable sci-fi themes, and standalone zero-hardware PC simulation.
@@ -46,7 +46,7 @@ The platform integrates:
 | :--- | :--- |
 | **Main Processing Core** | Espressif ESP32-WROOM-32E (240 MHz Dual-Core Tensilica LX6, 4MB Flash, Wi-Fi & Classic BT) |
 | **Audio Power Stage** | Texas Instruments TPA3116D2 Dual BTL Class-D ($2 \times 50\text{W}$ into $4\Omega$ @ $21\text{V}$) |
-| **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR ($3.7\text{V} \rightarrow 21.0\text{V}$, up to $10\text{A}$ switch current) |
+| **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR (3.7V -> 12.0V Battery Boost Mode, up to 10A switch limit) / 12V–21V DC Jack Mode |
 | **Battery Fast Charging** | Injoinic IP2312 Synchronous Buck Converter ($3.0\text{A}$ CC/CV charging via USB-C) |
 | **Battery Protection Matrix** | Fortune Semi DW01 + FS8205A Dual N-MOSFET ($2.5\text{V}$ UVP, $4.3\text{V}$ OVP, $6\text{A}$ OCP) |
 | **Wi-Fi CSI Sensing** | 64-Subcarrier Channel State Information at 50Hz with UDP broadcast on port 5000 (RuView compatible) |
@@ -291,7 +291,7 @@ All pricing is based on live distributor catalog rates (DigiKey & LCSC) converte
 | `R4` | 1 | 3 | 51k 1% | 0603 | Yageo | `RC0603FR-1351KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
 | `R5, R6, R17, R18` | 4 | 12 | 1k 1% | 0603 | Yageo | `RC0603FR-071KL` | ₹9.56 ($0.10) | ₹114.72 ($1.20) |
 | `R7, R8, R10, R11` | 4 | 12 | 10k 1% | 0603 | Yageo | `RC0603FR-0710KL` | ₹9.56 ($0.10) | ₹114.72 ($1.20) |
-| `R9` | 1 | 3 | 165k 1% | 0603 | Yageo | `RC0603FR-07165KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
+| `R9` | 1 | 3 | 91k 1% | 0603 | Yageo | `RC0603FR-0791KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
 | `R12, R14, R15` | 3 | 9 | 100k 1% | 0603 | Yageo | `RC0603FR-07100KL` | ₹9.56 ($0.10) | ₹86.04 ($0.90) |
 | `R13` | 1 | 3 | 120k 1% | 0603 | Yageo | `RC0603FR-07120KL` | ₹9.56 ($0.10) | ₹28.68 ($0.30) |
 | `R16` | 1 | 3 | 100R 1% | 0603 | Yageo | `RC0603FR-07100RL` | ₹10.51 ($0.11) | ₹31.53 ($0.33) |
