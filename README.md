@@ -1,4 +1,4 @@
-# AuraForge 50X — Programmable 50W High-Fidelity Wireless DSP & CSI Sensing Platform
+# AuraForge 50X - A Programmable 50W High-Fidelity Wireless DSP & CSI Sensing Platform
 
 [![KiCad 10](https://img.shields.io/badge/EDA-KiCad%2010.0-blue.svg)](https://kicad.org)
 [![PCB Layers](https://img.shields.io/badge/PCB%20Layers-4--Layer%20Stackup-orange.svg)]()
