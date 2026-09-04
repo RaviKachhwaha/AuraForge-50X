@@ -10,18 +10,18 @@
 [![Hack Club](https://img.shields.io/badge/Hack%20Club-Forge%20Grant-red.svg)](https://hackclub.com)
 [![License](https://img.shields.io/badge/License-MIT%20%2F%20CERN--OHL--P%20v2-green.svg)](LICENSE)
 
-**AuraForge 50X** is an open-source, programmable 4-layer wireless audio computer, real-time digital signal processing (DSP) workstation, and wireless RF motion-sensing radar. Built around the dual-core **Espressif ESP32-WROOM-32E** microcontroller, AuraForge 50X transforms a high-efficiency Class-D stereo amplifier into a fully connected, software-defined sound station equipped with non-intrusive room presence detection.
+I built **AuraForge 50X** an open-source, PCB based programmable 4-layer wireless audio computer, real-time digital signal processing (DSP), and with wireless RF motion-sensing radar. Built on dual-core **Espressif ESP32-WROOM-32E** microcontroller and AuraForge 50X transforms a high-efficiency Class-D stereo amplifier into a fully connected, software-defined sound station equipped with non-intrusive room presence detection system.
 
-The platform integrates:
-1. **High-Power Class-D Audio Stage**: Texas Instruments **TPA3116D2** dual BTL stereo amplifier delivering up to $2 \times 50\text{W}$ into $4\Omega$ at $21.0\text{V}$.
-2. **Hybrid Dual-Rail Power Architecture**: Battery Boost Mode (TPS61088): Steps $3.7\text{V} \rightarrow 12.0\text{V}$ on-the-go ($2 \times 15\text{W}$ to $2 \times 20\text{W}$ output, $<5\text{A}$ battery draw within the DW01 6A protection limit).High-Power DC Mode (J2 Barrel Jack): Accepts $12\text{V} - 21.0\text{V}$ external DC power for full $2 \times 50\text{W}$ Class-D output into $4\Omega$.
-3. **Advanced Digital Signal Processing (DSP)**: 10-Band Parametric Biquad IIR Equalizer, Dynamic Sub-Bass Psychoacoustic Harmonics, 3D Spatial Stereo Expander, and Dynamic Range Compressor (DRC).
-4. **Wi-Fi Channel State Information (CSI) Motion Sensing Radar**: 64-subcarrier spatial disturbance sensing engine streaming live at 50 Hz over UDP (Port 5000) directly to PC telemetry tools (**RuView**, Python, MATLAB).
-5. **Cyberpunk Web Command Station**: Real-time bidirectional WebSocket telemetry bridge with 11 navigation tabs, 8 selectable sci-fi themes, and standalone zero-hardware PC simulation.
+The board integrates:
+1. **High-Power Class-D Audio Stage**: Texas Instruments **TPA3116D2** dual BTL stereo amplifier delivering up to 2X50W into 4Omhs at 21.0V.
+2. **Hybrid Dual-Rail Power Architecture**: First battery Boost Mode (TPS61088): Steps 3.7V to 12.0V with 2X15W to 2X20W output and less then <5A battery draw within the DW01 6A protection limit). and with High-Power DC Mode (J2 Barrel Jack): It support to accepts 12V - 21.0V external DC power for full 2X50W Class-D output into 4Omhs Speakers.
+3. **Advanced Digital Signal Processing (DSP)**: Also added an 10-Band Parametric Biquad IIR Equalizer, Dynamic Sub-Bass Psychoacoustic Harmonics, 3D Spatial Stereo Expander, and also a Dynamic Range Compressor (DRC).
+4. **Wi-Fi Channel State Information (CSI) Motion Sensing Radar**: It have a best thing which is 64-subcarrier spatial disturbance sensing engine which live streaming at 50 Hz over UDP (Port 5000) directly to PC telemetry tools like (**RuView**, Python, MATLAB).
+5. **Cyberpunk Web Command Station**: A Real-time bidirectional WebSocket telemetry bridge with 11 navigation tabs, 8 selectable sci-fi themes, and with standalone zero-hardware PC simulation support.
 
 ---
 
-## Visual Showcase & Design Verification
+## This is Visual Showcase & For Design Verification
 
 ### 3D Top View (Assembled SMT Rendering & Overhanging Antenna)
 ![AuraForge 50X 3D Top View](docs/images/3d_top_render.png)
@@ -45,26 +45,26 @@ The platform integrates:
 | Parameter | Specification |
 | :--- | :--- |
 | **Main Processing Core** | Espressif ESP32-WROOM-32E (240 MHz Dual-Core Tensilica LX6, 4MB Flash, Wi-Fi & Classic BT) |
-| **Audio Power Stage** | Texas Instruments TPA3116D2 Dual BTL Class-D ($2 \times 50\text{W}$ into $4\Omega$ @ $21\text{V}$) |
-| **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR (3.7V -> 12.0V Battery Boost Mode, up to 10A switch limit) / 12V–21V DC Jack Mode |
-| **Battery Fast Charging** | Injoinic IP2312 Synchronous Buck Converter ($3.0\text{A}$ CC/CV charging via USB-C) |
-| **Battery Protection Matrix** | Fortune Semi DW01 + FS8205A Dual N-MOSFET ($2.5\text{V}$ UVP, $4.3\text{V}$ OVP, $6\text{A}$ OCP) |
+| **Audio Power Stage** | Texas Instruments TPA3116D2 Dual BTL Class-D (2X50W into 4Omhs @ 21V) |
+| **Synchronous Boost Stage** | Texas Instruments TPS61088RHLR (3.7V -> 12.0V Battery Boost Mode, up to 10A switch limit) and a 12V–21V DC Jack Mode |
+| **Battery Fast Charging** | Injoinic IP2312 Synchronous Buck Converter (3.0A CC/CV charging via USB-C) |
+| **Battery Protection Matrix** | Fortune Semi DW01 + FS8205A Dual N-MOSFET (2.5V UVP, 4.3V OVP and 6A OCP) |
 | **Wi-Fi CSI Sensing** | 64-Subcarrier Channel State Information at 50Hz with UDP broadcast on port 5000 (RuView compatible) |
-| **DSP Equalizer** | 10-Band Direct Form II Transposed Biquad Cascade ($31\text{Hz}$ – $16\text{kHz}$, $\pm 12\text{dB}$ range) |
-| **USB-to-UART Bridge** | WCH CH340N with dedicated manual hardware pushbuttons (`SW_BOOT1` & `SW_RST1`) |
-| **Power Inputs** | Single-Cell 3.7V Li-ion/LiPo (via JST-XH) or External DC Barrel Jack ($12\text{V}$–$21\text{V}$) |
-| **Board Dimensions** | $100.0\text{ mm} \times 80.0\text{ mm}$ (4-Layer FR-4 Standard TG140, 1.6mm finished thickness) |
+| **DSP Equalizer** | 10-Band Direct Form II Transposed Biquad Cascade (31Hz – 16kHz and 12dB range) |
+| **USB-to-UART Bridge** | WCH CH340N with an dedicated manual hardware pushbuttons (`SW_BOOT1` & `SW_RST1`) |
+| **Power Inputs** | Single-Cell 3.7V Li-ion/LiPo (via JST-XH) and or External DC Barrel Jack (12V–21V) |
+| **Board Dimensions** | 100.0 mm X 80.0 mm (4-Layer FR-4 Standard TG140, 1.6mm finished thickness) |
 
 ---
 
 ## Grant Budget Justification (Turnkey PCBA Prototype Run)
 
-Unlike simple low-power microcontroller breakouts or basic 2-layer sensor boards, the AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages. Sourcing the hardware and manufacturing requires an industrial 4-layer PCB fabrication process with solid ground plane isolation, automated SMT pick-and-place assembly, battery power, and acoustic test transducers.
+I want to tell that unlike simple low-power microcontroller breakouts or basic 2-layer sensor boards, this AuraForge 50X is a high-density, multi-rail audio computing platform combining an 83-component Bill of Materials with high-power switching stages not a simple Amp. and sourcing the hardware and manufacturing requires an industrial 4-layer PCB fabrication process with solid ground plane isolation, and an automated SMT pick-and-place assembly, battery power, and acoustic test transducers.
 
-### Manufacturing & Batch Quantity Modeling (3 Boards)
-On turnkey PCB assembly portals (such as **pcbpower.com**), the minimum order quantity (MOQ) for automated SMT assembly setup is 2 units. Fixed manufacturing costs—such as laser-cut stainless steel solder stencils, pick-and-place feeder tooling, automated optical inspection (AOI), and 4-layer photolithography setup—amount to approximately **₹10,500 INR (~$110.10 USD)** for the initial setup.
+### The Need of Manufacturing & Batch Quantity Modeling (3 Boards)
+Due to turnkey PCB assembly on portals (such as **pcbpower.com** or www.lioncircuits.com), have minimum order quantity (MOQ) for automated SMT assembly setup is 2 to 5 units. and Fixed manufacturing costs-such as laser-cut stainless steel solder stencils, pick-and-place feeder tooling, automated optical inspection (AOI), and a 4-layer photolithography setup-amount which is approximately **₹10,500 INR (~$110.10 USD)** for only the initial setup.
 
-Because fixed SMT setup fees are already covered, **scaling from 2 boards to 3 boards costs only ~₹1,300 INR ($13.63 USD) more in assembly labor**, making a 3-board prototype run the most cost-effective approach for hardware bring-up, firmware testing, and destructive power stage verification.
+Because fixed SMT setup fees are already covered, **scaling from 2 boards to 3 boards costs only ~₹1,300 INR ($13.63 USD) more in assembly**, and making a 3-board prototype run the most cost-effective approach for hardware bring-up, firmware testing, and destructive power stage verification and this is in pcbpower.com only in www.lioncircuits.com there is 5 MCQ.
 
 ### Turnkey Budget Breakdown (Converted at ₹95.37 = $1.00 USD)
 
@@ -79,7 +79,7 @@ Because fixed SMT setup fees are already covered, **scaling from 2 boards to 3 b
 
 > **Budget Scalability Note ($165 – $175 Minimum Target):** The table above represents the upper-bound buffer with a 1.5× component sourcing package. The actual grant expenditure scales down directly to **$165.00 – $175.00 USD (₹15,736 – ₹16,690 INR)** by procuring a single fully populated board BOM (1.0× baseline = ₹3,679.89 / $38.59, bringing the total to **$172.39 USD / ₹16,440.89 INR**) or through volume consolidation discounts finalized during the pcbpower.com post-order BOM engineering review.
 >
-> **Itemized Components Breakdown:** For the complete individual component list (resistors, capacitors, TI TPA3116D2, TI TPS61088, ESP32-WROOM-32E) and exact manufacturer part numbers (MPNs), refer to [`components_bom.csv`](components_bom.csv).
+> **Itemized Components Breakdown:** For the complete individual component list like (resistors, capacitors, TI TPA3116D2, TI TPS61088, ESP32-WROOM-32E) and exact manufacturer part numbers (MPNs), refer to [`components_bom.csv`](components_bom.csv).
 
 ---
 
@@ -145,8 +145,8 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
 
 | Function | ESP32 GPIO Pin | Connection on AuraForge 50X |
 | --- | --- | --- |
-| **Audio Left Channel (DAC 1)** | `GPIO 25` | AC-Coupled to TPA3116D2 `INPL` via capacitor `C24` ($1.0\mu\text{F}$) |
-| **Audio Right Channel (DAC 2)** | `GPIO 26` | AC-Coupled to TPA3116D2 `INPR` via capacitor `C25` ($1.0\mu\text{F}$) |
+| **Audio Left Channel (DAC 1)** | `GPIO 25` | AC-Coupled to TPA3116D2 `INPL` via capacitor `C24` 1.0muF |
+| **Audio Right Channel (DAC 2)** | `GPIO 26` | AC-Coupled to TPA3116D2 `INPR` via capacitor `C25` 1.0muF |
 | **Amp Shutdown / Mute (`SDZ`)** | `GPIO 22` | Direct gate connection to TPA3116D2 Pin 1 (`SDZ`) |
 | **Amp Fault Monitoring (`FAULTZ`)** | `GPIO 23` | Active-low open-drain monitor on TPA3116D2 Pin 3 (`FAULTZ`) |
 | **Status Indicator LED** | `GPIO 2` | Onboard SMT blue/green activity indicator |
@@ -157,7 +157,7 @@ Designed strictly to IPC-2152 and IPC-2221 Class 2 thermal and high-current stan
 
 ## 5 Advanced Pure-Firmware Subsystems
 
-All 5 core systems are implemented purely in software on the physical ESP32 board without requiring external dedicated DSP hardware, external EEPROMs, or sensors:
+I added all 5 core systems are purely in software on the physical ESP32 board without requiring external dedicated DSP hardware, external EEPROMs, or sensors:
 
 ```text
 +--------------------------------------------------------------------------------------------------+
@@ -212,7 +212,7 @@ All 5 core systems are implemented purely in software on the physical ESP32 boar
 
 ## Unified Cyberpunk Web UI (11 Navigation Tabs)
 
-The Web UI is identical byte-for-byte across `preview_ui.html` (PC Standalone Viewer), `index.html` (Source), and `src/WebUiAssets.h` (PROGMEM embedded).
+I also add system to check the Web UI byte-for-byte across `preview_ui.html` (PC Standalone Viewer), `index.html` (Source), and `src/WebUiAssets.h` (PROGMEM embedded).
 
 ```text
 +----------------------------------------------------------------------------------------------------+
@@ -224,7 +224,7 @@ The Web UI is identical byte-for-byte across `preview_ui.html` (PC Standalone Vi
 
 ```
 
-### 11 Interactive Navigation Tabs
+### I also added 11 Interactive Navigation Tabs
 
 1. **Master Control HUD:** Radial rotary volume dial, pre-amp gain, balance, Dynamic Sub-Bass, 3D Spatial Expander width ($0.0\times - 2.0\times$), 10 factory presets, and 4 quick user preset buttons.
 2. **10-Band Equalizer Canvas:** Interactive Bézier frequency response curve with 10 vertical neon faders ($-12\text{ dB}$ to $+12\text{ dB}$ across $31\text{ Hz}$ to $16\text{ kHz}$).
@@ -238,7 +238,7 @@ The Web UI is identical byte-for-byte across `preview_ui.html` (PC Standalone Vi
 10. **Wi-Fi & Network:** SoftAP and Station credential management, IP address display, and live Wi-Fi site survey scanner.
 11. **Diagnostics & Telemetry:** TPA3116D2 fault monitor, battery fuel gauge, free heap memory monitor, uptime counter, and reboot/factory reset controls.
 
-### 8 Selectable Cyberpunk Themes
+### I added 8 Selectable Cyberpunk Themes For Sci-Fi lovers
 
 | Theme ID | Primary Glow Accent | Secondary Accent | Background Gradient |
 | --- | --- | --- | --- |
@@ -375,7 +375,7 @@ Follow this step-by-step guide to assemble and bring up the AuraForge 50X hardwa
 ## Known Issues & Workarounds
 
 * **ESP32 ADC Non-Linearity at Low Battery Voltages:**
-* *Issue:* The internal ESP32 SAR ADC exhibits non-linear voltage measurements below $0.1\text{V}$ and above $3.1\text{V}$.
+* *Issue:* The internal ESP32 SAR ADC exhibits non-linear voltage measurements below 0.1V and above 3.1V.
 * *Workaround:* The firmware implements a calibrated two-point piecewise lookup table and a 16-sample Exponential Moving Average (EMA) filter in `HardwareMonitor.cpp` to linearize battery percentage reporting.
 
 
@@ -385,8 +385,8 @@ Follow this step-by-step guide to assemble and bring up the AuraForge 50X hardwa
 
 
 * **Thermal Throttling During Sustained High-Power Output:**
-* *Issue:* Continuous playback at $>40\text{W}$ RMS per channel inside sealed enclosures can heat the TPA3116D2 amplifier die.
-* *Workaround:* The closed-loop thermal governor in `HardwareMonitor.cpp` monitors junction temperature and automatically attenuates digital pre-amp gain by $-3.0\text{ dB}$ if temperature exceeds $75^\circ\text{C}$, preventing thermal shutdown trips.
+* *Issue:* Continuous playback at >40W RMS per channel inside sealed enclosures can heat the TPA3116D2 amplifier die.
+* *Workaround:* The closed-loop thermal governor in `HardwareMonitor.cpp` monitors junction temperature and automatically attenuates digital pre-amp gain by -3.0 dB if temperature exceeds 75 C, to preventing thermal shutdown trips.
 
 
 
@@ -401,11 +401,11 @@ The schematic architecture, 4-layer PCB layout, and high-power thermal calculati
 * *Resolution Implemented:* Re-engineered the board edge in KiCad 10 so the entire ESP32 antenna overhangs past the `Edge.Cuts` boundary into open air, with zero copper planes beneath the radiating element.
 
 
-* **Power Inductor Saturation Current Review (by *tty7*):**
-* *Feedback:* Verified that the synchronous boost converter (`TPS61088`) requires a shielded inductor capable of sustaining $>10\text{A}$ peak saturation current under maximum 50W audio transients.
-* *Resolution Implemented:* Specified the Würth Elektronik `7443340220` ($2.2\mu\text{H}$, $10.0\text{A}$ $I_{\text{sat}}$) high-current power inductor in `L2`.
+* **Power Inductor Saturation Current Review (by *Claude Sonnet 5 AI*):**
+* *Feedback:* Verified that the synchronous boost converter (`TPS61088`) requires a shielded inductor capable of sustaining >10A peak saturation current under maximum 50W audio transients.
+* *Resolution Implemented:* Specified the Würth Elektronik `7443340220` 2.2muH, 10.0A high-current power inductor in `L2`.
 
-
+And Thanks to Madhav, tty7 and Claude Team.
 
 ---
 
