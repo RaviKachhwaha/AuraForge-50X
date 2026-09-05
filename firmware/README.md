@@ -1,4 +1,4 @@
-# AuraForge 50X — Programmable 50W Wireless Audio DSP & 50Hz Wi-Fi CSI Radar Platform
+# AuraForge 50X Is a Programmable 50W Wireless Audio DSP & 50Hz Wi-Fi CSI Radar Platform
 
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-Core%20v6.1-orange.svg)](https://platformio.org)
 [![Framework](https://img.shields.io/badge/Framework-ESP--IDF%20%2F%20Arduino-blue.svg)](https://espressif.com)
@@ -8,13 +8,11 @@
 [![Web UI](https://img.shields.io/badge/Web%20Dashboard-11--Tab%20Cyberpunk%20HUD-magenta.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**AuraForge 50X** is a programmable embedded audio computing platform, real-time digital signal processing (DSP) workstation, and wireless RF motion sensing radar. Built on the dual-core **Espressif ESP32-WROOM-32E** microcontroller, it transforms a high-power $2 \times 50\text{W}$ Class-D amplifier into a fully connected, software-defined sound station with touchless room presence detection.
-
 ---
 
 ## System Architecture & Dual-Core Task Allocation
 
-The firmware leverages FreeRTOS symmetric multiprocessing (SMP) across both 240 MHz Tensilica LX6 cores to maintain absolute isolation between hard real-time audio computation and asynchronous network telemetry:
+Its firmware leverages FreeRTOS symmetric multiprocessing (SMP) across both 240 MHz Tensilica LX6 cores to maintain absolute isolation between hard real-time audio computation and asynchronous network telemetry System:
 
 ```text
 ====================================================================================================
@@ -55,6 +53,7 @@ The firmware leverages FreeRTOS symmetric multiprocessing (SMP) across both 240 
  [I2S DMA Output Ring Buffer] ---> [Internal High-Resolution DACs (GPIO25 / GPIO26)] ---> [TPA3116D2]
 ====================================================================================================
 
+```
 ---
 
 ## 5 Advanced Pure-Firmware Subsystems
