@@ -1,6 +1,7 @@
+Note:- This one below image is AI Generated and for Visual Show only not real!
 <h1 align="center">
   <br>
-  <img src="https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/3d_top_render.png" alt="docs/images/3d_top_render.png">
+  <img src="https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/AI_Generated_Image%20for%20cover%20only.png" alt="docs/images/3d_top_render.png">
 
   <br>
   AuraForge-50X
@@ -41,9 +42,9 @@ Here are the schematic design,
 
 | Front Layer | Inner Layer 1 |
 | --- | --- |
-| ![]() | ![]() |
+| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_top_layer.png) | ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_2nd_layer.png) |
 | Inner Layer 2 | Bottom layer |
-| ![]() | ![]() |
+| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_3nd_layer.png) | ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_bottom_layer.png) |
 
 ## Pinout  
 
