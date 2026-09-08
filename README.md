@@ -1,7 +1,6 @@
-Note:- This one below image is AI Generated and for Visual Show only not real!
 <h1 align="center">
   <br>
-  <img src="https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/AI_Generated_Image%20for%20cover%20only.png" alt="docs/images/3d_top_render.png">
+  <img src="https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/3d_top_render.png" alt="docs/images/3d_top_render.png">
 
   <br>
   AuraForge-50X
@@ -80,4 +79,4 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |8.24           |https://www.amazon.in/-/hi/Anker-A8552/dp/B093GGVB89| Amazon India     |
 | | | Total | 191.68 | 
 
-LCSC BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/components_bom.csv)
+LCSC BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
