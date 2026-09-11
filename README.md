@@ -49,7 +49,7 @@ Here are the schematic design,
 
 This is a general pinout 
 
-| ![]() | 
+| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pin_outs.png) | 
 | --- | 
 
 (Credits to the KiCad EDA for KICAD 10, Espressif Systems for the MCU, RuView for CSI processing and Hack Club for fund to make this possible.) 
