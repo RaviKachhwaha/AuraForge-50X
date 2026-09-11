@@ -72,11 +72,11 @@ I have attached a simple firmware to start with prebuild firmware available in t
 ## BOM  
 |Name|Purpose          |Quantity|Total Cost (USD)|Link               |Distributor|
 |----|-----------------|--------|----------------|-------------------|-----------|
-|PCBA|Board and Assembly|3       |111.32           |https://www.pcbpower.com/|PCB Power     |
-|Electronic Components|BOM Component Sourcing|2       |57.88           |https://www.digikey.in/|DigiKey     |
-|Battery|18650 3.7V 3000mAh Li-ion Battery with Connector for testing|1       |6.08           |https://www.amazon.in/Charging-18650-Rechargeable-Connector-Protection/dp/B0DBR36C91|Amazon India     |
-|Speaker|5 Inch 4 Ohm 25W Full-Range Woofer Speaker (Stereo Pair) for testing|1       |8.16           |https://www.amazon.in/-/hi/Electronic-Spices-%E0%A4%95%E0%A5%88%E0%A4%AC%E0%A4%BF%E0%A4%A8%E0%A5%87%E0%A4%9F-%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%B2%E0%A5%87%E0%A4%B8%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A4%9F-%E0%A4%A1%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%87%E0%A4%B5%E0%A4%B0/dp/B0BN44KVVL| Amazon India     |
-|Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |8.24           |https://www.amazon.in/-/hi/Anker-A8552/dp/B093GGVB89| Amazon India     |
+|PCBA|Board and Assembly|3       |111.32           |[PCB Power](https://www.pcbpower.com)|PCB Power     |
+|Electronic Components|BOM Component Sourcing|2       |57.88           |[DigiKey](https://www.digikey.in)|DigiKey     |
+|Battery|18650 3.7V 3000mAh Li-ion Battery with Connector for testing|1       |6.08           |[18650 Battery](https://www.amazon.in/Charging-18650-Rechargeable-Connector-Protection/dp/B0DBR36C91)|Amazon India     |
+|Speaker|5 Inch 4 Ohm 25W Full-Range Woofer Speaker (Stereo Pair) for testing|1       |8.16           |[5 Inch Speaker](https://www.amazon.in/-/hi/Electronic-Spices-%E0%A4%95%E0%A5%88%E0%A4%AC%E0%A4%BF%E0%A4%A8%E0%A5%87%E0%A4%9F-%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A5%8D%E0%A4%B2%E0%A5%87%E0%A4%B8%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A4%9F-%E0%A4%A1%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%87%E0%A4%B5%E0%A4%B0/dp/B0BN44KVVL)| Amazon India     |
+|Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |8.24           |[USB-C Cable](https://www.amazon.in/-/hi/Anker-A8552/dp/B093GGVB89)| Amazon India     |
 | | | Total | 191.68 | 
 
 LCSC BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
