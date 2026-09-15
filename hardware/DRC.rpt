@@ -1,16 +1,16 @@
 ** Drc report for AuraForge_50X.kicad_pcb **
-** Created on 2026-08-31T14:20:20 **
+** Created on 2026-09-15T18:38:49 **
 ** Report includes: Errors, Warnings **
 
-** Found 15 DRC violations **
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(17.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
+** Found 14 DRC violations **
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
     @(35.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
+    @(17.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
@@ -52,10 +52,6 @@
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; warning
     @(27.0000 mm, 41.5000 mm): Reference field of D1
-[silk_overlap]: Silkscreen clearance
-    Rule: board setup constraints silk; warning
-    @(11.5000 mm, 47.5000 mm): Reference field of J6
-    @(10.9300 mm, 43.8200 mm): Segment of J6 on F.Silkscreen
 
 ** Found 0 unconnected pads **
 

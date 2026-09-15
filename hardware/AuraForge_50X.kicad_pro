@@ -792,7 +792,7 @@
       "netlist": "",
       "plot": "gerbers/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "AuraForge_50X.stl",
       "vrml": ""
     },
     "page_layout_descr_file": ""
