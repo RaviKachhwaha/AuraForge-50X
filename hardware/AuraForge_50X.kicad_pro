@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.0,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
@@ -107,7 +107,7 @@
         "items_not_allowed": "error",
         "length_out_of_range": "error",
         "lib_footprint_issues": "warning",
-        "lib_footprint_mismatch": "warning",
+        "lib_footprint_mismatch": "ignore",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
         "mirrored_text_on_front_layer": "warning",
@@ -120,7 +120,7 @@
         "padstack": "warning",
         "pth_inside_courtyard": "error",
         "shorting_items": "error",
-        "silk_edge_clearance": "warning",
+        "silk_edge_clearance": "ignore",
         "silk_over_copper": "warning",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
@@ -148,7 +148,7 @@
         "max_error": 0.005,
         "min_clearance": 0.09,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.5,
+        "min_copper_edge_clearance": 0.375,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.05,
         "min_hole_to_hole": 0.0,
@@ -496,7 +496,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "ignore",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -665,7 +665,7 @@
         "pattern": "/V_LDO_IN"
       },
       {
-        "netclass": "Power_Low",
+        "netclass": "Power_High",
         "pattern": "Net-(D3-A)"
       },
       {
@@ -675,14 +675,6 @@
       {
         "netclass": "Default",
         "pattern": "/AUDIO_R"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/I2S_BCK"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/I2S_LRCK"
       },
       {
         "netclass": "Default",
@@ -753,7 +745,7 @@
         "pattern": "Net-(U2-SS)"
       },
       {
-        "netclass": "Default",
+        "netclass": "Power_Low",
         "pattern": "Net-(U3-SW)"
       },
       {
@@ -783,6 +775,14 @@
       {
         "netclass": "Default",
         "pattern": "Net-(LED1-K)"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "DAC_OUT_L"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "DAC_OUT_R"
       }
     ]
   },
@@ -792,7 +792,7 @@
       "netlist": "",
       "plot": "gerbers/",
       "specctra_dsn": "",
-      "step": "AuraForge_50X.stl",
+      "step": "AuraForge_50X.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""

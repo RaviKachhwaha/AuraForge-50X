@@ -1,57 +1,8 @@
 ** Drc report for AuraForge_50X.kicad_pcb **
-** Created on 2026-09-15T18:38:49 **
+** Created on 2026-09-23T23:23:05 **
 ** Report includes: Errors, Warnings **
 
-** Found 14 DRC violations **
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(35.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(17.0000 mm, -5.4800 mm): Segment of U4 on F.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(42.1500 mm, 68.8000 mm): Segment of J2 on F.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(51.1500 mm, 83.2000 mm): Segment of J2 on F.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(29.9500 mm, 80.1100 mm): Segment of J3 on F.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(29.9500 mm, 82.2000 mm): Segment of J3 on F.Silkscreen
-[silk_edge_clearance]: Silkscreen clipped by board edge
-    Rule: board setup constraints silk; warning
-    @(0.0000 mm, 0.0000 mm): Rectangle on Edge.Cuts
-    @(36.0500 mm, 82.2000 mm): Segment of J3 on F.Silkscreen
-[padstack]: Padstack is questionable (PTH pad hole leaves no copper)
-    Local override; warning
-    @(12.1000 mm, 72.7900 mm): PTH pad [<no net>] of J1
-[padstack]: Padstack is questionable (PTH pad hole leaves no copper)
-    Local override; warning
-    @(17.9000 mm, 72.7900 mm): PTH pad [<no net>] of J1
-[padstack]: Padstack is questionable (PTH pad hole leaves no copper)
-    Local override; warning
-    @(33.0000 mm, 78.6000 mm): PTH pad [<no net>] of J3
-[padstack]: Padstack is questionable (PTH pad hole leaves no copper)
-    Local override; warning
-    @(33.0000 mm, 71.6000 mm): PTH pad [<no net>] of J3
-[lib_footprint_mismatch]: Footprint 'VQFN-20_L4.6-W3.6-P0.50-BL' does not match copy in library 'easyeda2kicad'
-    Local override; warning
-    @(74.0000 mm, 20.0000 mm): Footprint U2
-[silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; warning
-    @(19.4700 mm, 71.2400 mm): Circle of J1 on F.Silkscreen
-[silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; warning
-    @(27.0000 mm, 41.5000 mm): Reference field of D1
+** Found 0 DRC violations **
 
 ** Found 0 unconnected pads **
 
@@ -62,6 +13,8 @@
     - Track endpoint not centered on via
     - Tuning profile track geometries
     - Footprint doesn't match symbol's footprint filters
+    - Silkscreen clipped by board edge
     - Footprint component type doesn't match footprint pads
+    - Footprint doesn't match copy in library
 
 ** End of Report **

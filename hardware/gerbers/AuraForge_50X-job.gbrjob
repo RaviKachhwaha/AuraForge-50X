@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "10.0.5"
     },
-    "CreationDate": "2026-09-15T20:16:53+05:30"
+    "CreationDate": "2026-09-24T00:42:12+05:30"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "AuraForge_50X",
       "GUID": "41757261-466f-4726-9765-5f3530582e6b",
-      "Revision": "v1.0"
+      "Revision": "v2.0"
     },
     "Size": {
       "X": 100.2,
@@ -33,8 +33,8 @@
     },
     {
       "Layers": "Inner",
-      "PadToPad": 0.09,
-      "PadToTrack": 0.09,
+      "PadToPad": 0.05,
+      "PadToTrack": 0.05,
       "TrackToTrack": 0.0,
       "MinLineWidth": 0.15,
       "TrackToRegion": 0.25,

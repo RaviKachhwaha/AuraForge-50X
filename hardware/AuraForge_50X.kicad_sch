@@ -9168,7 +9168,7 @@
 		)
 		(uuid "2a60a867-ba6b-42ba-b2ba-7e3401206c44")
 	)
-	(label "I2S_BCK"
+	(label "DAC_OUT_R"
 		(at 259.08 142.24 180)
 		(effects
 			(font
@@ -9508,7 +9508,7 @@
 		)
 		(uuid "e350244e-3866-41b7-b393-7bfbf9aa698e")
 	)
-	(label "I2S_LRCK"
+	(label "DAC_OUT_L"
 		(at 48.26 153.67 0)
 		(effects
 			(font
@@ -9548,7 +9548,7 @@
 		)
 		(uuid "f446fe9e-bdcb-4429-a42b-c9d92e75e8ba")
 	)
-	(label "I2S_LRCK"
+	(label "DAC_OUT_L"
 		(at 250.19 139.7 180)
 		(effects
 			(font
