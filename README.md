@@ -79,4 +79,4 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |8.24           |[USB-C Cable](https://www.amazon.in/-/hi/Anker-A8552/dp/B093GGVB89)| Amazon India     |
 | | | Total | 199.68 | 
 
-LCSC BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
+LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
