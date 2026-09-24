@@ -716,184 +716,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:L"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "L"
-				(at -1.27 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "L"
-				(at 1.905 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Inductor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "inductor choke coil reactor magnetic"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "L_0_1"
-				(arc
-					(start 0 2.54)
-					(mid 0.6323 1.905)
-					(end 0 1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 1.27)
-					(mid 0.6323 0.635)
-					(end 0 0)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 0)
-					(mid 0.6323 -0.635)
-					(end 0 -1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 -1.27)
-					(mid 0.6323 -1.905)
-					(end 0 -2.54)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "L_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:LED"
 			(pin_numbers
 				(hide yes)
@@ -3681,6 +3503,646 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "easyeda2kicad:MWSA0603S-2R2MT"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "L"
+				(at -5.08 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "MWSA0603S-2R2MT"
+				(at -5.08 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Footprint" "MWSA0603S-2R2MT:INDM7066X300N"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "3.00mm"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "CREATOR" "NEZY"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "STANDARD" "IPC-7351B"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "PARTREV" "2022/10/12"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "VERIFIER" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MANUFACTURER" "Shenzhen Sunlord Electronics Co. Ltd."
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(symbol "MWSA0603S-2R2MT_0_0"
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -7.62 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.08 0)
+					(mid -3.81 1.2645)
+					(end -2.54 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 0)
+					(mid -1.27 1.2645)
+					(end 0 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0)
+					(mid 1.27 1.2645)
+					(end 2.54 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 2.54 0)
+					(mid 3.81 1.2645)
+					(end 5.08 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -12.7 0 0)
+					(length 5.08)
+					(name ""
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 0 180)
+					(length 5.08)
+					(name ""
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "easyeda2kicad:NRS8040T100MJGJ"
+			(body_styles demorgan)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "L"
+				(at 6.985 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "NRS8040T100MJGJ"
+				(at 6.985 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Footprint" "IND_TAIYO_NRS8040_TAY"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Datasheet" "NRS8040T100MJGJ"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "NRS8040T100MJGJ"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "IND_TAIYO_NRS8040_TAY"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "NRS8040T100MJGJ_1_1"
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.54 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 2.54 1.27)
+					(mid 3.81 2.5344)
+					(end 5.08 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 5.08 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 5.08 1.27)
+					(mid 6.35 2.5344)
+					(end 7.62 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 7.62 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 7.62 1.27)
+					(mid 8.89 2.5344)
+					(end 10.16 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 10.16 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 10.16 1.27)
+					(mid 11.43 2.5344)
+					(end 12.7 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 0) (xy 12.7 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 15.24 0 180)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "NRS8040T100MJGJ_1_2"
+				(arc
+					(start -1.27 10.16)
+					(mid -2.5344 11.43)
+					(end -1.27 12.7)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.27 7.62)
+					(mid -2.5344 8.89)
+					(end -1.27 10.16)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.27 5.08)
+					(mid -2.5344 6.35)
+					(end -1.27 7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.27 2.54)
+					(mid -2.5344 3.81)
+					(end -1.27 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 12.7) (xy -1.27 12.7)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 10.16) (xy -1.27 10.16)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 7.62) (xy -1.27 7.62)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy -1.27 5.08)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy -1.27 2.54)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 0 15.24 270)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 90)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "easyeda2kicad:PJ-002AH"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -5771,6 +6233,159 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "easyeda2kicad:WE-HCC_8070"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "L"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Value" "WE-HCC_8070"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Footprint" "WE-HCC_8070:WE-HCC_8070"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "WE-HCC_8070_0_0"
+				(arc
+					(start -5.08 0)
+					(mid -3.81 1.2645)
+					(end -2.54 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 0)
+					(mid -1.27 1.2645)
+					(end 0 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0)
+					(mid 1.27 1.2645)
+					(end 2.54 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 2.54 0)
+					(mid 3.81 1.2645)
+					(end 5.08 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power global)
 			(pin_numbers
@@ -6015,12 +6630,6 @@
 		(uuid "0bbff9db-7146-4c8f-8a95-3088bd7bb3ce")
 	)
 	(junction
-		(at 303.53 54.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "15b9e2e0-b836-4335-bf5b-22cdd1f1ba5d")
-	)
-	(junction
 		(at 215.9 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6081,6 +6690,12 @@
 		(uuid "4fbabdb8-0b3c-400b-9cf4-9dec1ffc9d69")
 	)
 	(junction
+		(at 170.18 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "50dd61ec-e5f7-4d4d-99e0-25ffa655db01")
+	)
+	(junction
 		(at 316.23 226.06)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6097,12 +6712,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6bdd0820-f612-4917-8b14-55160221c4e9")
-	)
-	(junction
-		(at 170.18 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7461b4c4-5501-4d50-8aa7-9baab9267f26")
 	)
 	(junction
 		(at 316.23 219.71)
@@ -6195,10 +6804,16 @@
 		(uuid "ddce74e8-62b7-4409-8d24-31f09834bf26")
 	)
 	(junction
-		(at 233.68 224.79)
+		(at 303.53 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f0c417a5-19e6-4431-af43-b502efdf9e6a")
+		(uuid "df149b60-a3b1-4658-b161-e1fcd845e9ad")
+	)
+	(junction
+		(at 234.95 224.79)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e50ea930-449f-4f65-a9ac-64a1a7a85ad0")
 	)
 	(junction
 		(at 152.4 179.07)
@@ -6420,6 +7035,16 @@
 	)
 	(wire
 		(pts
+			(xy 195.58 154.94) (xy 208.28 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02a89a32-1b58-453a-953f-64aafe1fdd67")
+	)
+	(wire
+		(pts
 			(xy 106.68 128.27) (xy 121.92 128.27)
 		)
 		(stroke
@@ -6477,6 +7102,16 @@
 			(type default)
 		)
 		(uuid "069fdf64-2612-4e40-afc0-577def7e022b")
+	)
+	(wire
+		(pts
+			(xy 191.77 132.08) (xy 208.28 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07361400-6402-4282-8a43-6d86118274df")
 	)
 	(wire
 		(pts
@@ -6540,6 +7175,16 @@
 	)
 	(wire
 		(pts
+			(xy 234.95 224.79) (xy 245.11 224.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0be57a08-b333-4017-8ee9-210047e78c3e")
+	)
+	(wire
+		(pts
 			(xy 401.32 59.69) (xy 401.32 57.15)
 		)
 		(stroke
@@ -6557,16 +7202,6 @@
 			(type default)
 		)
 		(uuid "0c622f44-e325-442b-a847-331208f56da9")
-	)
-	(wire
-		(pts
-			(xy 314.96 38.1) (xy 314.96 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ccca253-da2b-4125-ae8a-10d93d89beae")
 	)
 	(wire
 		(pts
@@ -6630,16 +7265,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 154.94) (xy 208.28 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "126b1f4d-a839-4964-a4c0-c1bf9fe71821")
-	)
-	(wire
-		(pts
 			(xy 295.91 214.63) (xy 292.1 214.63)
 		)
 		(stroke
@@ -6647,6 +7272,16 @@
 			(type default)
 		)
 		(uuid "12857b8a-c52a-44e6-a50f-1e94b21384cb")
+	)
+	(wire
+		(pts
+			(xy 314.96 63.5) (xy 316.23 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1594781e-e87e-4648-bafa-2e75000cb043")
 	)
 	(wire
 		(pts
@@ -6760,16 +7395,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 147.32) (xy 208.28 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a453961-4878-442c-a621-ec184370506c")
-	)
-	(wire
-		(pts
 			(xy 119.38 120.65) (xy 119.38 123.19)
 		)
 		(stroke
@@ -6780,7 +7405,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 132.08) (xy 180.34 132.08)
+			(xy 170.18 132.08) (xy 176.53 132.08)
 		)
 		(stroke
 			(width 0)
@@ -6810,23 +7435,23 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 139.7) (xy 208.28 139.7)
+			(xy 314.96 57.15) (xy 314.96 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2d95a50b-f8c1-4309-94c7-d0b0e9027e5c")
+		(uuid "2d9e626b-4bf6-44a6-8313-4d043fc338e4")
 	)
 	(wire
 		(pts
-			(xy 187.96 132.08) (xy 208.28 132.08)
+			(xy 195.58 139.7) (xy 208.28 139.7)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2f159297-4214-4002-b9ea-f93775364834")
+		(uuid "2e271a6d-17b8-40cf-b720-d97e926624fd")
 	)
 	(wire
 		(pts
@@ -7130,7 +7755,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 224.79) (xy 245.11 224.79)
+			(xy 232.41 224.79) (xy 234.95 224.79)
 		)
 		(stroke
 			(width 0)
@@ -7470,16 +8095,6 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 224.79) (xy 233.68 224.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65fd3449-0b58-43a1-9c32-57316c86cfeb")
-	)
-	(wire
-		(pts
 			(xy 215.9 152.4) (xy 219.71 152.4)
 		)
 		(stroke
@@ -7627,6 +8242,16 @@
 			(type default)
 		)
 		(uuid "72299a1f-be06-4908-81b5-204cea122c8b")
+	)
+	(wire
+		(pts
+			(xy 176.53 147.32) (xy 170.18 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73093b23-5b50-4c40-bab2-c65f06419231")
 	)
 	(wire
 		(pts
@@ -7880,16 +8505,6 @@
 	)
 	(wire
 		(pts
-			(xy 180.34 147.32) (xy 170.18 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8ee33804-8dbf-408c-8677-da882193040f")
-	)
-	(wire
-		(pts
 			(xy 248.92 116.84) (xy 248.92 121.92)
 		)
 		(stroke
@@ -8030,7 +8645,7 @@
 	)
 	(wire
 		(pts
-			(xy 303.53 54.61) (xy 314.96 54.61)
+			(xy 303.53 57.15) (xy 314.96 57.15)
 		)
 		(stroke
 			(width 0)
@@ -8177,6 +8792,16 @@
 			(type default)
 		)
 		(uuid "ae6f93a9-647a-458e-8f5c-b35631761731")
+	)
+	(wire
+		(pts
+			(xy 299.72 38.1) (xy 316.23 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af688e97-eb10-4044-843a-6022d0ae84e2")
 	)
 	(wire
 		(pts
@@ -8360,7 +8985,7 @@
 	)
 	(wire
 		(pts
-			(xy 303.53 43.18) (xy 303.53 54.61)
+			(xy 303.53 43.18) (xy 303.53 57.15)
 		)
 		(stroke
 			(width 0)
@@ -8480,7 +9105,7 @@
 	)
 	(wire
 		(pts
-			(xy 303.53 58.42) (xy 303.53 54.61)
+			(xy 303.53 58.42) (xy 303.53 57.15)
 		)
 		(stroke
 			(width 0)
@@ -8760,16 +9385,6 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 38.1) (xy 314.96 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f171c11f-cb44-40dc-9f62-d9d3d8a74cb4")
-	)
-	(wire
-		(pts
 			(xy 265.43 34.29) (xy 265.43 35.56)
 		)
 		(stroke
@@ -8937,6 +9552,16 @@
 			(type default)
 		)
 		(uuid "fc7fa95c-1728-466b-a6ac-867cfc011440")
+	)
+	(wire
+		(pts
+			(xy 191.77 147.32) (xy 208.28 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fcaa6e59-8996-4894-80ee-5c3bf63f3264")
 	)
 	(wire
 		(pts
@@ -9249,7 +9874,7 @@
 		(uuid "5ff8f1e8-a561-4073-8aed-9831021cbe79")
 	)
 	(label "+BAT_3V7"
-		(at 233.68 217.17 0)
+		(at 234.95 209.55 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9369,7 +9994,7 @@
 		(uuid "a91cf816-1316-44cf-8898-ea9c9995e61c")
 	)
 	(label "+BAT_3V7"
-		(at 303.53 54.61 0)
+		(at 303.53 57.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9399,7 +10024,7 @@
 		(uuid "b52d0f5c-9a2e-4778-983d-4548324a33a5")
 	)
 	(label "SPK_R_MINUS"
-		(at 191.77 139.7 0)
+		(at 195.58 139.7 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9589,7 +10214,7 @@
 		(uuid "fb402649-7d27-4a84-8f08-688c924dc117")
 	)
 	(label "SPK_L_MINUS"
-		(at 191.77 154.94 0)
+		(at 195.58 154.94 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9671,167 +10296,6 @@
 			(project "AuraForge_50X"
 				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
 					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:L")
-		(at 233.68 220.98 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "028bb5db-48a8-4a2b-9806-5230cad7d0e0")
-		(property "Reference" "L2"
-			(at 234.95 219.7099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2.2uH 10A"
-			(at 234.95 222.2499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_10.4x10.4_H4.8"
-			(at 233.68 220.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 233.68 220.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 233.68 220.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d3a19ed2-a3cc-4507-91dd-7391fd1f4349")
-		)
-		(pin "2"
-			(uuid "8149cdbb-7b60-467b-9877-dcc5b4eba976")
-		)
-		(instances
-			(project "AuraForge_50X"
-				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
-					(reference "L2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:L")
-		(at 184.15 132.08 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "02a7aa0a-6a28-41eb-ae3a-b90974862b49")
-		(property "Reference" "L5"
-			(at 184.15 127 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uH 3.8A"
-			(at 184.15 129.54 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_Taiyo-Yuden_NR-80xx"
-			(at 184.15 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 184.15 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2f8a36bc-8292-4d70-8a01-1b0256390f6d")
-		)
-		(pin "2"
-			(uuid "de02c199-4005-45df-a691-a8ea93f3c869")
-		)
-		(instances
-			(project "AuraForge_50X"
-				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
-					(reference "L5")
 					(unit 1)
 				)
 			)
@@ -10933,86 +11397,6 @@
 			(project "AuraForge_50X"
 				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
 					(reference "#PWR045")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:L")
-		(at 184.15 147.32 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "17f691cf-650c-46bb-9bdf-d2d1b6993405")
-		(property "Reference" "L3"
-			(at 184.15 142.24 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uH 3.8A"
-			(at 184.15 144.78 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_Taiyo-Yuden_NR-80xx"
-			(at 184.15 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 184.15 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f3d91c74-b70e-4ab5-97c2-9514ec3f4e4b")
-		)
-		(pin "2"
-			(uuid "1584e3e0-2c9b-4364-9fc2-a640dffa1620")
-		)
-		(instances
-			(project "AuraForge_50X"
-				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
-					(reference "L3")
 					(unit 1)
 				)
 			)
@@ -12479,7 +12863,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "33f34310-b7ef-4bcb-9cca-a6ce9b61c9af")
 		(property "Reference" "C2"
 			(at 307.34 60.9599 0)
@@ -12493,7 +12876,7 @@
 			)
 		)
 		(property "Value" "22uF 10V"
-			(at 307.34 63.4999 0)
+			(at 305.816 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13471,6 +13854,87 @@
 		)
 	)
 	(symbol
+		(lib_id "easyeda2kicad:NRS8040T100MJGJ")
+		(at 180.34 154.94 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4ca0756b-2f8d-4a1e-a8fa-58bad005cc5d")
+		(property "Reference" "L4"
+			(at 195.072 150.368 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "10uH 3.8A"
+			(at 187.198 150.622 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:IND_TAIYO_NRS8040_TAY"
+			(at 180.34 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "NRS8040T100MJGJ"
+			(at 180.34 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2f451525-89e9-4481-8633-6d0a8da6ea1f")
+		)
+		(pin "1"
+			(uuid "248b6b13-dea1-4954-b490-c3b2dd1901b0")
+		)
+		(instances
+			(project "AuraForge_50X"
+				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
+					(reference "L4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 234.95 237.49 0)
 		(unit 1)
@@ -14101,6 +14565,88 @@
 		)
 	)
 	(symbol
+		(lib_id "easyeda2kicad:NRS8040T100MJGJ")
+		(at 176.53 132.08 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "58c81154-4c97-4e04-8930-82f27ea0bdce")
+		(property "Reference" "L5"
+			(at 184.15 124.46 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "10uH 3.8A"
+			(at 184.15 127 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:IND_TAIYO_NRS8040_TAY"
+			(at 176.53 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "NRS8040T100MJGJ"
+			(at 176.53 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 176.53 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "044ad8b5-280a-44e6-8a3d-24336aec828c")
+		)
+		(pin "1"
+			(uuid "d0ee1f50-3d7e-45ac-a38b-0f260f74a7e9")
+		)
+		(instances
+			(project "AuraForge_50X"
+				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
+					(reference "L5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Polarized")
 		(at 177.8 158.75 90)
 		(unit 1)
@@ -14418,6 +14964,89 @@
 		)
 	)
 	(symbol
+		(lib_id "easyeda2kicad:WE-HCC_8070")
+		(at 234.95 217.17 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "66021289-be09-4cd2-8295-cd75d84480d0")
+		(property "Reference" "L2"
+			(at 237.49 215.8999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2uH 10A"
+			(at 237.49 218.4399 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:WE-HCC_8070"
+			(at 234.95 217.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 217.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 234.95 217.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "5e0eee13-6b70-4d9a-9f0b-421a2623bd86")
+		)
+		(pin "1"
+			(uuid "76cb0cb0-d09e-470a-91f5-1f17f5374297")
+		)
+		(instances
+			(project "AuraForge_50X"
+				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
+					(reference "L2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 401.32 49.53 0)
 		(unit 1)
@@ -14490,6 +15119,87 @@
 			(project "AuraForge_50X"
 				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
 					(reference "#PWR051")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "easyeda2kicad:NRS8040T100MJGJ")
+		(at 176.53 147.32 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "69f3f9ba-6f40-48e7-98c6-18d55b3656b1")
+		(property "Reference" "L3"
+			(at 192.532 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "10uH 3.8A"
+			(at 184.404 143.002 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:IND_TAIYO_NRS8040_TAY"
+			(at 176.53 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "NRS8040T100MJGJ"
+			(at 176.53 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 176.53 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9a15df5e-1c0b-49b9-9b77-2e1c629f42b9")
+		)
+		(pin "1"
+			(uuid "4bf4e2b0-b6d6-431c-992e-60f820d3bb54")
+		)
+		(instances
+			(project "AuraForge_50X"
+				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
+					(reference "L3")
 					(unit 1)
 				)
 			)
@@ -15317,6 +16027,161 @@
 			(project "AuraForge_50X"
 				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
 					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "easyeda2kicad:MWSA0603S-2R2MT")
+		(at 316.23 50.8 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7a8be097-2bee-4068-a5e8-c88efa9b9d95")
+		(property "Reference" "L1"
+			(at 318.77 49.5299 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2uH 6.5A"
+			(at 318.77 52.0699 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:INDM7066X300N"
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Datasheet" ""
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "3.00mm"
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "CREATOR" "NEZY"
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "STANDARD" "IPC-7351B"
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "PARTREV" "2022/10/12"
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "VERIFIER" ""
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MANUFACTURER" "Shenzhen Sunlord Electronics Co. Ltd."
+			(at 316.23 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(pin "1"
+			(uuid "ef0f6f56-cc17-49b5-a206-7ddd4d5e28ca")
+		)
+		(pin "2"
+			(uuid "99744b4b-4345-4631-8b4f-87acca68cefe")
+		)
+		(instances
+			(project "AuraForge_50X"
+				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
+					(reference "L1")
 					(unit 1)
 				)
 			)
@@ -17953,86 +18818,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:L")
-		(at 184.15 154.94 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b3a0b558-7761-4b33-b58d-2b11d459f8eb")
-		(property "Reference" "L4"
-			(at 184.15 149.86 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uH 3.8A"
-			(at 184.15 152.4 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_Taiyo-Yuden_NR-80xx"
-			(at 184.15 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 184.15 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "785aeeda-f17c-48e3-939f-d79b5dc7129d")
-		)
-		(pin "2"
-			(uuid "620c744b-b8d0-4463-be2e-cb2e33e30431")
-		)
-		(instances
-			(project "AuraForge_50X"
-				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
-					(reference "L4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 156.21 179.07 90)
 		(unit 1)
@@ -18343,88 +19128,6 @@
 			(project "AuraForge_50X"
 				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
 					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:L")
-		(at 314.96 50.8 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bcc9b725-dc6d-41bc-ab36-2201ebfc23c8")
-		(property "Reference" "L1"
-			(at 316.23 49.5299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2.2uH 6.5A"
-			(at 316.23 52.0699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_7.3x7.3_H4.5"
-			(at 314.96 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 314.96 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 314.96 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "c1820c7d-66d1-498f-a1f0-9390bacf3f48")
-		)
-		(pin "1"
-			(uuid "e9661fe9-e673-4108-a5b0-e4aaca7fee4a")
-		)
-		(instances
-			(project "AuraForge_50X"
-				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
-					(reference "L1")
 					(unit 1)
 				)
 			)
@@ -18824,86 +19527,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:L")
-		(at 184.15 139.7 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c4400c7f-c3f6-41ea-9783-7ce686c912e3")
-		(property "Reference" "L6"
-			(at 184.15 134.62 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uH 3.8A"
-			(at 184.15 137.16 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_Taiyo-Yuden_NR-80xx"
-			(at 184.15 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 184.15 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c8aef835-1cc2-45c3-b1cc-8560959a5ec8")
-		)
-		(pin "2"
-			(uuid "d324a181-e655-4293-8210-8a3b21fbab4b")
-		)
-		(instances
-			(project "AuraForge_50X"
-				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
-					(reference "L6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 388.62 115.57 90)
 		(unit 1)
@@ -19134,6 +19757,87 @@
 			(project "AuraForge_50X"
 				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
 					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "easyeda2kicad:NRS8040T100MJGJ")
+		(at 180.34 139.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ca69dba9-bca5-4d07-9595-b8edf8812eb5")
+		(property "Reference" "L6"
+			(at 188.722 139.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "10uH 3.8A"
+			(at 187.96 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:IND_TAIYO_NRS8040_TAY"
+			(at 180.34 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "NRS8040T100MJGJ"
+			(at 180.34 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f2dceee4-2aca-45d6-a4a2-ffa7bd4877f1")
+		)
+		(pin "1"
+			(uuid "630dd76b-f7f6-485a-a7df-473cc81ed36f")
+		)
+		(instances
+			(project "AuraForge_50X"
+				(path "/35d63284-f9ca-4618-ab0f-f2f14fdb760a"
+					(reference "L6")
 					(unit 1)
 				)
 			)

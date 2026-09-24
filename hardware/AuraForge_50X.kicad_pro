@@ -1079,7 +1079,7 @@
         "uuid": "35d63284-f9ca-4618-ab0f-f2f14fdb760a"
       }
     ],
-    "used_designators": "USBC1,D1-4,L1,L3-6,#PWR1-63,#FLG1-4,R1-17,U1,U3,U5-6,LED2,C1-23,C25-26,C29-37,Q1-2,L_BOOST1,U3_UART1,SW1,SW_RST1,CN1,J2,J4,DC1,SW_BOOT1,U_UART1",
+    "used_designators": "USBC1,D1-4,L1,L3-7,#PWR1-63,#FLG1-4,R1-17,U1,U3,U5-6,LED2,C1-23,C25-26,C29-37,Q1-2,L_BOOST1,U3_UART1,SW1,SW_RST1,CN1,J2,J4,DC1,SW_BOOT1,U_UART1",
     "variants": []
   },
   "sheets": [
