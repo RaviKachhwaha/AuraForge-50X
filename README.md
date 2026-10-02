@@ -73,8 +73,8 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |Name|Purpose          |Quantity|Total Cost (USD)|Link               |Distributor|
 |----|-----------------|--------|----------------|-------------------|-----------|
 |PCBA|Board and Assembly|2       |111.32           |[PCB Power](https://www.pcbpower.com)|PCB Power     |
-|Electronic Components|BOM Component Sourcing|2       |76.47           |[DigiKey](https://www.digikey.in)|DigiKey     |
-|Battery|18650 3.7V 3000mAh Li-ion Battery with Connector for testing|1       |2.08           |[18650 Battery](https://www.amazon.in/gp/product/B0GJPDVB8L/ref=ox_sc_act_title_2?smid=A2FGC2POOS3TS8&psc=1)|Amazon India     |
+|Electronic Components|BOM Component Sourcing|2       |75.20           |[DigiKey](https://www.digikey.in)|DigiKey     |
+|Battery|18650 3.7V 3000mAh Li-ion Battery with Connector for testing|1       |3.35           |[18650 Battery](https://www.amazon.in/gp/product/B0GJPDVB8L/ref=ox_sc_act_title_2?smid=A2FGC2POOS3TS8&psc=1)|Amazon India     |
 |Speaker|5 Inch 4 Ohm 25W Full-Range Woofer Speaker (Stereo Pair) for testing|1       |4.24           |[5 Inch Speaker](https://www.amazon.in/gp/product/B0BN44KVVL/ref=ox_sc_act_title_1?smid=A1UUD7CBBVVXIG&psc=1)| Amazon India     |
 |Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |5.57           |[USB-C Cable](https://www.amazon.in/gp/product/B0F316KC1Q/ref=ox_sc_act_title_3?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India     |
 | | | Total | 199.68 | 
