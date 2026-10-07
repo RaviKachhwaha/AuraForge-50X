@@ -72,11 +72,13 @@ I have attached a simple firmware to start with prebuild firmware available in t
 ## BOM  
 |Name|Purpose          |Quantity|Total Cost (USD)|Link               |Distributor|
 |----|-----------------|--------|----------------|-------------------|-----------|
-|PCBA|Board and Assembly|2       |111.32           |[PCB Power](https://www.pcbpower.com)|PCB Power     |
-|Electronic Components|BOM Component Sourcing|2       |75.20           |[DigiKey](https://www.digikey.in)|DigiKey     |
-|Battery|18650 3.7V 3000mAh Li-ion Battery with Connector for testing|1       |3.35           |[18650 Battery](https://www.amazon.in/gp/product/B0GJPDVB8L/ref=ox_sc_act_title_2?smid=A2FGC2POOS3TS8&psc=1)|Amazon India     |
-|Speaker|5 Inch 4 Ohm 25W Full-Range Woofer Speaker (Stereo Pair) for testing|1       |4.24           |[5 Inch Speaker](https://www.amazon.in/gp/product/B0BN44KVVL/ref=ox_sc_act_title_1?smid=A1UUD7CBBVVXIG&psc=1)| Amazon India     |
-|Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |5.57           |[USB-C Cable](https://www.amazon.in/gp/product/B0F316KC1Q/ref=ox_sc_act_title_3?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India     |
-| | | Total | 199.68 | 
+|PCBA|Board and Assembly|2       |62.12           |[Lion Circuits](lioncircuits.com)|Lion Circuits     |
+|Electronic Components|BOM Component Sourcing|2       |117.00           |[Lion Circuits](lioncircuits.com)|Lion Circuits     |
+|2 Components|2 BOM Component Sourcing which is not got from Lion Circuits|2       |2.59           |[Sharvi Electronics](sharvielectronics.com)|Sharvi Electronics     |
+|Battery|18650 3.7V 3000mAh Li-ion Battery with Connector for testing|1       |5.00          |[18650 Battery](https://www.amazon.in/gp/product/B0HBPWY1CS/ref=ox_sc_act_title_3?smid=AJWV8HAM5L3YL&psc=1)|Amazon India     |
+|Speaker|5 Inch 4 Ohm 25W Full-Range Woofer Speaker (Stereo Pair) for testing|1       |5.48           |[5 Inch Speaker](https://www.amazon.in/gp/product/B0D8CVNZVK/ref=ox_sc_act_title_2?smid=A3C7Z4RVM9A3G1&psc=1)| Amazon India     |
+|Data & Power Cable|100W USB-C to USB-C Silicone Cable (3ft / 1.0m) for uploading firmware|1       |5.00           |[USB-C Cable](https://www.amazon.in/gp/product/B0F316KC1Q/ref=ox_sc_act_title_4?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India     |
+|Speaker connection Cable|20 Meter speaker wiring Cable (64ft / 20.0m) for connecting the speakers and testing|1       |3.10           |[20 Meter Wire](https://www.amazon.in/gp/product/B0CHBFB5H2/ref=ox_sc_act_title_1?smid=A2LH9DQUAZIHP2&psc=1)| Amazon India     |
+| | | Total | 200.00 |
 
 LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
