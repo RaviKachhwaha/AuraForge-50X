@@ -19075,7 +19075,7 @@
 				)
 			)
 		)
-		(property "Value" "45k 1%"
+		(property "Value" "45.3k 1%"
 			(at 307.34 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)

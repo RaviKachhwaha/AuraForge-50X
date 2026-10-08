@@ -1,5 +1,5 @@
 ** Drc report for AuraForge_50X.kicad_pcb **
-** Created on 2026-09-24T16:08:36 **
+** Created on 2026-10-08T22:10:02 **
 ** Report includes: Errors, Warnings **
 
 ** Found 0 DRC violations **
@@ -14,6 +14,7 @@
     - Tuning profile track geometries
     - Footprint doesn't match symbol's footprint filters
     - Silkscreen clipped by board edge
+    - Text thickness out of range
     - Footprint component type doesn't match footprint pads
     - Footprint doesn't match copy in library
 
