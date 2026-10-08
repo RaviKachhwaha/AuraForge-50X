@@ -85,3 +85,5 @@ I have attached a simple firmware to start with prebuild firmware available in t
 | | | Total | 209.85 |
 
 LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
+
+!!Thanks to ALL!!
