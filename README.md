@@ -81,7 +81,7 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |Speaker connection Cable|20 Meter speaker wiring Cable (64ft / 20.0m) for connecting the speakers and testing|1       |3.10           |[20 Meter Wire](https://www.amazon.in/gp/product/B0CHBFB5H2/ref=ox_sc_act_title_1?smid=A2LH9DQUAZIHP2&psc=1)| Amazon India     |
 |Aux Cable|5 Meter Aux Cable for testing the 3.5 mm Aux jack and wired audio input system|1       |2.70           |[5 Meter Aux Cable](https://www.amazon.in/gp/product/B08XBFV4VR/ref=ox_sc_act_title_2?smid=A2LH9DQUAZIHP2&psc=1)| Amazon India     |
 |Power Supply|20 Volt Power supply to run the board on its high power to test all things is working on its full power|1       |5.55           |[20V Power Supply](https://www.amazon.in/gp/product/B0D22W62W9/ref=ox_sc_act_title_1?smid=A2QFGJBWFSGOIU&psc=1)| Amazon India     |
-|Cable to give power to power supply|1.5 Meter Power Cable to give power to power supply addapter due to it not have cable with it|1       |1.60           |[Main Power cable](https://www.amazon.in/gp/product/B0F9VD5NC5/ref=ox_sc_act_title_1?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India     |
+|Cable to give power to power supply|1.5 Meter Power Cable to give power to power supply adapter due to it not have cable with it|1       |1.60           |[Main Power cable](https://www.amazon.in/gp/product/B0F9VD5NC5/ref=ox_sc_act_title_1?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India     |
 | | | Total | 209.85 |
 
 LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
