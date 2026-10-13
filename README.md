@@ -63,7 +63,7 @@ This is a 3D view screenshot of case for board.
 
 This is a 3D view screenshot of case for speakers.
 
-| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/Pin_Outs.png) | 
+| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/Case/image.png) | 
 | --- | 
 
 (Credits to the KiCad EDA for KICAD 10, Espressif Systems for the MCU, RuView for CSI processing and Hack Club for fund to make this possible.) 
