@@ -99,7 +99,10 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |Power Supply|20 Volt Power supply to run the board on its high power to test all things is working on its full power|1       |5.55           |[20V Power Supply](https://www.amazon.in/gp/product/B0D22W62W9/ref=ox_sc_act_title_1?smid=A2QFGJBWFSGOIU&psc=1)| Amazon India     |
 |Cable to give power to power supply|1.5 Meter Power Cable to give power to power supply adapter due to it not have cable with it|1       |1.60           |[Main Power cable](https://www.amazon.in/gp/product/B0F9VD5NC5/ref=ox_sc_act_title_1?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India     |
 |3D Printing|3D printing of cases of board only|2       |17.00           |[3D Printing Service](https://3ding.in)|3Ding    |
-| | | Total | 227.85 |
+|MDF Board |MDF board to make speakers cases|1       |2.65           |[MDF Board](https://www.amazon.in/gp/product/B09PLC82L1/ref=ox_sc_act_image_3?smid=A1URIIGAKCXMM9&psc=1)| Amazon India    |
+|Fevicol|Fevicol to joint the MDF boards and make cases|1       |1.10           |[Fevicol](https://www.amazon.in/gp/product/B0FR92PQHL/ref=ox_sc_act_image_1?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India    |
+|Soldering Iron |Temperature controlled soldering iron to solder the 2 IC's come from Sharvi Electronics on both boards with Flux paste and extra soldering bits tips to get SMD level small tip and tweezers to hold the IC over its place without burning fingers and some other small needed items|1       |5.10           |[Soldering Iron](https://www.amazon.in/gp/product/B09Q1DNJMH/ref=ox_sc_act_image_2?smid=A1ABQHFG9A1NPH&psc=1)| Amazon India    |
+| | | Total | 236.70 |
 
 LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
 
