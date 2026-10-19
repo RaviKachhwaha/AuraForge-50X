@@ -102,7 +102,9 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |MDF Board |MDF board to make speakers cases|1       |2.65           |[MDF Board](https://www.amazon.in/gp/product/B09PLC82L1/ref=ox_sc_act_image_3?smid=A1URIIGAKCXMM9&psc=1)| Amazon India    |
 |Fevicol|Fevicol to joint the MDF boards and make cases|1       |1.10           |[Fevicol](https://www.amazon.in/gp/product/B0FR92PQHL/ref=ox_sc_act_image_1?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India    |
 |Soldering Iron |Temperature controlled soldering iron to solder the 2 IC's come from Sharvi Electronics on both boards with Flux paste and extra soldering bits tips to get SMD level small tip and tweezers to hold the IC over its place without burning fingers and some other small needed items|1       |5.10           |[Soldering Iron](https://www.amazon.in/gp/product/B09Q1DNJMH/ref=ox_sc_act_image_2?smid=A1ABQHFG9A1NPH&psc=1)| Amazon India    |
-| | | Total | 236.70 |
+|Paint |Paint is needed to paint the MDF board cases and making its life long and best quality|1       |2.25           |[Paint](https://www.amazon.in/gp/product/B08G54WH1J/ref=ox_sc_act_image_1?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India    |
+|Breathable Knitted Air Mesh Polyester Fabric |Net to place over the speaker case front to cover the speaker and making the case best and complete| 1       |3.10           |[Speaker Front Net](https://www.amazon.in/gp/product/B0GX12PGCJ/ref=ox_sc_act_image_2?smid=A3B565BTI4IG0&psc=1)| Amazon India    |
+| | | Total | 242.05 |
 
 LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
 
