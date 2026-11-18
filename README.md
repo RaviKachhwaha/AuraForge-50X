@@ -112,7 +112,8 @@ I have attached a simple firmware to start with prebuild firmware available in t
 |5-piece CYL-1 Masonry Drill Bit Set |These are big size drill bit's to make big holes for wires and etc. in MDF speaker case's| 1       |2.75           |[Big Drill Bit's](https://www.amazon.in/gp/product/B00863NRHQ/ref=ox_sc_act_image_3?smid=AJ6SIZC8YQDZX&psc=1)| Amazon India    |
 |Safety Gloves |These are for heavy duty cutting and drilling time safety and also safety from spray paint during MDF speaker cases painting and coating| 1       |3.85           |[Safety Gloves](https://www.amazon.in/gp/product/B0CHFP47WB/ref=ox_sc_act_image_2?smid=AB4PAYFSMOP1X&psc=1)| Amazon India    |
 |Safety Mask with Respirator |This is for safety of eyes during spray paint and cutting and drilling and also safety of respiratory system from spray paint gas's and small particles of MDF during cutting and drilling| 1       |5.75           |[Safety Mask](https://www.amazon.in/gp/product/B0GCSJ1299/ref=ox_sc_act_image_1?smid=A2X8WL6YI17S5T&psc=1)| Amazon India    |
-| | | Total | 270.80 |
+|2 components |Some hours ago I got Mail form Lion Circuits and in it they tell me 2 components MPN and footprint is mismatched and then I tell them to assemble all other components and send to me and I will buy and assemble them So I need this to buy those both components (3.5MM Jack and AO8822 IC)| 2       |7.00           |[AO8822 IC](https://inkocean.in/products/ao8822-a08822-8822-dual-mosfet-n-ch-20v-7a-tssop-8) [3.5MM Jack](https://www.amazon.in/gp/product/B0DVC35422/ref=ox_sc_act_image_1?smid=A2YFKM42Q0HTNB&psc=1)| Ink Ocean, Amazon India    |
+| | | Total | 277.80 |
 
 LCSC & DigiKey BOM for the components on board is [here](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/components_bom.csv)
 
